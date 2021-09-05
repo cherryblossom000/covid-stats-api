@@ -1,0 +1,36 @@
+{
+  "name": "vic-covid-stats-api",
+  "version": "0.0.1",
+  "author": "cherryblossom (https://github.com/cherryblossom000)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "pnpm build -- -w",
+    "lint": "eslint --max-warnings 0 --report-unused-disable-directives .",
+    "lint:dev": "pnpm run lint -- --cache"
+  },
+  "devDependencies": {
+    "@cherryblossom/eslint-config": "15.0.0-beta.15",
+    "@jest/types": "^27.1.0",
+    "@types/eslint": "^7.28.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^14.17.14",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsdoc": "^36.0.8",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-unicorn": "^35.0.0",
+    "prettier": "^2.3.2",
+    "typescript": "~4.4.2"
+  }
+}
