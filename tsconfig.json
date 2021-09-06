@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "api",
+    "rootDir": "api",
 
     "target": "ES2020",
     "module": "ES2020",
