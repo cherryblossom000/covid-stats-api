@@ -4,7 +4,7 @@
     "outDir": "api",
 
     "target": "ES2020",
-    "module": "ESNext",
+    "module": "ES2020",
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "lib": ["ES2020"],
