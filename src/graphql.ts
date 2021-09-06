@@ -201,6 +201,7 @@ const vaccinationStatFields = {
 }
 
 export default new ApolloServer({
+  introspection: true,
   playground: true,
   schema: new GraphQLSchema({
     query: new GraphQLObjectType({
