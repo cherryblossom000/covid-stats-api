@@ -14,6 +14,18 @@ import graphqlFields from 'graphql-fields'
 import type {GraphQLFieldConfig, GraphQLFieldConfigMap} from 'graphql'
 import type {Response} from 'node-fetch'
 
+/* eslint-disable @typescript-eslint/ban-types -- object and {} */
+type Fields<T extends object> = {
+  [K in keyof T]?: T[K] extends object
+    ? T[K] extends readonly (infer U)[]
+      ? U extends object
+        ? Fields<U>
+        : {}
+      : Fields<T[K]>
+    : {}
+}
+/* eslint-enable @typescript-eslint/ban-types */
+
 type WithUpdated<T> = T & {
   readonly updated: string
 }
@@ -40,17 +52,10 @@ const dataPageStats = [
 ] as const
 type DataPageStat = typeof dataPageStats[number]
 
-/* eslint-disable @typescript-eslint/ban-types -- object and {} */
-type Fields<T extends object> = {
-  [K in keyof T]?: T[K] extends object
-    ? T[K] extends readonly (infer U)[]
-      ? U extends object
-        ? Fields<U>
-        : {}
-      : Fields<T[K]>
-    : {}
+interface AllStats {
+  homePage: WithUpdated<Stats<HomePageStat>>
+  dataPage: WithUpdated<Stats<DataPageStat>>
 }
-/* eslint-enable @typescript-eslint/ban-types */
 
 type AnyStat = DataPageStat | HomePageStat
 
@@ -114,101 +119,168 @@ const withUpdated = new GraphQLInterfaceType({
   fields: updatedField
 })
 
-const statsField = <T extends AnyStat>(
+const statsField = (
   name: string,
-  statKeys: readonly T[],
-  fetchUpdated: () => Promise<string>
-): GraphQLFieldConfig<unknown, unknown> => {
-  type OnlyStats = Stats<T>
-  type Result = WithUpdated<OnlyStats>
-  type PartialResult = Partial<Result>
-  return {
-    type: new GraphQLNonNull(
-      new GraphQLObjectType({
-        name,
-        interfaces: [withUpdated],
-        fields: {
-          ...updatedField,
-          ...Object.fromEntries(statKeys.map(s => [s, nonNullString]))
-        }
-      })
-    ),
-    resolve: async (_, __, ___, info): Promise<PartialResult> => {
-      const fields = Object.keys(
-        graphqlFields(info) as Fields<Result>
-      ) as readonly (T | 'updated')[]
-      const [updated, stats] = await Promise.all([
-        fetchUpdated(),
-        fetchJSONAPI<
-          readonly {
-            readonly id: string
-            readonly attributes: {
-              // eslint-disable-next-line @typescript-eslint/naming-convention -- API response
-              readonly field_item_statistic: string
-            }
-          }[]
-        >(
-          `https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?${qs.stringify(
-            {
-              filter: {
-                c: {
-                  path: 'id',
-                  operator: 'IN',
-                  value: fields
-                    .filter((field): field is T => field !== 'updated')
-                    .map(field => NAME_TO_IDS[field])
-                }
-              }
-            }
-          )}`,
-          'fetching stats failed'
-        ).then(
-          data =>
-            Object.fromEntries(
-              data.map(({id, attributes: {field_item_statistic: stat}}) => [
-                IDS_TO_NAME[id]!,
-                stat
-              ])
-            ) as Partial<OnlyStats>
-        )
-      ])
-      return {updated, ...stats} as PartialResult
-    }
-  }
-}
+  statKeys: readonly AnyStat[]
+): GraphQLFieldConfig<unknown, unknown> => ({
+  type: new GraphQLNonNull(
+    new GraphQLObjectType({
+      name,
+      interfaces: [withUpdated],
+      fields: {
+        ...updatedField,
+        ...Object.fromEntries(statKeys.map(s => [s, nonNullString]))
+      }
+    })
+  )
+})
 
 export default new ApolloServer({
   schema: new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'Query',
       fields: {
-        homePageStats: statsField('HomePageStats', homePageStats, async () =>
-          cheerio
-            .load(
-              await (await fetch('https://www.coronavirus.vic.gov.au')).text()
-            )('.ch-daily-update__intro-title')
-            .text()
-            .slice(
-              ' COVID-19 in Victoria, '.length,
-              -' (last 24 hours )'.length
-            )
-        ),
-        dataPageStats: statsField('DataPageStats', dataPageStats, async () =>
-          (
-            await fetchJSONAPI<{
-              readonly attributes: {
-                // eslint-disable-next-line @typescript-eslint/naming-convention -- API response
-                readonly field_paragraph_body: {readonly processed: string}
+        stats: {
+          type: new GraphQLNonNull(
+            new GraphQLObjectType({
+              name: 'Stats',
+              fields: {
+                homePage: statsField('HomePage', homePageStats),
+                dataPage: statsField('DataPageStats', dataPageStats)
               }
-            }>(
-              'https://content.vic.gov.au/api/v1/paragraph/basic_text/7672e694-4dce-4f07-81fb-638b689bb242',
-              'fetching case stats updated text failed'
-            )
-          ).attributes.field_paragraph_body.processed.slice(
-            '<h2>Updated: '.length,
-            -'</h2>'.length
-          )
-        ),
+            })
+          ),
+          resolve: async (
+            _,
+            __,
+            ___,
+            info
+          ): Promise<
+            {
+              [K in keyof AllStats]?: {
+                [L in keyof AllStats[K]]?: AllStats[K][L] | undefined
+              }
+            }
+          > => {
+            const fields = graphqlFields(info) as Fields<AllStats>
+            const [
+              homePageUpdated,
+              dataPageUpdated,
+              {
+                localCases,
+                interstateCases,
+                hotelCases,
+                activeCases,
+                totalCases,
+                deaths,
+                totalDeaths,
+                recovered,
+                tests,
+                totalTests,
+                hospitalCases,
+                icuCases
+              }
+            ] = await Promise.all([
+              fields.homePage?.updated
+                ? fetch('https://www.coronavirus.vic.gov.au').then(
+                    async response =>
+                      cheerio
+                        .load(await response.text())(
+                          '.ch-daily-update__intro-title'
+                        )
+                        .text()
+                        .slice(
+                          ' COVID-19 in Victoria, '.length,
+                          -' (last 24 hours )'.length
+                        )
+                  )
+                : undefined,
+              fields.dataPage?.updated
+                ? fetchJSONAPI<{
+                    readonly attributes: {
+                      // eslint-disable-next-line @typescript-eslint/naming-convention -- API response
+                      readonly field_paragraph_body: {
+                        readonly processed: string
+                      }
+                    }
+                  }>(
+                    'https://content.vic.gov.au/api/v1/paragraph/basic_text/7672e694-4dce-4f07-81fb-638b689bb242',
+                    'fetching case stats updated text failed'
+                  ).then(({attributes}) =>
+                    attributes.field_paragraph_body.processed.slice(
+                      '<h2>Updated: '.length,
+                      -'</h2>'.length
+                    )
+                  )
+                : undefined,
+              fetchJSONAPI<
+                readonly {
+                  readonly id: string
+                  readonly attributes: {
+                    // eslint-disable-next-line @typescript-eslint/naming-convention -- API response
+                    readonly field_item_statistic: string
+                  }
+                }[]
+              >(
+                `https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?${qs.stringify(
+                  {
+                    fields: {
+                      // eslint-disable-next-line @typescript-eslint/naming-convention -- api
+                      'paragraph--daily_update_statistics':
+                        'field_item_statistic'
+                    },
+                    filter: {
+                      c: {
+                        path: 'id',
+                        operator: 'IN',
+                        value: (
+                          Object.values(fields).flatMap(
+                            Object.keys
+                          ) as readonly (AnyStat | 'updated')[]
+                        )
+                          .filter(
+                            (field): field is AnyStat => field !== 'updated'
+                          )
+                          .map(field => NAME_TO_IDS[field])
+                      }
+                    }
+                  }
+                )}`,
+                'fetching stats failed'
+              ).then(
+                data =>
+                  Object.fromEntries(
+                    data.map(
+                      ({id, attributes: {field_item_statistic: stat}}) => [
+                        IDS_TO_NAME[id]!,
+                        stat
+                      ]
+                    )
+                  ) as Partial<Stats<AnyStat>>
+              )
+            ])
+            return {
+              homePage: {
+                updated: homePageUpdated,
+                localCases,
+                interstateCases,
+                hotelCases,
+                activeCases,
+                deaths,
+                tests
+              },
+              dataPage: {
+                updated: dataPageUpdated,
+                totalCases,
+                totalDeaths,
+                recovered,
+                totalTests,
+                hospitalCases,
+                icuCases
+              }
+            }
+          }
+        },
         exposureSites: {
           type: new GraphQLNonNull(
             new GraphQLObjectType({
