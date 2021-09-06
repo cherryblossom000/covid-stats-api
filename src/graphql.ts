@@ -1,5 +1,4 @@
 import {ApolloServer} from '@saeris/apollo-server-vercel'
-import cheerio from 'cheerio'
 import nodeFetch from 'node-fetch'
 import qs from 'qs'
 import {
@@ -92,7 +91,11 @@ const fetch = async (url: string, accept?: string): Promise<Response> => {
 const fetchJSON = async <T>(...args: Parameters<typeof fetch>): Promise<T> =>
   (await fetch(...args)).json() as Promise<T>
 
-const fetchJSONAPI = async <T>(url: string, message: string): Promise<T> => {
+const fetchJSONAPI = async <T>(
+  url: string,
+  message: string,
+  query?: object
+): Promise<T> => {
   const response = await fetchJSON<
     | {
         readonly data: T
@@ -100,11 +103,28 @@ const fetchJSONAPI = async <T>(url: string, message: string): Promise<T> => {
     | {
         readonly errors: readonly unknown[]
       }
-  >(url, 'application/vnd.api+json')
-  if ('errors' in response)
-    throw new Error(`${message}: ${JSON.stringify(response.errors, null, 2)}`)
+  >(url + (query ? `?${qs.stringify(query)}` : ''), 'application/vnd.api+json')
+  if ('errors' in response) {
+    throw new Error(
+      `fetching ${message} failed: ${JSON.stringify(response.errors, null, 2)}`
+    )
+  }
   return response.data
 }
+
+const fetchUpdated = async (url: string, message: string): Promise<string> =>
+  (
+    await fetchJSONAPI<{
+      readonly attributes: {
+        readonly changed: string
+      }
+    }>(
+      url,
+      `${message} updated`,
+      // eslint-disable-next-line @typescript-eslint/naming-convention -- api
+      {fields: {'block_content--daily_update': 'changed'}}
+    )
+  ).attributes.changed
 
 const nonNullString: GraphQLFieldConfig<unknown, unknown> = {
   type: new GraphQLNonNull(GraphQLString)
@@ -182,71 +202,50 @@ export default new ApolloServer({
               }
             ] = await Promise.all([
               fields.homePage?.updated
-                ? fetch('https://www.coronavirus.vic.gov.au').then(
-                    async response =>
-                      cheerio
-                        .load(await response.text())(
-                          '.ch-daily-update__intro-title'
-                        )
-                        .text()
-                        .slice(
-                          ' COVID-19 in Victoria, '.length,
-                          -' (last 24 hours )'.length
-                        )
+                ? fetchUpdated(
+                    'https://content.vic.gov.au/api/v1/block_content/daily_update/743c618f-deb7-4f00-9eb3-c4abc1171663',
+                    'home page'
                   )
                 : undefined,
               fields.dataPage?.updated
-                ? fetchJSONAPI<{
-                    readonly attributes: {
-                      // eslint-disable-next-line @typescript-eslint/naming-convention -- API response
-                      readonly field_paragraph_body: {
-                        readonly processed: string
-                      }
-                    }
-                  }>(
-                    'https://content.vic.gov.au/api/v1/paragraph/basic_text/7672e694-4dce-4f07-81fb-638b689bb242',
-                    'fetching case stats updated text failed'
-                  ).then(({attributes}) =>
-                    attributes.field_paragraph_body.processed.slice(
-                      '<h2>Updated: '.length,
-                      -'</h2>'.length
-                    )
+                ? fetchUpdated(
+                    'https://content.vic.gov.au/api/v1/block_content/daily_update/e674178a-0717-44c1-a14f-514db0e1dc65',
+                    'data page'
                   )
                 : undefined,
               fetchJSONAPI<
                 readonly {
                   readonly id: string
                   readonly attributes: {
-                    // eslint-disable-next-line @typescript-eslint/naming-convention -- API response
+                    // eslint-disable-next-line @typescript-eslint/naming-convention -- api
                     readonly field_item_statistic: string
                   }
                 }[]
               >(
-                `https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?${qs.stringify(
-                  {
-                    fields: {
-                      // eslint-disable-next-line @typescript-eslint/naming-convention -- api
-                      'paragraph--daily_update_statistics':
-                        'field_item_statistic'
-                    },
-                    filter: {
-                      c: {
-                        path: 'id',
-                        operator: 'IN',
-                        value: (
-                          Object.values(fields).flatMap(
-                            Object.keys
-                          ) as readonly (AnyStat | 'updated')[]
+                'https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics',
+                'stats',
+                {
+                  fields: {
+                    // eslint-disable-next-line @typescript-eslint/naming-convention -- api
+                    'paragraph--daily_update_statistics': 'field_item_statistic'
+                  },
+                  filter: {
+                    c: {
+                      path: 'id',
+                      operator: 'IN',
+                      value: (
+                        Object.values(fields).flatMap(Object.keys) as readonly (
+                          | AnyStat
+                          | 'updated'
+                        )[]
+                      )
+                        .filter(
+                          (field): field is AnyStat => field !== 'updated'
                         )
-                          .filter(
-                            (field): field is AnyStat => field !== 'updated'
-                          )
-                          .map(field => NAME_TO_IDS[field])
-                      }
+                        .map(field => NAME_TO_IDS[field])
                     }
                   }
-                )}`,
-                'fetching stats failed'
+                }
               ).then(
                 data =>
                   Object.fromEntries(
