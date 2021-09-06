@@ -18,7 +18,7 @@ interface WithUpdated {
   readonly updated: string
 }
 
-type HomepageStat =
+type HomePageStat =
   | 'activeCases'
   | 'deaths'
   | 'hotelCases'
@@ -26,9 +26,9 @@ type HomepageStat =
   | 'localCases'
   | 'tests'
 
-type HomepageStatsOnly = Readonly<Record<HomepageStat, string>>
+type HomePageStatsOnly = Readonly<Record<HomePageStat, string>>
 
-type HomepageStats = HomepageStatsOnly & WithUpdated
+type HomePageStats = HomePageStatsOnly & WithUpdated
 
 const nonNullString: GraphQLFieldConfig<unknown, unknown> = {
   type: new GraphQLNonNull(GraphQLString)
@@ -55,7 +55,7 @@ type Fields<T extends object> = {
 }
 /* eslint-enable @typescript-eslint/ban-types */
 
-const NAME_TO_IDS: Readonly<Record<HomepageStat, string>> = {
+const NAME_TO_IDS: Readonly<Record<HomePageStat, string>> = {
   localCases: 'c429cc59-6887-4093-a937-e7592485f293',
   interstateCases: '2e5c92a1-1c9d-48c9-adf5-a56f096ad99f',
   hotelCases: '05f695de-a635-4c35-a6d1-b6a3d63e02de',
@@ -66,9 +66,9 @@ const NAME_TO_IDS: Readonly<Record<HomepageStat, string>> = {
   // icuCases: 'a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df'
 }
 
-const IDS_TO_NAME: Readonly<Record<string, HomepageStat>> = Object.fromEntries(
+const IDS_TO_NAME: Readonly<Record<string, HomePageStat>> = Object.fromEntries(
   (
-    Object.entries(NAME_TO_IDS) as readonly (readonly [HomepageStat, string])[]
+    Object.entries(NAME_TO_IDS) as readonly (readonly [HomePageStat, string])[]
   ).map(([name, id]) => [id, name])
 )
 
@@ -118,10 +118,10 @@ export default new ApolloServer({
     query: new GraphQLObjectType({
       name: 'Query',
       fields: {
-        homepageStats: {
+        homePageStats: {
           type: new GraphQLNonNull(
             new GraphQLObjectType({
-              name: 'HomepageStats',
+              name: 'HomePageStats',
               interfaces: [withUpdated],
               fields: {
                 ...updatedField,
@@ -143,10 +143,10 @@ export default new ApolloServer({
             __,
             ___,
             info
-          ): Promise<Partial<HomepageStats>> => {
+          ): Promise<Partial<HomePageStats>> => {
             const fields = Object.keys(
-              graphqlFields(info) as Fields<HomepageStats>
-            ) as readonly (keyof HomepageStats)[]
+              graphqlFields(info) as Fields<HomePageStats>
+            ) as readonly (keyof HomePageStats)[]
             const [updated, stats] = await Promise.all([
               fetch('https://www.coronavirus.vic.gov.au').then(async response =>
                 cheerio
@@ -174,7 +174,7 @@ export default new ApolloServer({
                         operator: 'IN',
                         value: fields
                           .filter(
-                            (field): field is HomepageStat =>
+                            (field): field is HomePageStat =>
                               field !== 'updated'
                           )
                           .map(field => NAME_TO_IDS[field])
@@ -183,7 +183,7 @@ export default new ApolloServer({
                   }
                 )}`,
                 'fetching homepage stats updated text failed'
-              ).then<Partial<HomepageStatsOnly>>(data =>
+              ).then<Partial<HomePageStatsOnly>>(data =>
                 Object.fromEntries(
                   data.map(({id, attributes: {field_item_statistic: stat}}) => [
                     IDS_TO_NAME[id]!,
