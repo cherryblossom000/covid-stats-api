@@ -3,6 +3,7 @@ import cheerio from 'cheerio'
 import nodeFetch from 'node-fetch'
 import qs from 'qs'
 import {
+  GraphQLInt,
   GraphQLInterfaceType,
   GraphQLNonNull,
   GraphQLObjectType,
@@ -192,6 +193,40 @@ export default new ApolloServer({
               )
             ])
             return {updated, ...stats}
+          }
+        },
+        exposureSites: {
+          type: new GraphQLNonNull(
+            new GraphQLObjectType({
+              name: 'ExposureSites',
+              fields: {
+                count: {
+                  type: new GraphQLNonNull(GraphQLInt)
+                }
+              }
+            })
+          ),
+          resolve: async (): Promise<{readonly count: number}> => {
+            const data = await fetchJSON<
+              | {
+                  success: false
+                  error: unknown
+                }
+              | {success: true; result: {total: number}}
+            >(
+              'https://www.coronavirus.vic.gov.au/sdp-ckan?resource_id=afb52611-6061-4a2b-9110-74c920bede77&limit=0',
+              'application/json'
+            )
+            if (!data.success) {
+              throw new Error(
+                `fetching exposure sites failed: ${JSON.stringify(
+                  data.error,
+                  null,
+                  2
+                )}`
+              )
+            }
+            return {count: data.result.total}
           }
         }
       }
