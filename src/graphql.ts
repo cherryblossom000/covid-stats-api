@@ -1,4 +1,5 @@
 import {ApolloServer} from '@saeris/apollo-server-vercel'
+import {GraphQLDateTime} from 'graphql-scalars'
 import nodeFetch from 'node-fetch'
 import qs from 'qs'
 import {
@@ -94,7 +95,7 @@ const fetchJSON = async <T>(...args: Parameters<typeof fetch>): Promise<T> =>
 const fetchJSONAPI = async <T>(
   url: string,
   message: string,
-  query?: object
+  query?: Record<string, unknown>
 ): Promise<T> => {
   const response = await fetchJSON<
     | {
@@ -118,20 +119,13 @@ const fetchUpdated = async (url: string, message: string): Promise<string> =>
       readonly attributes: {
         readonly changed: string
       }
-    }>(
-      url,
-      `${message} updated`,
-      // eslint-disable-next-line @typescript-eslint/naming-convention -- api
-      {fields: {'block_content--daily_update': 'changed'}}
-    )
+    }>(url, `${message} updated`, {
+      fields: {'block_content--daily_update': 'changed'}
+    })
   ).attributes.changed
 
-const nonNullString: GraphQLFieldConfig<unknown, unknown> = {
-  type: new GraphQLNonNull(GraphQLString)
-}
-
 const updatedField: GraphQLFieldConfigMap<unknown, unknown> = {
-  updated: nonNullString
+  updated: {type: new GraphQLNonNull(GraphQLDateTime)}
 }
 
 const withUpdated = new GraphQLInterfaceType({
@@ -149,7 +143,14 @@ const statsField = (
       interfaces: [withUpdated],
       fields: {
         ...updatedField,
-        ...Object.fromEntries(statKeys.map(s => [s, nonNullString]))
+        ...Object.fromEntries(
+          statKeys.map(s => [
+            s,
+            {
+              type: new GraphQLNonNull(GraphQLString)
+            }
+          ])
+        )
       }
     })
   )
@@ -165,7 +166,7 @@ export default new ApolloServer({
             new GraphQLObjectType({
               name: 'Stats',
               fields: {
-                homePage: statsField('HomePage', homePageStats),
+                homePage: statsField('HomePageStats', homePageStats),
                 dataPage: statsField('DataPageStats', dataPageStats)
               }
             })

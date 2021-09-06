@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@cherryblossom/eslint-config': 15.0.0-beta.15
+  '@cherryblossom/eslint-config': 15.0.0-beta.17
   '@jest/types': ^27.1.0
   '@saeris/apollo-server-vercel': ^0.4.0
   '@types/eslint': ^7.28.0
@@ -22,6 +22,7 @@ specifiers:
   eslint-plugin-unicorn: ^35.0.0
   graphql: ^15.5.2
   graphql-fields: ^2.0.3
+  graphql-scalars: ^1.10.1
   node-fetch: ^3.0.0
   prettier: ^2.3.2
   qs: ^6.10.1
@@ -33,11 +34,12 @@ dependencies:
   eslint-import-resolver-typescript: 2.4.0_b7a4de75e7d0094cbe979e30a9a325ab
   graphql: 15.5.2
   graphql-fields: 2.0.3
+  graphql-scalars: 1.10.1_graphql@15.5.2
   node-fetch: 3.0.0
   qs: 6.10.1
 
 devDependencies:
-  '@cherryblossom/eslint-config': 15.0.0-beta.15_ecf102ef98679376a63f36dd62a5a380
+  '@cherryblossom/eslint-config': 15.0.0-beta.17_ecf102ef98679376a63f36dd62a5a380
   '@jest/types': 27.1.0
   '@types/eslint': 7.28.0
   '@types/graphql-fields': 1.3.4
@@ -718,8 +720,8 @@ packages:
       '@babel/helper-validator-identifier': 7.14.9
       to-fast-properties: 2.0.0
 
-  /@cherryblossom/eslint-config/15.0.0-beta.15_ecf102ef98679376a63f36dd62a5a380:
-    resolution: {integrity: sha512-X3XNz7vFs8Yga8Qfw95iBqYsC/rMovKfdF8krkKn3mWizrI/HiNSIXMaFqiN5BJcJDqHBofV/fvR8qRoAzFqgw==}
+  /@cherryblossom/eslint-config/15.0.0-beta.17_ecf102ef98679376a63f36dd62a5a380:
+    resolution: {integrity: sha512-Sp1rKHGSM8rMJWXUXgOT7T3JQ1CJMAhyuzXLJBrXkK4KFiJPxaDdH25lgH+q8GksKz40sW0OaApoJtKUnILkIw==}
     engines: {node: '>=12'}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^4.21
@@ -3126,6 +3128,16 @@ packages:
 
   /graphql-fields/2.0.3:
     resolution: {integrity: sha512-x3VE5lUcR4XCOxPIqaO4CE+bTK8u6gVouOdpQX9+EKHr+scqtK5Pp/l8nIGqIpN1TUlkKE6jDCCycm/WtLRAwA==}
+    dev: false
+
+  /graphql-scalars/1.10.1_graphql@15.5.2:
+    resolution: {integrity: sha512-/6vDkUogePfumSJaCRVrVT1vpEhvE0m36AHTPzhLC/tucWxVolOCj0EgGKVUMc0uehe93ByuRBj8rEDaPRXVxg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+    dependencies:
+      graphql: 15.5.2
+      tslib: 2.3.1
     dev: false
 
   /graphql-tag/2.12.5_graphql@15.5.2:
