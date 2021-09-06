@@ -15,6 +15,9 @@ module.exports = {
       parserOptions: {
         project: 'tsconfig.json',
         tsconfigRootDir: path.dirname(__dirname)
+      },
+      rules: {
+        'import/no-unused-modules': 0
       }
     }
   ]
