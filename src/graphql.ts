@@ -14,6 +14,8 @@ import graphqlFields from 'graphql-fields'
 import type {GraphQLFieldConfig, GraphQLFieldConfigMap} from 'graphql'
 import type {Response} from 'node-fetch'
 
+// #region Types
+
 /* eslint-disable @typescript-eslint/ban-types -- object and {} */
 type Fields<T extends object> = {
   [K in keyof T]?: T[K] extends object
@@ -59,6 +61,12 @@ interface AllStats {
 
 type AnyStat = DataPageStat | HomePageStat
 
+// #endregion
+
+// #region Constants
+
+const COVID_SITE = 'https://www.coronavirus.vic.gov.au'
+
 const NAME_TO_IDS: Readonly<Record<AnyStat, string>> = {
   localCases: 'c429cc59-6887-4093-a937-e7592485f293',
   interstateCases: '2e5c92a1-1c9d-48c9-adf5-a56f096ad99f',
@@ -80,6 +88,10 @@ const IDS_TO_NAME: Readonly<Record<string, AnyStat>> = Object.fromEntries(
   ).map(([name, id]) => [id, name])
 )
 
+// #endregion
+
+// #region Utils
+
 const fetch = async (url: string, accept?: string): Promise<Response> => {
   const response = await nodeFetch(
     url,
@@ -92,8 +104,8 @@ const fetch = async (url: string, accept?: string): Promise<Response> => {
 const fetchJSON = async <T>(...args: Parameters<typeof fetch>): Promise<T> =>
   (await fetch(...args)).json() as Promise<T>
 
-const fetchJSONAPI = async <T>(
-  url: string,
+const covidAPI = async <T>(
+  path: string,
   message: string,
   query?: Record<string, unknown>
 ): Promise<T> => {
@@ -104,7 +116,12 @@ const fetchJSONAPI = async <T>(
     | {
         readonly errors: readonly unknown[]
       }
-  >(url + (query ? `?${qs.stringify(query)}` : ''), 'application/vnd.api+json')
+  >(
+    `https://content.vic.gov.au/api/v1/${path}${
+      query ? `?${qs.stringify(query)}` : ''
+    }`,
+    'application/vnd.api+json'
+  )
   if ('errors' in response) {
     throw new Error(
       `fetching ${message} failed: ${JSON.stringify(response.errors, null, 2)}`
@@ -113,16 +130,20 @@ const fetchJSONAPI = async <T>(
   return response.data
 }
 
-const fetchUpdated = async (url: string, message: string): Promise<string> =>
+const fetchUpdated = async (path: string, message: string): Promise<string> =>
   (
-    await fetchJSONAPI<{
+    await covidAPI<{
       readonly attributes: {
         readonly changed: string
       }
-    }>(url, `${message} updated`, {
+    }>(path, `${message} updated`, {
       fields: {'block_content--daily_update': 'changed'}
     })
   ).attributes.changed
+
+// #endregion
+
+// #region GraphQL Utils
 
 const updatedField: GraphQLFieldConfigMap<unknown, unknown> = {
   updated: {type: new GraphQLNonNull(GraphQLDateTime)}
@@ -135,8 +156,10 @@ const withUpdated = new GraphQLInterfaceType({
 
 const statsField = (
   name: string,
-  statKeys: readonly AnyStat[]
+  statKeys: readonly AnyStat[],
+  description?: string
 ): GraphQLFieldConfig<unknown, unknown> => ({
+  description,
   type: new GraphQLNonNull(
     new GraphQLObjectType({
       name,
@@ -156,6 +179,8 @@ const statsField = (
   )
 })
 
+// #endregion
+
 export default new ApolloServer({
   schema: new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -166,8 +191,16 @@ export default new ApolloServer({
             new GraphQLObjectType({
               name: 'Stats',
               fields: {
-                homePage: statsField('HomePageStats', homePageStats),
-                dataPage: statsField('DataPageStats', dataPageStats)
+                homePage: statsField(
+                  'HomePageStats',
+                  homePageStats,
+                  COVID_SITE
+                ),
+                dataPage: statsField(
+                  'DataPageStats',
+                  dataPageStats,
+                  `${COVID_SITE}/victorian-coronavirus-covid-19-data`
+                )
               }
             })
           ),
@@ -204,17 +237,17 @@ export default new ApolloServer({
             ] = await Promise.all([
               fields.homePage?.updated
                 ? fetchUpdated(
-                    'https://content.vic.gov.au/api/v1/block_content/daily_update/743c618f-deb7-4f00-9eb3-c4abc1171663',
+                    'block_content/daily_update/743c618f-deb7-4f00-9eb3-c4abc1171663',
                     'home page'
                   )
                 : undefined,
               fields.dataPage?.updated
                 ? fetchUpdated(
-                    'https://content.vic.gov.au/api/v1/block_content/daily_update/e674178a-0717-44c1-a14f-514db0e1dc65',
+                    'block_content/daily_update/e674178a-0717-44c1-a14f-514db0e1dc65',
                     'data page'
                   )
                 : undefined,
-              fetchJSONAPI<
+              covidAPI<
                 readonly {
                   readonly id: string
                   readonly attributes: {
@@ -222,32 +255,26 @@ export default new ApolloServer({
                     readonly field_item_statistic: string
                   }
                 }[]
-              >(
-                'https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics',
-                'stats',
-                {
-                  fields: {
-                    // eslint-disable-next-line @typescript-eslint/naming-convention -- api
-                    'paragraph--daily_update_statistics': 'field_item_statistic'
-                  },
-                  filter: {
-                    c: {
-                      path: 'id',
-                      operator: 'IN',
-                      value: (
-                        Object.values(fields).flatMap(Object.keys) as readonly (
-                          | AnyStat
-                          | 'updated'
-                        )[]
-                      )
-                        .filter(
-                          (field): field is AnyStat => field !== 'updated'
-                        )
-                        .map(field => NAME_TO_IDS[field])
-                    }
+              >('paragraph/daily_update_statistics', 'stats', {
+                fields: {
+                  // eslint-disable-next-line @typescript-eslint/naming-convention -- api
+                  'paragraph--daily_update_statistics': 'field_item_statistic'
+                },
+                filter: {
+                  c: {
+                    path: 'id',
+                    operator: 'IN',
+                    value: (
+                      Object.values(fields).flatMap(Object.keys) as readonly (
+                        | AnyStat
+                        | 'updated'
+                      )[]
+                    )
+                      .filter((field): field is AnyStat => field !== 'updated')
+                      .map(field => NAME_TO_IDS[field])
                   }
                 }
-              ).then(
+              }).then(
                 data =>
                   Object.fromEntries(
                     data.map(
@@ -282,6 +309,7 @@ export default new ApolloServer({
           }
         },
         exposureSites: {
+          description: `${COVID_SITE}/case-alerts–public-exposure-sites`,
           type: new GraphQLNonNull(
             new GraphQLObjectType({
               name: 'ExposureSites',
