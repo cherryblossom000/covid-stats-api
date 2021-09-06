@@ -3,6 +3,7 @@ import {GraphQLDateTime} from 'graphql-scalars'
 import nodeFetch from 'node-fetch'
 import qs from 'qs'
 import {
+  GraphQLFieldResolver,
   GraphQLInt,
   GraphQLInterfaceType,
   GraphQLNonNull,
@@ -66,6 +67,7 @@ type AnyStat = DataPageStat | HomePageStat
 // #region Constants
 
 const COVID_SITE = 'https://www.coronavirus.vic.gov.au'
+const ABC_SITE = 'https://www.abc.net.au'
 
 const NAME_TO_IDS: Readonly<Record<AnyStat, string>> = {
   localCases: 'c429cc59-6887-4093-a937-e7592485f293',
@@ -145,41 +147,58 @@ const fetchUpdated = async (path: string, message: string): Promise<string> =>
 
 // #region GraphQL Utils
 
+const nonNullString = {
+  type: new GraphQLNonNull(GraphQLString)
+}
+
 const updatedField: GraphQLFieldConfigMap<unknown, unknown> = {
   updated: {type: new GraphQLNonNull(GraphQLDateTime)}
 }
 
-const withUpdated = new GraphQLInterfaceType({
+const withUpdatedInterface = new GraphQLInterfaceType({
   name: 'WithUpdated',
   fields: updatedField
 })
 
-const statsField = (
+const withUpdated = (
   name: string,
-  statKeys: readonly AnyStat[],
-  description?: string
+  description: string,
+  fields: GraphQLFieldConfigMap<unknown, unknown>,
+  resolve?: GraphQLFieldResolver<unknown, unknown>
 ): GraphQLFieldConfig<unknown, unknown> => ({
   description,
   type: new GraphQLNonNull(
     new GraphQLObjectType({
       name,
-      interfaces: [withUpdated],
+      interfaces: [withUpdatedInterface],
       fields: {
         ...updatedField,
-        ...Object.fromEntries(
-          statKeys.map(s => [
-            s,
-            {
-              type: new GraphQLNonNull(GraphQLString)
-            }
-          ])
-        )
+        ...fields
       }
     })
-  )
+  ),
+  ...(resolve ? {resolve} : {})
 })
 
+const statsField = (
+  name: string,
+  description: string,
+  statKeys: readonly AnyStat[]
+): GraphQLFieldConfig<unknown, unknown> =>
+  withUpdated(
+    name,
+    description,
+    Object.fromEntries(statKeys.map(s => [s, nonNullString]))
+  )
+
 // #endregion
+
+const vaccinationStatFields = {
+  vaxRate: nonNullString,
+  vaxRateDelta: nonNullString,
+  vax2Rate: nonNullString,
+  vax2RateDelta: nonNullString
+}
 
 export default new ApolloServer({
   schema: new GraphQLSchema({
@@ -193,13 +212,13 @@ export default new ApolloServer({
               fields: {
                 homePage: statsField(
                   'HomePageStats',
-                  homePageStats,
-                  COVID_SITE
+                  COVID_SITE,
+                  homePageStats
                 ),
                 dataPage: statsField(
                   'DataPageStats',
-                  dataPageStats,
-                  `${COVID_SITE}/victorian-coronavirus-covid-19-data`
+                  `${COVID_SITE}/victorian-coronavirus-covid-19-data`,
+                  dataPageStats
                 )
               }
             })
@@ -342,7 +361,51 @@ export default new ApolloServer({
             }
             return {count: data.result.total}
           }
-        }
+        },
+        vaccinationStats: withUpdated(
+          'VaccinationStats',
+          `${ABC_SITE}/news/2021-03-02/charting-australias-covid-vaccine-rollout/13197518`,
+          vaccinationStatFields,
+          async (): Promise<
+            WithUpdated<
+              Readonly<Record<keyof typeof vaccinationStatFields, string>>
+            >
+          > => {
+            type Row = readonly [
+              date: string,
+              place: string,
+              totalFirst: string,
+              totalFirstPct: string,
+              totalSecond: string,
+              totalSecondPct: string
+            ]
+            const [
+              [, , , yesterday1, , yesterday2],
+              [updated, , , today1, , today2]
+            ] = (
+              await (
+                await fetch(
+                  `${ABC_SITE}/dat/news/interactives/covid19-data//aus-doses-breakdown.csv`
+                )
+              ).text()
+            )
+              .split('\r\n')
+              .slice(-18) // 2 * (8 states/territories + national)
+              .map(line => line.split(',') as unknown as Row)
+              .filter(([, place]) => place === 'VIC') as unknown as readonly [
+              yesterday: Row,
+              today: Row
+            ]
+            const vaxRate = Number(today1)
+            return {
+              updated,
+              vaxRate: vaxRate.toFixed(2),
+              vaxRateDelta: (vaxRate - Number(yesterday1)).toFixed(2),
+              vax2Rate: today2,
+              vax2RateDelta: (Number(today2) - Number(yesterday2)).toFixed(2)
+            }
+          }
+        )
       }
     })
   })
