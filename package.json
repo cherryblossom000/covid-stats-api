@@ -9,7 +9,7 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsc",
     "watch": "pnpm build -- -w",
     "lint": "eslint --max-warnings 0 --report-unused-disable-directives .",
     "lint:dev": "pnpm run lint -- --cache"

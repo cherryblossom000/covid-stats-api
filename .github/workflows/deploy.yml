@@ -1,0 +1,41 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Cache pnpm modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.pnpm-store
+        key: ${{ runner.os }}-build-pnpm-modules-cache-${{ hashFiles('**/package.json') }}
+        restore-keys: ${{ runner.os }}-build-pnpm-modules-cache-
+    - uses: pnpm/action-setup@v2.0.1
+      with:
+        version: 6.3.0
+        run_install: true
+
+    - name: Deploy
+      env:
+        GIT_AUTHOR_NAME: Github Actions
+        GIT_COMMITTER_NAME: Github Actions
+        GIT_AUTHOR_EMAIL: actions@github.com
+        GIT_COMMITTER_EMAIL: actions@github.com
+      run: |
+        pnpm build -- --outDir dist
+        git fetch origin vercel
+        git switch vercel
+        mv dist/* api
+        git add api
+        git commit -m "update from workflow run #$GITHUB_RUN_NUMBER"
+        git push
