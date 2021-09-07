@@ -202,4 +202,4 @@ export default new ApolloServer({
             }
         })
     })
-}).createHandler();
+}).createHandler({ cors: { origin: '*' } });
