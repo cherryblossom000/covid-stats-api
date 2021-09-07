@@ -1,5 +1,5 @@
 import { ApolloServer } from '@saeris/apollo-server-vercel';
-import { GraphQLDateTime } from 'graphql-scalars';
+import { GraphQLDate, GraphQLDateTime } from 'graphql-scalars';
 import nodeFetch from 'node-fetch';
 import qs from 'qs';
 import { GraphQLInt, GraphQLInterfaceType, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
@@ -63,18 +63,19 @@ const fetchUpdated = async (path, message) => (await covidAPI(path, `${message} 
 const nonNullString = {
     type: new GraphQLNonNull(GraphQLString)
 };
-const updatedField = {
-    updated: { type: new GraphQLNonNull(GraphQLDateTime) }
-};
-const withUpdatedInterface = new GraphQLInterfaceType({
-    name: 'WithUpdated',
+const mkUpdatedField = (type) => ({
+    updated: { type: new GraphQLNonNull(type) }
+});
+const updatedField = mkUpdatedField(GraphQLDateTime);
+const dateTimeUpdatedInterface = new GraphQLInterfaceType({
+    name: 'DateTimeUpdated',
     fields: updatedField
 });
-const withUpdated = (name, description, fields, resolve) => ({
+const dateTimeUpdated = (name, description, fields, resolve) => ({
     description,
     type: new GraphQLNonNull(new GraphQLObjectType({
         name,
-        interfaces: [withUpdatedInterface],
+        interfaces: [dateTimeUpdatedInterface],
         fields: {
             ...updatedField,
             ...fields
@@ -82,7 +83,7 @@ const withUpdated = (name, description, fields, resolve) => ({
     })),
     ...(resolve ? { resolve } : {})
 });
-const statsField = (name, description, statKeys) => withUpdated(name, description, Object.fromEntries(statKeys.map(s => [s, nonNullString])));
+const statsField = (name, description, statKeys) => dateTimeUpdated(name, description, Object.fromEntries(statKeys.map(s => [s, nonNullString])));
 // #endregion
 const vaccinationStatFields = {
     vaxRate: nonNullString,
@@ -173,21 +174,31 @@ export default new ApolloServer({
                         return { count: data.result.total };
                     }
                 },
-                vaccinationStats: withUpdated('VaccinationStats', `${ABC_SITE}/news/2021-03-02/charting-australias-covid-vaccine-rollout/13197518`, vaccinationStatFields, async () => {
-                    const [[, , , yesterday1, , yesterday2], [updated, , , today1, , today2]] = (await (await fetch(`${ABC_SITE}/dat/news/interactives/covid19-data//aus-doses-breakdown.csv`)).text())
-                        .split('\r\n')
-                        .slice(-18) // 2 * (8 states/territories + national)
-                        .map(line => line.split(','))
-                        .filter(([, place]) => place === 'VIC');
-                    const vaxRate = Number(today1);
-                    return {
-                        updated,
-                        vaxRate: vaxRate.toFixed(2),
-                        vaxRateDelta: (vaxRate - Number(yesterday1)).toFixed(2),
-                        vax2Rate: today2,
-                        vax2RateDelta: (Number(today2) - Number(yesterday2)).toFixed(2)
-                    };
-                })
+                vaccinationStats: {
+                    description: `${ABC_SITE}/news/2021-03-02/charting-australias-covid-vaccine-rollout/13197518`,
+                    type: new GraphQLNonNull(new GraphQLObjectType({
+                        name: 'VaccinationStats',
+                        fields: {
+                            ...mkUpdatedField(GraphQLDate),
+                            ...vaccinationStatFields
+                        }
+                    })),
+                    resolve: async () => {
+                        const [[, , , yesterday1, , yesterday2], [today, , , today1, , today2]] = (await (await fetch(`${ABC_SITE}/dat/news/interactives/covid19-data//aus-doses-breakdown.csv`)).text())
+                            .split('\r\n')
+                            .slice(-18) // 2 * (8 states/territories + national)
+                            .map(line => line.split(','))
+                            .filter(([, place]) => place === 'VIC');
+                        const vaxRate = Number(today1);
+                        return {
+                            updated: today.split('/').join('-'),
+                            vaxRate: vaxRate.toFixed(2),
+                            vaxRateDelta: (vaxRate - Number(yesterday1)).toFixed(2),
+                            vax2Rate: today2,
+                            vax2RateDelta: (Number(today2) - Number(yesterday2)).toFixed(2)
+                        };
+                    }
+                }
             }
         })
     })
