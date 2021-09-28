@@ -36,6 +36,7 @@ jobs:
         git fetch origin vercel
         git switch vercel
         mv dist/* api
+        git diff --quiet && exit 0
         git add api
         git commit -m "update from workflow run #$GITHUB_RUN_NUMBER"
         git push
