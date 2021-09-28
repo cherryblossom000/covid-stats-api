@@ -3,17 +3,20 @@ import {GraphQLDate, GraphQLDateTime} from 'graphql-scalars'
 import nodeFetch from 'node-fetch'
 import qs from 'qs'
 import {
-  GraphQLFieldResolver,
   GraphQLInt,
   GraphQLInterfaceType,
   GraphQLNonNull,
-  GraphQLNullableType,
   GraphQLObjectType,
   GraphQLSchema,
   GraphQLString
 } from 'graphql'
 import graphqlFields from 'graphql-fields'
-import type {GraphQLFieldConfig, GraphQLFieldConfigMap} from 'graphql'
+import type {
+  GraphQLFieldConfig,
+  GraphQLFieldConfigMap,
+  GraphQLFieldResolver,
+  GraphQLNullableType
+} from 'graphql'
 import type {Response} from 'node-fetch'
 
 // #region Types
@@ -283,7 +286,6 @@ export default new ApolloServer({
                 }[]
               >('paragraph/daily_update_statistics', 'stats', {
                 fields: {
-                  // eslint-disable-next-line @typescript-eslint/naming-convention -- api
                   'paragraph--daily_update_statistics': 'field_item_statistic'
                 },
                 filter: {
