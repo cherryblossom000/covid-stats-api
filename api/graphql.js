@@ -117,7 +117,6 @@ export default new ApolloServer({
                                 : undefined,
                             covidAPI('paragraph/daily_update_statistics', 'stats', {
                                 fields: {
-                                    // eslint-disable-next-line @typescript-eslint/naming-convention -- api
                                     'paragraph--daily_update_statistics': 'field_item_statistic'
                                 },
                                 filter: {
