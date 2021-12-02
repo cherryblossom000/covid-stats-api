@@ -12,10 +12,14 @@ import {
 } from 'graphql'
 import graphqlFields from 'graphql-fields'
 import type {
+  GraphQLEnumType,
   GraphQLFieldConfig,
   GraphQLFieldConfigMap,
   GraphQLFieldResolver,
-  GraphQLNullableType
+  GraphQLList,
+  GraphQLOutputType,
+  GraphQLScalarType,
+  GraphQLUnionType
 } from 'graphql'
 import type {Response} from 'node-fetch'
 
@@ -156,7 +160,13 @@ const nonNullString = {
 }
 
 const mkUpdatedField = (
-  type: GraphQLNullableType
+  type:
+    | GraphQLEnumType
+    | GraphQLInterfaceType
+    | GraphQLList<GraphQLOutputType>
+    | GraphQLObjectType
+    | GraphQLScalarType
+    | GraphQLUnionType
 ): GraphQLFieldConfigMap<unknown, unknown> => ({
   updated: {type: new GraphQLNonNull(type)}
 })
@@ -238,13 +248,11 @@ export default new ApolloServer({
             __,
             ___,
             info
-          ): Promise<
-            {
-              [K in keyof AllStats]?: {
-                [L in keyof AllStats[K]]?: AllStats[K][L] | undefined
-              }
+          ): Promise<{
+            [K in keyof AllStats]?: {
+              [L in keyof AllStats[K]]?: AllStats[K][L] | undefined
             }
-          > => {
+          }> => {
             const fields = graphqlFields(info) as Fields<AllStats>
             const [
               homePageUpdated,
