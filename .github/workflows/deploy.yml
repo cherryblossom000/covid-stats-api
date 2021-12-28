@@ -18,7 +18,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.pnpm-store
-        key: ${{ runner.os }}-build-pnpm-modules-cache-${{ hashFiles('**/package.json') }}
+        key: ${{ runner.os }}-build-pnpm-modules-cache-${{ hashFiles('**/package.json', 'pnpm-lock.yaml') }}
         restore-keys: ${{ runner.os }}-build-pnpm-modules-cache-
     - uses: pnpm/action-setup@v2.0.1
       with:
