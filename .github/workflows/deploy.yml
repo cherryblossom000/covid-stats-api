@@ -22,7 +22,7 @@ jobs:
         restore-keys: ${{ runner.os }}-build-pnpm-modules-cache-
     - uses: pnpm/action-setup@v2.0.1
       with:
-        version: 6.3.0
+        version: 6.24.3
         run_install: true
 
     - name: Deploy
