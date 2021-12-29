@@ -375,9 +375,7 @@ export default new ApolloServer({
             })
           ),
           resolve: async (): Promise<
-            WithUpdated<
-              Readonly<Record<keyof typeof vaccinationStatFields, string>>
-            >
+            WithUpdated<Stats<keyof typeof vaccinationStatFields>>
           > => {
             type Row = readonly [
               date: string,
