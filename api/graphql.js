@@ -1,9 +1,9 @@
 import { ApolloServer } from '@saeris/apollo-server-vercel';
+import { GraphQLInterfaceType, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
+import graphqlFields from 'graphql-fields';
 import { GraphQLDate, GraphQLDateTime } from 'graphql-scalars';
 import nodeFetch from 'node-fetch';
 import qs from 'qs';
-import { GraphQLInterfaceType, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
-import graphqlFields from 'graphql-fields';
 const homePageStats = [
     'localCases',
     'activeCases',
