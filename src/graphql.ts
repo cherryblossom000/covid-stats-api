@@ -1,7 +1,4 @@
 import {ApolloServer} from '@saeris/apollo-server-vercel'
-import {GraphQLDate, GraphQLDateTime} from 'graphql-scalars'
-import nodeFetch from 'node-fetch'
-import qs from 'qs'
 import {
   GraphQLInterfaceType,
   GraphQLNonNull,
@@ -10,6 +7,9 @@ import {
   GraphQLString
 } from 'graphql'
 import graphqlFields from 'graphql-fields'
+import {GraphQLDate, GraphQLDateTime} from 'graphql-scalars'
+import nodeFetch from 'node-fetch'
+import qs from 'qs'
 import type {
   GraphQLEnumType,
   GraphQLFieldConfig,
@@ -24,7 +24,7 @@ import type {Response} from 'node-fetch'
 
 // #region Types
 
-/* eslint-disable @typescript-eslint/ban-types -- object and {} */
+/* eslint-disable @typescript-eslint/ban-types -- {} */
 type Fields<T extends object> = {
   [K in keyof T]?: T[K] extends object
     ? T[K] extends readonly (infer U)[]

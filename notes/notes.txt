@@ -31,7 +31,7 @@ e0900375-0198-47a2-9d88-70909977e395: lives lost (last 24 hours)
 35208240-6a54-468b-9b6c-b9a0252ce5af: total tests
 
 d7d13b8d-4a41-435f-8e82-b8d1d5475027: cases in hospital
-0c37c1dc-01ad-42c4-88b3-acdf4a1eea88: cases in hopsital
+0c37c1dc-01ad-42c4-88b3-acdf4a1eea88: cases in hospital
 
 9d3a45ca-4e54-4545-9159-d09197bc45d4: cases in ICU
 a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df: cases in ICU
