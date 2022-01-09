@@ -9,7 +9,7 @@ const homePageStats = [
     'dose2',
     'dose3',
     'newCases',
-    'pcrTests',
+    'newPCRTests',
     'newRATCases',
     'hospitalCases',
     'icuCases',
@@ -22,7 +22,7 @@ const dataPageStats = [
     'totalPCRTests',
     'totalPCRCases',
     'totalDeaths',
-    'recovered'
+    'totalRecovered'
 ];
 // #endregion
 // #region Constants
@@ -32,7 +32,7 @@ const NAME_TO_IDS = {
     dose2: 'a95c18ed-7111-4e54-9936-5ec4fe135058',
     dose3: '74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21',
     newCases: 'c429cc59-6887-4093-a937-e7592485f293',
-    pcrTests: '05f695de-a635-4c35-a6d1-b6a3d63e02de',
+    newPCRTests: '05f695de-a635-4c35-a6d1-b6a3d63e02de',
     newRATCases: 'd7d13b8d-4a41-435f-8e82-b8d1d5475027',
     hospitalCases: '9d3a45ca-4e54-4545-9159-d09197bc45d4',
     icuCases: '2e5c92a1-1c9d-48c9-adf5-a56f096ad99f',
@@ -43,7 +43,7 @@ const NAME_TO_IDS = {
     totalPCRTests: '35208240-6a54-468b-9b6c-b9a0252ce5af',
     totalPCRCases: '2612d038-ca63-4cfd-beeb-8ad0a6d83c0e',
     totalDeaths: '0e539187-308d-4924-a9df-31df1d1407fe',
-    recovered: '4d573de6-a0b9-4cb6-b45b-9b0e018f7149'
+    totalRecovered: '4d573de6-a0b9-4cb6-b45b-9b0e018f7149'
 };
 const IDS_TO_NAME = Object.fromEntries(Object.entries(NAME_TO_IDS).map(([name, id]) => [id, name]));
 // #endregion
@@ -106,7 +106,7 @@ export default new ApolloServer({
                     })),
                     resolve: async (_, __, ___, info) => {
                         const fields = graphqlFields(info);
-                        const [homePageUpdated, dataPageUpdated, { dose1, dose2, dose3, newCases, pcrTests, newRATCases, hospitalCases, icuCases, newDeaths, newPCRCases, newHotelCases, activeCases, totalPCRTests, totalPCRCases, totalDeaths, recovered }] = await Promise.all([
+                        const [homePageUpdated, dataPageUpdated, { dose1, dose2, dose3, newCases, newPCRTests, newRATCases, hospitalCases, icuCases, newDeaths, newPCRCases, newHotelCases, activeCases, totalPCRTests, totalPCRCases, totalDeaths, totalRecovered }] = await Promise.all([
                             fields.homePage?.updated
                                 ? fetchUpdated('743c618f-deb7-4f00-9eb3-c4abc1171663', 'home page')
                                 : undefined,
@@ -138,7 +138,7 @@ export default new ApolloServer({
                                 dose2,
                                 dose3,
                                 newCases,
-                                pcrTests,
+                                newPCRTests,
                                 newRATCases,
                                 hospitalCases,
                                 icuCases,
@@ -152,7 +152,7 @@ export default new ApolloServer({
                                 totalPCRTests,
                                 totalPCRCases,
                                 totalDeaths,
-                                recovered
+                                totalRecovered
                             }
                         };
                     }
