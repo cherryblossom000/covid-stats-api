@@ -6,19 +6,19 @@
       "page": {
         "links": {
           "self": {
-            "href": "https://content.vic.gov.au/api/v1/node/landing_page/70066540-c001-49dc-a3e4-11f01576d8d3?resourceVersion=id%3A308784"
+            "href": "https://content.vic.gov.au/api/v1/node/landing_page/70066540-c001-49dc-a3e4-11f01576d8d3?resourceVersion=id%3A354574"
           }
         },
         "meta": {},
         "drupal_internal__nid": 16289,
-        "drupal_internal__vid": 308784,
+        "drupal_internal__vid": 354574,
         "langcode": "en",
-        "revision_timestamp": "2021-08-23T10:51:39+00:00",
-        "revision_log": null,
+        "revision_timestamp": "2022-01-06T23:07:45+00:00",
+        "revision_log": "Removing nbsp;",
         "status": true,
         "title": "Daily COVID-19 vaccine data",
         "created": "2021-04-21T15:34:23+10:00",
-        "changed": "2021-08-23T20:51:39+10:00",
+        "changed": "2022-01-07T10:07:45+11:00",
         "promote": true,
         "sticky": false,
         "default_langcode": true,
@@ -52,10 +52,10 @@
         },
         "field_landing_page_bg_colour": "white",
         "field_landing_page_hero_theme": null,
-        "field_landing_page_intro_text": "Latest COVID-19 vaccine data for Victorian hospital immunisation hubs",
+        "field_landing_page_intro_text": "COVID-19 vaccine data for the last 24 hours",
         "field_landing_page_nav_title": "Coronavirus Victoria",
         "field_landing_page_show_contact": false,
-        "field_landing_page_summary": "Latest COVID-19 vaccine data for Victorian hospital immunisation hubs",
+        "field_landing_page_summary": "COVID-19 vaccine data for the last 24 hours",
         "field_metatags": null,
         "field_node_display_headings": "showH2",
         "field_show_ack_of_country": false,
@@ -140,9 +140,9 @@
                 "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update/d45cf581-f19e-476e-9f30-3ad649404345"
               }
             },
-            "meta": {"target_revision_id": 1216768},
+            "meta": {"target_revision_id": 1807109},
             "drupal_internal__id": 116628,
-            "drupal_internal__revision_id": 1216768,
+            "drupal_internal__revision_id": 1807109,
             "langcode": "en",
             "status": true,
             "created": "2021-08-04T05:48:22+00:00",
@@ -155,18 +155,18 @@
             "field_daily_update": {
               "links": {
                 "self": {
-                  "href": "https://content.vic.gov.au/api/v1/block_content/daily_update/4335d1ed-fa86-4180-982c-6705e3a0e3c9"
+                  "href": "https://content.vic.gov.au/api/v1/block_content/daily_update/952d165a-d849-48df-968e-5fb284045b13"
                 }
               },
               "meta": {},
-              "drupal_internal__id": 390,
-              "drupal_internal__revision_id": 4080,
+              "drupal_internal__id": 663,
+              "drupal_internal__revision_id": 4221,
               "langcode": "en",
-              "revision_created": "2021-12-28T22:02:09+00:00",
+              "revision_created": "2022-01-08T21:27:04+00:00",
               "revision_log": null,
               "status": true,
-              "info": "All vaccine doses at Victorian centres (last 24 hours)",
-              "changed": "2021-12-28T22:02:09+00:00",
+              "info": "All vaccine doses at Victorian state run centres (last 24 hours) (with third dose)",
+              "changed": "2022-01-08T21:27:04+00:00",
               "reusable": true,
               "default_langcode": true,
               "revision_translation_affected": true,
@@ -181,151 +181,105 @@
               ],
               "field_block_content": null,
               "field_block_content_title": null,
-              "field_block_theme": "light_neutral",
-              "field_daily_update_date_time": "Wednesday, 29 December 2021",
-              "field_daily_update_title": "All vaccine doses at Victorian centres (last 24 hours)",
+              "field_block_theme": "white",
+              "field_daily_update_date_time": "Sunday, 9 January 2022",
+              "field_daily_update_title": "All vaccine doses at Victorian state run centres (last 24 hours)",
               "field_statistics": [
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b717ad94-6e2a-429f-81a9-42677be5658c"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c6081f58-f016-4729-8e62-54819bbc9b7c"
                     }
                   },
-                  "meta": {"target_revision_id": 1774711},
-                  "drupal_internal__id": 94280,
-                  "drupal_internal__revision_id": 1774711,
+                  "meta": {"target_revision_id": 1813489},
+                  "drupal_internal__id": 650922,
+                  "drupal_internal__revision_id": 1813489,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:10:56+00:00",
-                  "parent_id": "390",
+                  "created": "2021-12-31T04:42:11+00:00",
+                  "parent_id": "663",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
-                  "field_item_description": "Dose 1 (last 24 hours)",
-                  "field_item_statistic": "7",
-                  "id": "b717ad94-6e2a-429f-81a9-42677be5658c",
+                  "field_item_description": "Dose 1",
+                  "field_item_statistic": "221",
+                  "id": "c6081f58-f016-4729-8e62-54819bbc9b7c",
                   "type": "paragraph--daily_update_statistics"
                 },
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/88611b8a-bfbd-4e16-aa84-20c9028c3d9a"
                     }
                   },
-                  "meta": {"target_revision_id": 1774712},
-                  "drupal_internal__id": 94281,
-                  "drupal_internal__revision_id": 1774712,
+                  "meta": {"target_revision_id": 1813490},
+                  "drupal_internal__id": 650923,
+                  "drupal_internal__revision_id": 1813490,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:11:16+00:00",
-                  "parent_id": "390",
+                  "created": "2021-12-31T04:42:11+00:00",
+                  "parent_id": "663",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
-                  "field_item_description": "Dose 2 (last 24 hours)",
-                  "field_item_statistic": "44",
-                  "id": "c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4",
+                  "field_item_description": "Dose 2",
+                  "field_item_statistic": "430",
+                  "id": "88611b8a-bfbd-4e16-aa84-20c9028c3d9a",
                   "type": "paragraph--daily_update_statistics"
                 },
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/93a389cc-b33a-4f23-9137-1b19e65e0b04"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e71e4628-5a31-4cc8-bc86-ac21728e8cb1"
                     }
                   },
-                  "meta": {"target_revision_id": 1774713},
-                  "drupal_internal__id": 94282,
-                  "drupal_internal__revision_id": 1774713,
+                  "meta": {"target_revision_id": 1813491},
+                  "drupal_internal__id": 650925,
+                  "drupal_internal__revision_id": 1813491,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:10:15+00:00",
-                  "parent_id": "390",
+                  "created": "2021-12-31T04:43:22+00:00",
+                  "parent_id": "663",
+                  "parent_type": "block_content",
+                  "parent_field_name": "field_statistics",
+                  "behavior_settings": [],
+                  "default_langcode": true,
+                  "revision_translation_affected": true,
+                  "field_item_description": "Dose 3",
+                  "field_item_statistic": "15,088",
+                  "id": "e71e4628-5a31-4cc8-bc86-ac21728e8cb1",
+                  "type": "paragraph--daily_update_statistics"
+                },
+                {
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/61ab333b-4142-4aa2-919a-718dc5a6571a"
+                    }
+                  },
+                  "meta": {"target_revision_id": 1813492},
+                  "drupal_internal__id": 650924,
+                  "drupal_internal__revision_id": 1813492,
+                  "langcode": "en",
+                  "status": true,
+                  "created": "2021-12-31T04:42:46+00:00",
+                  "parent_id": "663",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
                   "field_item_description": "Total doses (last 24 hours)",
-                  "field_item_statistic": "535",
-                  "id": "93a389cc-b33a-4f23-9137-1b19e65e0b04",
-                  "type": "paragraph--daily_update_statistics"
-                },
-                {
-                  "links": {
-                    "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ec41ff0d-4a4a-4727-8a3b-53f400808bd7"
-                    }
-                  },
-                  "meta": {"target_revision_id": 1774714},
-                  "drupal_internal__id": 94283,
-                  "drupal_internal__revision_id": 1774714,
-                  "langcode": "en",
-                  "status": true,
-                  "created": "2021-07-05T10:09:29+00:00",
-                  "parent_id": "390",
-                  "parent_type": "block_content",
-                  "parent_field_name": "field_statistics",
-                  "behavior_settings": [],
-                  "default_langcode": true,
-                  "revision_translation_affected": true,
-                  "field_item_description": "Dose 1 total",
-                  "field_item_statistic": "5,399,875",
-                  "id": "ec41ff0d-4a4a-4727-8a3b-53f400808bd7",
-                  "type": "paragraph--daily_update_statistics"
-                },
-                {
-                  "links": {
-                    "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e1fa76e1-5c27-4294-bd89-bc6fba372040"
-                    }
-                  },
-                  "meta": {"target_revision_id": 1774715},
-                  "drupal_internal__id": 94284,
-                  "drupal_internal__revision_id": 1774715,
-                  "langcode": "en",
-                  "status": true,
-                  "created": "2021-07-05T10:10:04+00:00",
-                  "parent_id": "390",
-                  "parent_type": "block_content",
-                  "parent_field_name": "field_statistics",
-                  "behavior_settings": [],
-                  "default_langcode": true,
-                  "revision_translation_affected": true,
-                  "field_item_description": "Dose 2 total",
-                  "field_item_statistic": "5,305,848",
-                  "id": "e1fa76e1-5c27-4294-bd89-bc6fba372040",
-                  "type": "paragraph--daily_update_statistics"
-                },
-                {
-                  "links": {
-                    "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ef650668-aebb-4e6f-a587-d2df60f18c99"
-                    }
-                  },
-                  "meta": {"target_revision_id": 1774716},
-                  "drupal_internal__id": 94285,
-                  "drupal_internal__revision_id": 1774716,
-                  "langcode": "en",
-                  "status": true,
-                  "created": "2021-07-05T10:09:29+00:00",
-                  "parent_id": "390",
-                  "parent_type": "block_content",
-                  "parent_field_name": "field_statistics",
-                  "behavior_settings": [],
-                  "default_langcode": true,
-                  "revision_translation_affected": true,
-                  "field_item_description": "Total doses administered",
-                  "field_item_statistic": "11,247,566",
-                  "id": "ef650668-aebb-4e6f-a587-d2df60f18c99",
+                  "field_item_statistic": "15,739",
+                  "id": "61ab333b-4142-4aa2-919a-718dc5a6571a",
                   "type": "paragraph--daily_update_statistics"
                 }
               ],
               "field_statistic_links": [],
-              "id": "4335d1ed-fa86-4180-982c-6705e3a0e3c9",
+              "id": "952d165a-d849-48df-968e-5fb284045b13",
               "type": "block_content--daily_update"
             },
             "id": "d45cf581-f19e-476e-9f30-3ad649404345",
@@ -334,12 +288,163 @@
           {
             "links": {
               "self": {
+                "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update/ea8535e6-3caf-4017-bf1b-dec5f040b946"
+              }
+            },
+            "meta": {"target_revision_id": 1807110},
+            "drupal_internal__id": 662083,
+            "drupal_internal__revision_id": 1807110,
+            "langcode": "en",
+            "status": true,
+            "created": "2021-08-04T05:48:22+00:00",
+            "parent_id": "16289",
+            "parent_type": "node",
+            "parent_field_name": "field_landing_page_component",
+            "behavior_settings": [],
+            "default_langcode": true,
+            "revision_translation_affected": null,
+            "field_daily_update": {
+              "links": {
+                "self": {
+                  "href": "https://content.vic.gov.au/api/v1/block_content/daily_update/386f93e2-4488-48c2-a5f8-4ab7e2b68ab1"
+                }
+              },
+              "meta": {},
+              "drupal_internal__id": 664,
+              "drupal_internal__revision_id": 4222,
+              "langcode": "en",
+              "revision_created": "2022-01-08T21:35:44+00:00",
+              "revision_log": null,
+              "status": true,
+              "info": "All vaccine doses at all vaccination centres (cumulative total) (with third dose)",
+              "changed": "2022-01-08T21:35:44+00:00",
+              "reusable": true,
+              "default_langcode": true,
+              "revision_translation_affected": true,
+              "metatag": [
+                {
+                  "tag": "link",
+                  "attributes": {
+                    "rel": "canonical",
+                    "href": "https://content.vic.gov.au/api/v1/node/landing_page/70066540-c001-49dc-a3e4-11f01576d8d3"
+                  }
+                }
+              ],
+              "field_block_content": null,
+              "field_block_content_title": null,
+              "field_block_theme": "white",
+              "field_daily_update_date_time": "Sunday, 9 January 2022",
+              "field_daily_update_title": "All vaccine doses at all vaccination centres (cumulative total) ",
+              "field_statistics": [
+                {
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/7fbd262a-bd56-4948-bf46-514a8d2d0c64"
+                    }
+                  },
+                  "meta": {"target_revision_id": 1813500},
+                  "drupal_internal__id": 653163,
+                  "drupal_internal__revision_id": 1813500,
+                  "langcode": "en",
+                  "status": true,
+                  "created": "2022-01-01T05:44:59+00:00",
+                  "parent_id": "664",
+                  "parent_type": "block_content",
+                  "parent_field_name": "field_statistics",
+                  "behavior_settings": [],
+                  "default_langcode": true,
+                  "revision_translation_affected": true,
+                  "field_item_description": "Dose 1 ",
+                  "field_item_statistic": "5,406,365",
+                  "id": "7fbd262a-bd56-4948-bf46-514a8d2d0c64",
+                  "type": "paragraph--daily_update_statistics"
+                },
+                {
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/f98ba65f-b9dc-47f6-aab8-bbc8d60c8c81"
+                    }
+                  },
+                  "meta": {"target_revision_id": 1813501},
+                  "drupal_internal__id": 653164,
+                  "drupal_internal__revision_id": 1813501,
+                  "langcode": "en",
+                  "status": true,
+                  "created": "2022-01-01T05:45:21+00:00",
+                  "parent_id": "664",
+                  "parent_type": "block_content",
+                  "parent_field_name": "field_statistics",
+                  "behavior_settings": [],
+                  "default_langcode": true,
+                  "revision_translation_affected": true,
+                  "field_item_description": "Dose 2",
+                  "field_item_statistic": "5,319,291",
+                  "id": "f98ba65f-b9dc-47f6-aab8-bbc8d60c8c81",
+                  "type": "paragraph--daily_update_statistics"
+                },
+                {
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0e48d5b5-6032-4c28-b55c-abffad3f4615"
+                    }
+                  },
+                  "meta": {"target_revision_id": 1813502},
+                  "drupal_internal__id": 653165,
+                  "drupal_internal__revision_id": 1813502,
+                  "langcode": "en",
+                  "status": true,
+                  "created": "2022-01-01T05:45:26+00:00",
+                  "parent_id": "664",
+                  "parent_type": "block_content",
+                  "parent_field_name": "field_statistics",
+                  "behavior_settings": [],
+                  "default_langcode": true,
+                  "revision_translation_affected": true,
+                  "field_item_description": "Dose 3",
+                  "field_item_statistic": "865,619",
+                  "id": "0e48d5b5-6032-4c28-b55c-abffad3f4615",
+                  "type": "paragraph--daily_update_statistics"
+                },
+                {
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b3428463-1a41-4d58-a2dc-4498a9b5b868"
+                    }
+                  },
+                  "meta": {"target_revision_id": 1813503},
+                  "drupal_internal__id": 653166,
+                  "drupal_internal__revision_id": 1813503,
+                  "langcode": "en",
+                  "status": true,
+                  "created": "2022-01-01T05:45:30+00:00",
+                  "parent_id": "664",
+                  "parent_type": "block_content",
+                  "parent_field_name": "field_statistics",
+                  "behavior_settings": [],
+                  "default_langcode": true,
+                  "revision_translation_affected": true,
+                  "field_item_description": "Total doses",
+                  "field_item_statistic": "11,591,275",
+                  "id": "b3428463-1a41-4d58-a2dc-4498a9b5b868",
+                  "type": "paragraph--daily_update_statistics"
+                }
+              ],
+              "field_statistic_links": [],
+              "id": "386f93e2-4488-48c2-a5f8-4ab7e2b68ab1",
+              "type": "block_content--daily_update"
+            },
+            "id": "ea8535e6-3caf-4017-bf1b-dec5f040b946",
+            "type": "paragraph--daily_update"
+          },
+          {
+            "links": {
+              "self": {
                 "href": "https://content.vic.gov.au/api/v1/paragraph/navigation_card/d7ca56dd-1c76-4980-94e3-157c7d95eee9"
               }
             },
-            "meta": {"target_revision_id": 1216769},
+            "meta": {"target_revision_id": 1807111},
             "drupal_internal__id": 116629,
-            "drupal_internal__revision_id": 1216769,
+            "drupal_internal__revision_id": 1807111,
             "langcode": "en",
             "status": true,
             "created": "2021-08-04T05:48:45+00:00",
@@ -379,9 +484,9 @@
                 "href": "https://content.vic.gov.au/api/v1/paragraph/basic_text/7afdc697-12e8-4b18-8338-167d1590acdc"
               }
             },
-            "meta": {"target_revision_id": 1216770},
+            "meta": {"target_revision_id": 1807112},
             "drupal_internal__id": 117053,
-            "drupal_internal__revision_id": 1216770,
+            "drupal_internal__revision_id": 1807112,
             "langcode": "en",
             "status": true,
             "created": "2021-08-05T09:02:26+00:00",
@@ -390,11 +495,11 @@
             "parent_field_name": "field_landing_page_component",
             "behavior_settings": [],
             "default_langcode": true,
-            "revision_translation_affected": null,
+            "revision_translation_affected": true,
             "field_paragraph_body": {
-              "value": "<h3>How to interpret this data</h3>\r\n\r\n<p>There is ongoing data cleansing and reconciliation with Australian Immunisation Register (AIR), which may result in ongoing updates to these figures.</p>\r\n\r\n",
+              "value": "<h3>How to interpret this data</h3>\r\n\r\n<p>All vaccine doses at vaccination centres (cumulative total) includes vaccinations provided by all&nbsp;providers recorded in the Australian Vaccination Register.</p>\r\n\r\n<p>There is ongoing data cleansing and reconciliation with Australian Immunisation Register (AIR), which may result in ongoing updates to these figures.</p>\r\n\r\n<p>Two doses of the vaccine are required.&nbsp;For more information, see our&nbsp;<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"497cf657-0c84-4ed9-8bfa-20f9d63db109\" href=\"/node/14915\">information about vaccines</a>.</p>\r\n",
               "format": "rich_text",
-              "processed": "<h3>How to interpret this data</h3>\n\n<p>There is ongoing data cleansing and reconciliation with Australian Immunisation Register (AIR), which may result in ongoing updates to these figures.</p>"
+              "processed": "<h3>How to interpret this data</h3>\n\n<p>All vaccine doses at vaccination centres (cumulative total) includes vaccinations provided by all providers recorded in the Australian Vaccination Register.</p>\n\n<p>There is ongoing data cleansing and reconciliation with Australian Immunisation Register (AIR), which may result in ongoing updates to these figures.</p>\n\n<p>Two doses of the vaccine are required. For more information, see our <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"497cf657-0c84-4ed9-8bfa-20f9d63db109\" href=\"/vaccine\" title=\"COVID-19 vaccines\">information about vaccines</a>.</p>"
             },
             "id": "7afdc697-12e8-4b18-8338-167d1590acdc",
             "type": "paragraph--basic_text"
@@ -405,9 +510,9 @@
                 "href": "https://content.vic.gov.au/api/v1/paragraph/basic_text/8be8e04b-fe1a-43da-ac67-a08849f088ab"
               }
             },
-            "meta": {"target_revision_id": 1216771},
+            "meta": {"target_revision_id": 1807113},
             "drupal_internal__id": 45435,
-            "drupal_internal__revision_id": 1216771,
+            "drupal_internal__revision_id": 1807113,
             "langcode": "en",
             "status": true,
             "created": "2021-04-21T05:31:33+00:00",
@@ -418,9 +523,9 @@
             "default_langcode": true,
             "revision_translation_affected": null,
             "field_paragraph_body": {
-              "value": "<p>Two doses of the vaccine are required.&nbsp;For more information, see our&nbsp;<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"497cf657-0c84-4ed9-8bfa-20f9d63db109\" href=\"/node/14915\">information about vaccines</a>.</p>\r\n\r\n<h2>Information about this report</h2>\r\n\r\n<p>This is a daily report of COVID-19 vaccines delivered in hospital immunisation hubs in Victoria. The data is from Victorian Government vaccination centres and services. This does not include Australian Government data, which is vaccine doses administered by doctors, GP respiratory clinics, and community health services. It is the most accurate data available to the Department of Health at the time of publication.</p>\r\n\r\n<h2>Information about the data</h2>\r\n\r\n<p>A dose administered is a dose per person. When you receive your first dose of a COVID-19 vaccine you will be told when you need to book for your second dose. COVID-19 vaccines require two doses.</p>\r\n\r\n<h2>Interpreting data</h2>\r\n\r\n<p>Data presented in this report is updated daily. It may change as more information becomes available. Analysis in this report is based on the date on which the event was first received by the department.</p>\r\n\r\n<h2>Source of data</h2>\r\n\r\n<p>The department sources this data through health services.</p>\r\n\r\n<h2>Related data pages</h2>\r\n\r\n<ul>\r\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"6bff61fb-aa67-4aae-b64f-aee053f6b9ad\" href=\"/node/13459\">COVID-19 data</a></li>\r\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"bdba615f-1ae2-481d-ac35-b3b1d1e0b73a\" href=\"/node/15934\">Case location and outbreaks</a></li>\r\n</ul>\r\n",
+              "value": "<h2>Information about this report</h2>\r\n\r\n<p>This is a daily report of COVID-19 vaccines delivered in hospital immunisation hubs in Victoria. The data is from Victorian Government vaccination centres and services. This does not include Australian Government data, which is vaccine doses administered by doctors, GP respiratory clinics, and community health services. It is the most accurate data available to the Department of Health at the time of publication.</p>\r\n\r\n<h2>Information about the data</h2>\r\n\r\n<p>A dose administered is a dose per person. When you receive your first dose of a COVID-19 vaccine you will be told when you need to book for your second dose. COVID-19 vaccines require two doses.</p>\r\n\r\n<h2>Interpreting data</h2>\r\n\r\n<p>Data presented in this report is updated daily. It may change as more information becomes available. Analysis in this report is based on the date on which the event was first received by the department.</p>\r\n\r\n<h2>Source of data</h2>\r\n\r\n<p>The department sources this data through health services.</p>\r\n\r\n<h2>Related data pages</h2>\r\n\r\n<ul>\r\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"6bff61fb-aa67-4aae-b64f-aee053f6b9ad\" href=\"/node/13459\">COVID-19 data</a></li>\r\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"bdba615f-1ae2-481d-ac35-b3b1d1e0b73a\" href=\"/node/15934\">Case location and outbreaks</a></li>\r\n</ul>\r\n",
               "format": "rich_text",
-              "processed": "<p>Two doses of the vaccine are required. For more information, see our <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"497cf657-0c84-4ed9-8bfa-20f9d63db109\" href=\"/vaccine\" title=\"COVID-19 vaccines\">information about vaccines</a>.</p>\n\n<h2>Information about this report</h2>\n\n<p>This is a daily report of COVID-19 vaccines delivered in hospital immunisation hubs in Victoria. The data is from Victorian Government vaccination centres and services. This does not include Australian Government data, which is vaccine doses administered by doctors, GP respiratory clinics, and community health services. It is the most accurate data available to the Department of Health at the time of publication.</p>\n\n<h2>Information about the data</h2>\n\n<p>A dose administered is a dose per person. When you receive your first dose of a COVID-19 vaccine you will be told when you need to book for your second dose. COVID-19 vaccines require two doses.</p>\n\n<h2>Interpreting data</h2>\n\n<p>Data presented in this report is updated daily. It may change as more information becomes available. Analysis in this report is based on the date on which the event was first received by the department.</p>\n\n<h2>Source of data</h2>\n\n<p>The department sources this data through health services.</p>\n\n<h2>Related data pages</h2>\n\n<ul>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"6bff61fb-aa67-4aae-b64f-aee053f6b9ad\" href=\"/latest-covid-19-data\" title=\"Latest COVID-19 data\">COVID-19 data</a></li>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"bdba615f-1ae2-481d-ac35-b3b1d1e0b73a\" href=\"/case-alerts-public-exposure-sites\" title=\"Case alerts - public exposure sites\">Case location and outbreaks</a></li>\n</ul>"
+              "processed": "<h2>Information about this report</h2>\n\n<p>This is a daily report of COVID-19 vaccines delivered in hospital immunisation hubs in Victoria. The data is from Victorian Government vaccination centres and services. This does not include Australian Government data, which is vaccine doses administered by doctors, GP respiratory clinics, and community health services. It is the most accurate data available to the Department of Health at the time of publication.</p>\n\n<h2>Information about the data</h2>\n\n<p>A dose administered is a dose per person. When you receive your first dose of a COVID-19 vaccine you will be told when you need to book for your second dose. COVID-19 vaccines require two doses.</p>\n\n<h2>Interpreting data</h2>\n\n<p>Data presented in this report is updated daily. It may change as more information becomes available. Analysis in this report is based on the date on which the event was first received by the department.</p>\n\n<h2>Source of data</h2>\n\n<p>The department sources this data through health services.</p>\n\n<h2>Related data pages</h2>\n\n<ul>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"6bff61fb-aa67-4aae-b64f-aee053f6b9ad\" href=\"/latest-covid-19-data\" title=\"Latest COVID-19 data\">COVID-19 data</a></li>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"bdba615f-1ae2-481d-ac35-b3b1d1e0b73a\" href=\"/case-alerts-public-exposure-sites\" title=\"Case alerts - public exposure sites\">Case location and outbreaks</a></li>\n</ul>"
             },
             "id": "8be8e04b-fe1a-43da-ac67-a08849f088ab",
             "type": "paragraph--basic_text"
@@ -434,9 +539,9 @@
               "href": "https://content.vic.gov.au/api/v1/paragraph/key_journeys/8901c33e-240e-4c88-92bf-8fce8754d730"
             }
           },
-          "meta": {"target_revision_id": 1216772},
+          "meta": {"target_revision_id": 1807114},
           "drupal_internal__id": 116630,
-          "drupal_internal__revision_id": 1216772,
+          "drupal_internal__revision_id": 1807114,
           "langcode": "en",
           "status": true,
           "created": "2021-08-04T05:51:16+00:00",
@@ -587,7 +692,7 @@
                 "tag": "link",
                 "attributes": {
                   "rel": "canonical",
-                  "href": "https://content.vic.gov.au/api/v1/node/landing_page/8189d7ca-e557-4d6a-a237-97c6a2960e07"
+                  "href": "https://content.vic.gov.au/api/v1/node/landing_page/d7fb5c59-abb1-42ad-bc58-a783ecb18da7"
                 }
               }
             ],
@@ -757,7 +862,7 @@
                 "tag": "link",
                 "attributes": {
                   "rel": "canonical",
-                  "href": "https://content.vic.gov.au/api/v1/node/landing_page/8189d7ca-e557-4d6a-a237-97c6a2960e07"
+                  "href": "https://content.vic.gov.au/api/v1/node/landing_page/d7fb5c59-abb1-42ad-bc58-a783ecb18da7"
                 }
               }
             ],
@@ -1014,7 +1119,7 @@
                   "tag": "link",
                   "attributes": {
                     "rel": "canonical",
-                    "href": "https://content.vic.gov.au/api/v1/node/landing_page/8189d7ca-e557-4d6a-a237-97c6a2960e07"
+                    "href": "https://content.vic.gov.au/api/v1/node/landing_page/d7fb5c59-abb1-42ad-bc58-a783ecb18da7"
                   }
                 }
               ],
@@ -1184,7 +1289,7 @@
                   "tag": "link",
                   "attributes": {
                     "rel": "canonical",
-                    "href": "https://content.vic.gov.au/api/v1/node/landing_page/8189d7ca-e557-4d6a-a237-97c6a2960e07"
+                    "href": "https://content.vic.gov.au/api/v1/node/landing_page/d7fb5c59-abb1-42ad-bc58-a783ecb18da7"
                   }
                 }
               ],
@@ -1464,7 +1569,7 @@
           "name": "rpl-hero-banner",
           "data": {
             "title": "Daily COVID-19 vaccine data",
-            "introText": "Latest COVID-19 vaccine data for Victorian hospital immunisation hubs",
+            "introText": "COVID-19 vaccine data for the last 24 hours",
             "linkHeading": "Want to know more about...",
             "links": [
               {
@@ -1492,146 +1597,213 @@
           {
             "name": "ch-daily-update",
             "data": {
-              "title": "All vaccine doses at Victorian centres (last 24 hours)",
-              "theme": "light_neutral",
-              "date": "Wednesday, 29 December 2021",
+              "title": "All vaccine doses at Victorian state run centres (last 24 hours)",
+              "theme": "white",
+              "date": "Sunday, 9 January 2022",
               "statistics": [
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b717ad94-6e2a-429f-81a9-42677be5658c"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c6081f58-f016-4729-8e62-54819bbc9b7c"
                     }
                   },
-                  "meta": {"target_revision_id": 1774711},
-                  "drupal_internal__id": 94280,
-                  "drupal_internal__revision_id": 1774711,
+                  "meta": {"target_revision_id": 1813489},
+                  "drupal_internal__id": 650922,
+                  "drupal_internal__revision_id": 1813489,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:10:56+00:00",
-                  "parent_id": "390",
+                  "created": "2021-12-31T04:42:11+00:00",
+                  "parent_id": "663",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
-                  "field_item_description": "Dose 1 (last 24 hours)",
-                  "field_item_statistic": "7",
-                  "id": "b717ad94-6e2a-429f-81a9-42677be5658c",
+                  "field_item_description": "Dose 1",
+                  "field_item_statistic": "221",
+                  "id": "c6081f58-f016-4729-8e62-54819bbc9b7c",
                   "type": "paragraph--daily_update_statistics"
                 },
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/88611b8a-bfbd-4e16-aa84-20c9028c3d9a"
                     }
                   },
-                  "meta": {"target_revision_id": 1774712},
-                  "drupal_internal__id": 94281,
-                  "drupal_internal__revision_id": 1774712,
+                  "meta": {"target_revision_id": 1813490},
+                  "drupal_internal__id": 650923,
+                  "drupal_internal__revision_id": 1813490,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:11:16+00:00",
-                  "parent_id": "390",
+                  "created": "2021-12-31T04:42:11+00:00",
+                  "parent_id": "663",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
-                  "field_item_description": "Dose 2 (last 24 hours)",
-                  "field_item_statistic": "44",
-                  "id": "c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4",
+                  "field_item_description": "Dose 2",
+                  "field_item_statistic": "430",
+                  "id": "88611b8a-bfbd-4e16-aa84-20c9028c3d9a",
                   "type": "paragraph--daily_update_statistics"
                 },
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/93a389cc-b33a-4f23-9137-1b19e65e0b04"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e71e4628-5a31-4cc8-bc86-ac21728e8cb1"
                     }
                   },
-                  "meta": {"target_revision_id": 1774713},
-                  "drupal_internal__id": 94282,
-                  "drupal_internal__revision_id": 1774713,
+                  "meta": {"target_revision_id": 1813491},
+                  "drupal_internal__id": 650925,
+                  "drupal_internal__revision_id": 1813491,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:10:15+00:00",
-                  "parent_id": "390",
+                  "created": "2021-12-31T04:43:22+00:00",
+                  "parent_id": "663",
+                  "parent_type": "block_content",
+                  "parent_field_name": "field_statistics",
+                  "behavior_settings": [],
+                  "default_langcode": true,
+                  "revision_translation_affected": true,
+                  "field_item_description": "Dose 3",
+                  "field_item_statistic": "15,088",
+                  "id": "e71e4628-5a31-4cc8-bc86-ac21728e8cb1",
+                  "type": "paragraph--daily_update_statistics"
+                },
+                {
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/61ab333b-4142-4aa2-919a-718dc5a6571a"
+                    }
+                  },
+                  "meta": {"target_revision_id": 1813492},
+                  "drupal_internal__id": 650924,
+                  "drupal_internal__revision_id": 1813492,
+                  "langcode": "en",
+                  "status": true,
+                  "created": "2021-12-31T04:42:46+00:00",
+                  "parent_id": "663",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
                   "field_item_description": "Total doses (last 24 hours)",
-                  "field_item_statistic": "535",
-                  "id": "93a389cc-b33a-4f23-9137-1b19e65e0b04",
+                  "field_item_statistic": "15,739",
+                  "id": "61ab333b-4142-4aa2-919a-718dc5a6571a",
                   "type": "paragraph--daily_update_statistics"
-                },
+                }
+              ],
+              "statisticsLinks": [],
+              "contentTitle": null,
+              "content": null,
+              "childColsBp": null
+            },
+            "cols": {},
+            "childCols": null,
+            "class": {
+              "wide": ["ch-daily-update--without-sidebar"],
+              "narrow": ["ch-daily-update--with-sidebar"]
+            },
+            "ssr": true
+          },
+          {
+            "name": "ch-daily-update",
+            "data": {
+              "title": "All vaccine doses at all vaccination centres (cumulative total) ",
+              "theme": "white",
+              "date": "Sunday, 9 January 2022",
+              "statistics": [
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ec41ff0d-4a4a-4727-8a3b-53f400808bd7"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/7fbd262a-bd56-4948-bf46-514a8d2d0c64"
                     }
                   },
-                  "meta": {"target_revision_id": 1774714},
-                  "drupal_internal__id": 94283,
-                  "drupal_internal__revision_id": 1774714,
+                  "meta": {"target_revision_id": 1813500},
+                  "drupal_internal__id": 653163,
+                  "drupal_internal__revision_id": 1813500,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:09:29+00:00",
-                  "parent_id": "390",
+                  "created": "2022-01-01T05:44:59+00:00",
+                  "parent_id": "664",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
-                  "field_item_description": "Dose 1 total",
-                  "field_item_statistic": "5,399,875",
-                  "id": "ec41ff0d-4a4a-4727-8a3b-53f400808bd7",
+                  "field_item_description": "Dose 1 ",
+                  "field_item_statistic": "5,406,365",
+                  "id": "7fbd262a-bd56-4948-bf46-514a8d2d0c64",
                   "type": "paragraph--daily_update_statistics"
                 },
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e1fa76e1-5c27-4294-bd89-bc6fba372040"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/f98ba65f-b9dc-47f6-aab8-bbc8d60c8c81"
                     }
                   },
-                  "meta": {"target_revision_id": 1774715},
-                  "drupal_internal__id": 94284,
-                  "drupal_internal__revision_id": 1774715,
+                  "meta": {"target_revision_id": 1813501},
+                  "drupal_internal__id": 653164,
+                  "drupal_internal__revision_id": 1813501,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:10:04+00:00",
-                  "parent_id": "390",
+                  "created": "2022-01-01T05:45:21+00:00",
+                  "parent_id": "664",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
-                  "field_item_description": "Dose 2 total",
-                  "field_item_statistic": "5,305,848",
-                  "id": "e1fa76e1-5c27-4294-bd89-bc6fba372040",
+                  "field_item_description": "Dose 2",
+                  "field_item_statistic": "5,319,291",
+                  "id": "f98ba65f-b9dc-47f6-aab8-bbc8d60c8c81",
                   "type": "paragraph--daily_update_statistics"
                 },
                 {
                   "links": {
                     "self": {
-                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ef650668-aebb-4e6f-a587-d2df60f18c99"
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0e48d5b5-6032-4c28-b55c-abffad3f4615"
                     }
                   },
-                  "meta": {"target_revision_id": 1774716},
-                  "drupal_internal__id": 94285,
-                  "drupal_internal__revision_id": 1774716,
+                  "meta": {"target_revision_id": 1813502},
+                  "drupal_internal__id": 653165,
+                  "drupal_internal__revision_id": 1813502,
                   "langcode": "en",
                   "status": true,
-                  "created": "2021-07-05T10:09:29+00:00",
-                  "parent_id": "390",
+                  "created": "2022-01-01T05:45:26+00:00",
+                  "parent_id": "664",
                   "parent_type": "block_content",
                   "parent_field_name": "field_statistics",
                   "behavior_settings": [],
                   "default_langcode": true,
                   "revision_translation_affected": true,
-                  "field_item_description": "Total doses administered",
-                  "field_item_statistic": "11,247,566",
-                  "id": "ef650668-aebb-4e6f-a587-d2df60f18c99",
+                  "field_item_description": "Dose 3",
+                  "field_item_statistic": "865,619",
+                  "id": "0e48d5b5-6032-4c28-b55c-abffad3f4615",
+                  "type": "paragraph--daily_update_statistics"
+                },
+                {
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b3428463-1a41-4d58-a2dc-4498a9b5b868"
+                    }
+                  },
+                  "meta": {"target_revision_id": 1813503},
+                  "drupal_internal__id": 653166,
+                  "drupal_internal__revision_id": 1813503,
+                  "langcode": "en",
+                  "status": true,
+                  "created": "2022-01-01T05:45:30+00:00",
+                  "parent_id": "664",
+                  "parent_type": "block_content",
+                  "parent_field_name": "field_statistics",
+                  "behavior_settings": [],
+                  "default_langcode": true,
+                  "revision_translation_affected": true,
+                  "field_item_description": "Total doses",
+                  "field_item_statistic": "11,591,275",
+                  "id": "b3428463-1a41-4d58-a2dc-4498a9b5b868",
                   "type": "paragraph--daily_update_statistics"
                 }
               ],
@@ -1675,7 +1847,7 @@
           {
             "name": "rpl-markup",
             "data": {
-              "html": "<h3>How to interpret this data</h3>\n\n<p>There is ongoing data cleansing and reconciliation with Australian Immunisation Register (AIR), which may result in ongoing updates to these figures.</p>",
+              "html": "<h3>How to interpret this data</h3>\n\n<p>All vaccine doses at vaccination centres (cumulative total) includes vaccinations provided by all providers recorded in the Australian Vaccination Register.</p>\n\n<p>There is ongoing data cleansing and reconciliation with Australian Immunisation Register (AIR), which may result in ongoing updates to these figures.</p>\n\n<p>Two doses of the vaccine are required. For more information, see our <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"497cf657-0c84-4ed9-8bfa-20f9d63db109\" href=\"/vaccine\" title=\"COVID-19 vaccines\">information about vaccines</a>.</p>",
               "childColsBp": null
             },
             "cols": {},
@@ -1686,7 +1858,7 @@
           {
             "name": "rpl-markup",
             "data": {
-              "html": "<p>Two doses of the vaccine are required. For more information, see our <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"497cf657-0c84-4ed9-8bfa-20f9d63db109\" href=\"/vaccine\" title=\"COVID-19 vaccines\">information about vaccines</a>.</p>\n\n<h2>Information about this report</h2>\n\n<p>This is a daily report of COVID-19 vaccines delivered in hospital immunisation hubs in Victoria. The data is from Victorian Government vaccination centres and services. This does not include Australian Government data, which is vaccine doses administered by doctors, GP respiratory clinics, and community health services. It is the most accurate data available to the Department of Health at the time of publication.</p>\n\n<h2>Information about the data</h2>\n\n<p>A dose administered is a dose per person. When you receive your first dose of a COVID-19 vaccine you will be told when you need to book for your second dose. COVID-19 vaccines require two doses.</p>\n\n<h2>Interpreting data</h2>\n\n<p>Data presented in this report is updated daily. It may change as more information becomes available. Analysis in this report is based on the date on which the event was first received by the department.</p>\n\n<h2>Source of data</h2>\n\n<p>The department sources this data through health services.</p>\n\n<h2>Related data pages</h2>\n\n<ul>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"6bff61fb-aa67-4aae-b64f-aee053f6b9ad\" href=\"/latest-covid-19-data\" title=\"Latest COVID-19 data\">COVID-19 data</a></li>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"bdba615f-1ae2-481d-ac35-b3b1d1e0b73a\" href=\"/case-alerts-public-exposure-sites\" title=\"Case alerts - public exposure sites\">Case location and outbreaks</a></li>\n</ul>",
+              "html": "<h2>Information about this report</h2>\n\n<p>This is a daily report of COVID-19 vaccines delivered in hospital immunisation hubs in Victoria. The data is from Victorian Government vaccination centres and services. This does not include Australian Government data, which is vaccine doses administered by doctors, GP respiratory clinics, and community health services. It is the most accurate data available to the Department of Health at the time of publication.</p>\n\n<h2>Information about the data</h2>\n\n<p>A dose administered is a dose per person. When you receive your first dose of a COVID-19 vaccine you will be told when you need to book for your second dose. COVID-19 vaccines require two doses.</p>\n\n<h2>Interpreting data</h2>\n\n<p>Data presented in this report is updated daily. It may change as more information becomes available. Analysis in this report is based on the date on which the event was first received by the department.</p>\n\n<h2>Source of data</h2>\n\n<p>The department sources this data through health services.</p>\n\n<h2>Related data pages</h2>\n\n<ul>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"6bff61fb-aa67-4aae-b64f-aee053f6b9ad\" href=\"/latest-covid-19-data\" title=\"Latest COVID-19 data\">COVID-19 data</a></li>\n\t<li><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"bdba615f-1ae2-481d-ac35-b3b1d1e0b73a\" href=\"/case-alerts-public-exposure-sites\" title=\"Case alerts - public exposure sites\">Case location and outbreaks</a></li>\n</ul>",
               "childColsBp": null
             },
             "cols": {},
@@ -2256,10 +2428,10 @@
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 1,
+                "weight": 2,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-03-18T05:24:12+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -2318,10 +2490,10 @@
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 2,
+                "weight": 3,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-03-18T05:24:12+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -2380,10 +2552,10 @@
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 3,
+                "weight": 4,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-03-18T05:24:12+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -2442,10 +2614,10 @@
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 4,
+                "weight": 5,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-03-18T05:24:12+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -9149,6 +9321,68 @@
             },
             {
               "type": "menu_link_content--menu_link_content",
+              "id": "567fc596-b5bd-402f-9153-a58a363425bb",
+              "links": {
+                "self": {
+                  "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/567fc596-b5bd-402f-9153-a58a363425bb"
+                }
+              },
+              "attributes": {
+                "drupal_internal__id": 3500,
+                "drupal_internal__revision_id": 3500,
+                "langcode": "en",
+                "bundle": "menu_link_content",
+                "revision_created": "2020-11-12T04:54:44+00:00",
+                "revision_log_message": null,
+                "enabled": false,
+                "title": "Public transport ",
+                "description": null,
+                "menu_name": "site-main-menu-coronavirusvicgov",
+                "link": {
+                  "uri": "entity:node/landing_page/b9e276ae-5fac-45f9-bc04-25e57dae0955",
+                  "title": "",
+                  "options": [],
+                  "entity": {
+                    "uri": "entity:node/14064",
+                    "entity_type": "node",
+                    "entity_id": "14064",
+                    "bundle": "landing_page",
+                    "uuid": "b9e276ae-5fac-45f9-bc04-25e57dae0955"
+                  },
+                  "url": "/public-transport",
+                  "origin_url": "/public-transport"
+                },
+                "external": false,
+                "rediscover": false,
+                "weight": 11,
+                "expanded": false,
+                "parent": "menu_link_content:35624a08-9aa1-401e-b28c-fdc3f12eb884",
+                "changed": "2022-01-08T05:36:58+00:00",
+                "default_langcode": true,
+                "revision_translation_affected": true,
+                "metatag": [
+                  {
+                    "tag": "link",
+                    "attributes": {
+                      "rel": "canonical",
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content"
+                    }
+                  }
+                ]
+              },
+              "relationships": {
+                "revision_user": {
+                  "data": null,
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/567fc596-b5bd-402f-9153-a58a363425bb/relationships/revision_user"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "menu_link_content--menu_link_content",
               "id": "9f75f978-b719-4aec-882a-341f8e70a194",
               "links": {
                 "self": {
@@ -9659,7 +9893,7 @@
                 "revision_created": "2020-11-18T02:54:01+00:00",
                 "revision_log_message": null,
                 "enabled": true,
-                "title": "Confirmed case in the workplace",
+                "title": "Case in the workplace",
                 "description": null,
                 "menu_name": "site-main-menu-coronavirusvicgov",
                 "link": {
@@ -9673,15 +9907,15 @@
                     "bundle": "landing_page",
                     "uuid": "f7ed40f5-d242-460b-9aa6-c48aa15b5c4d"
                   },
-                  "url": "/confirmed-case-workplace",
-                  "origin_url": "/confirmed-case-workplace"
+                  "url": "/case-workplace",
+                  "origin_url": "/case-workplace"
                 },
                 "external": false,
                 "rediscover": false,
                 "weight": 13,
                 "expanded": false,
                 "parent": "menu_link_content:136f012a-df52-4eac-ad20-5b2f78998169",
-                "changed": "2021-11-29T00:26:12+00:00",
+                "changed": "2022-01-09T02:02:22+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -10789,8 +11023,8 @@
                     "bundle": "landing_page",
                     "uuid": "b775e650-58b3-44e4-9c24-e4fc8938a505"
                   },
-                  "url": "/quarantine-programs",
-                  "origin_url": "/quarantine-programs"
+                  "url": "/returned-overseas-travellers-and-quarantine-programs",
+                  "origin_url": "/returned-overseas-travellers-and-quarantine-programs"
                 },
                 "external": false,
                 "rediscover": false,
@@ -11443,6 +11677,68 @@
             },
             {
               "type": "menu_link_content--menu_link_content",
+              "id": "da31ddb3-021e-4da3-91e2-d9004efe1645",
+              "links": {
+                "self": {
+                  "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/da31ddb3-021e-4da3-91e2-d9004efe1645"
+                }
+              },
+              "attributes": {
+                "drupal_internal__id": 3685,
+                "drupal_internal__revision_id": 3685,
+                "langcode": "en",
+                "bundle": "menu_link_content",
+                "revision_created": "2020-12-06T10:34:02+00:00",
+                "revision_log_message": null,
+                "enabled": false,
+                "title": "Work and volunteering",
+                "description": null,
+                "menu_name": "site-main-menu-coronavirusvicgov",
+                "link": {
+                  "uri": "entity:node/landing_page/2b89d0e1-0fb2-4185-8520-c9e5b16c636d",
+                  "title": "",
+                  "options": [],
+                  "entity": {
+                    "uri": "entity:node/14619",
+                    "entity_type": "node",
+                    "entity_id": "14619",
+                    "bundle": "landing_page",
+                    "uuid": "2b89d0e1-0fb2-4185-8520-c9e5b16c636d"
+                  },
+                  "url": "/face-masks-work",
+                  "origin_url": "/face-masks-work"
+                },
+                "external": false,
+                "rediscover": false,
+                "weight": 4,
+                "expanded": false,
+                "parent": "menu_link_content:3f88d709-ac0b-4a61-9e41-96bed322998c",
+                "changed": "2022-01-08T07:00:27+00:00",
+                "default_langcode": true,
+                "revision_translation_affected": true,
+                "metatag": [
+                  {
+                    "tag": "link",
+                    "attributes": {
+                      "rel": "canonical",
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content"
+                    }
+                  }
+                ]
+              },
+              "relationships": {
+                "revision_user": {
+                  "data": null,
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/da31ddb3-021e-4da3-91e2-d9004efe1645/relationships/revision_user"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "menu_link_content--menu_link_content",
               "id": "ddca9aa2-2768-46cd-83b7-05f6ac990bc6",
               "links": {
                 "self": {
@@ -11498,6 +11794,68 @@
                   "links": {
                     "self": {
                       "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/ddca9aa2-2768-46cd-83b7-05f6ac990bc6/relationships/revision_user"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "menu_link_content--menu_link_content",
+              "id": "b22f574f-99ee-4bdc-a5fc-50ce9e2e8ed6",
+              "links": {
+                "self": {
+                  "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/b22f574f-99ee-4bdc-a5fc-50ce9e2e8ed6"
+                }
+              },
+              "attributes": {
+                "drupal_internal__id": 3687,
+                "drupal_internal__revision_id": 3687,
+                "langcode": "en",
+                "bundle": "menu_link_content",
+                "revision_created": "2020-12-06T10:35:11+00:00",
+                "revision_log_message": null,
+                "enabled": false,
+                "title": "Study and school",
+                "description": null,
+                "menu_name": "site-main-menu-coronavirusvicgov",
+                "link": {
+                  "uri": "entity:node/landing_page/620d6011-de64-4923-88e1-1f48f1fa6bfa",
+                  "title": "",
+                  "options": [],
+                  "entity": {
+                    "uri": "entity:node/14621",
+                    "entity_type": "node",
+                    "entity_id": "14621",
+                    "bundle": "landing_page",
+                    "uuid": "620d6011-de64-4923-88e1-1f48f1fa6bfa"
+                  },
+                  "url": "/face-masks-study-and-school",
+                  "origin_url": "/face-masks-study-and-school"
+                },
+                "external": false,
+                "rediscover": false,
+                "weight": 5,
+                "expanded": false,
+                "parent": "menu_link_content:3f88d709-ac0b-4a61-9e41-96bed322998c",
+                "changed": "2022-01-08T07:00:27+00:00",
+                "default_langcode": true,
+                "revision_translation_affected": true,
+                "metatag": [
+                  {
+                    "tag": "link",
+                    "attributes": {
+                      "rel": "canonical",
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content"
+                    }
+                  }
+                ]
+              },
+              "relationships": {
+                "revision_user": {
+                  "data": null,
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/b22f574f-99ee-4bdc-a5fc-50ce9e2e8ed6/relationships/revision_user"
                     }
                   }
                 }
@@ -13079,10 +13437,10 @@
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 6,
+                "weight": 7,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-11-22T23:43:30+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -14052,7 +14410,7 @@
                 "revision_created": "2021-02-07T01:44:02+00:00",
                 "revision_log_message": null,
                 "enabled": true,
-                "title": "$450 Coronavirus (COVID-19) Test Isolation Payment ",
+                "title": "COVID-19 Test Isolation Payment ",
                 "description": null,
                 "menu_name": "site-main-menu-coronavirusvicgov",
                 "link": {
@@ -14066,15 +14424,15 @@
                     "bundle": "landing_page",
                     "uuid": "5d47c986-4d7d-4f2e-8e07-46e228f012b9"
                   },
-                  "url": "/450-coronavirus-covid-19-test-isolation-payment",
-                  "origin_url": "/450-coronavirus-covid-19-test-isolation-payment"
+                  "url": "/covid-19-test-isolation-payment",
+                  "origin_url": "/covid-19-test-isolation-payment"
                 },
                 "external": false,
                 "rediscover": false,
                 "weight": 0,
                 "expanded": false,
                 "parent": "menu_link_content:3f8b6bd4-ef48-49f4-9538-27d6cf2cbf28",
-                "changed": "2021-02-07T02:50:33+00:00",
+                "changed": "2022-01-05T07:55:40+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -14133,10 +14491,10 @@
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 0,
+                "weight": 1,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-02-07T04:19:11+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -15497,10 +15855,10 @@
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 7,
+                "weight": 8,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-10-30T07:58:34+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -19481,7 +19839,7 @@
                 "revision_created": "2021-10-30T07:47:29+00:00",
                 "revision_log_message": null,
                 "enabled": true,
-                "title": "Rapid antigen self-tests",
+                "title": "Rapid antigen tests",
                 "description": null,
                 "menu_name": "site-main-menu-coronavirusvicgov",
                 "link": {
@@ -19495,15 +19853,15 @@
                     "bundle": "landing_page",
                     "uuid": "6f13e6d1-7110-403b-924c-dbb195abbd2e"
                   },
-                  "url": "/rapid-antigen-self-tests",
-                  "origin_url": "/rapid-antigen-self-tests"
+                  "url": "/rapid-antigen-tests",
+                  "origin_url": "/rapid-antigen-tests"
                 },
                 "external": false,
                 "rediscover": false,
-                "weight": 5,
+                "weight": 6,
                 "expanded": false,
                 "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
-                "changed": "2021-10-30T07:58:34+00:00",
+                "changed": "2022-01-07T00:56:11+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -20162,7 +20520,7 @@
                 "bundle": "menu_link_content",
                 "revision_created": "2021-12-21T06:20:43+00:00",
                 "revision_log_message": null,
-                "enabled": true,
+                "enabled": false,
                 "title": "Prepare to isolate and be COVIDSafe at home",
                 "description": null,
                 "menu_name": "site-main-menu-coronavirusvicgov",
@@ -20185,7 +20543,7 @@
                 "weight": 3,
                 "expanded": false,
                 "parent": "menu_link_content:0eaaca7c-6a13-443b-8a99-ba160db1b2b6",
-                "changed": "2021-12-23T03:00:20+00:00",
+                "changed": "2022-01-05T01:59:52+00:00",
                 "default_langcode": true,
                 "revision_translation_affected": true,
                 "metatag": [
@@ -20204,68 +20562,6 @@
                   "links": {
                     "self": {
                       "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/2314bfe5-ca49-481c-9bf8-385d14c2524f/relationships/revision_user"
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "type": "menu_link_content--menu_link_content",
-              "id": "76284dd3-c653-4ecd-ada5-76f2df8f96ed",
-              "links": {
-                "self": {
-                  "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/76284dd3-c653-4ecd-ada5-76f2df8f96ed"
-                }
-              },
-              "attributes": {
-                "drupal_internal__id": 5523,
-                "drupal_internal__revision_id": 5523,
-                "langcode": "en",
-                "bundle": "menu_link_content",
-                "revision_created": "2021-12-22T07:52:35+00:00",
-                "revision_log_message": null,
-                "enabled": true,
-                "title": "COVID-19 vaccine third doses",
-                "description": null,
-                "menu_name": "site-main-menu-coronavirusvicgov",
-                "link": {
-                  "uri": "entity:node/landing_page/ae6d9710-4007-4538-9870-6323386add3e",
-                  "title": "",
-                  "options": [],
-                  "entity": {
-                    "uri": "entity:node/22177",
-                    "entity_type": "node",
-                    "entity_id": "22177",
-                    "bundle": "landing_page",
-                    "uuid": "ae6d9710-4007-4538-9870-6323386add3e"
-                  },
-                  "url": "/boosters",
-                  "origin_url": "/boosters"
-                },
-                "external": false,
-                "rediscover": false,
-                "weight": 0,
-                "expanded": false,
-                "parent": "menu_link_content:b80b5eab-88dd-46f5-86fd-792244ae4a3b",
-                "changed": "2021-12-23T02:37:20+00:00",
-                "default_langcode": true,
-                "revision_translation_affected": true,
-                "metatag": [
-                  {
-                    "tag": "link",
-                    "attributes": {
-                      "rel": "canonical",
-                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content"
-                    }
-                  }
-                ]
-              },
-              "relationships": {
-                "revision_user": {
-                  "data": null,
-                  "links": {
-                    "self": {
-                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/76284dd3-c653-4ecd-ada5-76f2df8f96ed/relationships/revision_user"
                     }
                   }
                 }
@@ -20328,6 +20624,192 @@
                   "links": {
                     "self": {
                       "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/0a74d766-be80-4ab9-b0b0-4f357985b24d/relationships/revision_user"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "menu_link_content--menu_link_content",
+              "id": "3668a469-2591-4286-a9b6-cebd5df233ad",
+              "links": {
+                "self": {
+                  "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/3668a469-2591-4286-a9b6-cebd5df233ad"
+                }
+              },
+              "attributes": {
+                "drupal_internal__id": 5634,
+                "drupal_internal__revision_id": 5634,
+                "langcode": "en",
+                "bundle": "menu_link_content",
+                "revision_created": "2021-12-30T08:00:50+00:00",
+                "revision_log_message": null,
+                "enabled": true,
+                "title": "COVID-19 vaccine third dose",
+                "description": null,
+                "menu_name": "site-main-menu-coronavirusvicgov",
+                "link": {
+                  "uri": "entity:node/landing_page/ae6d9710-4007-4538-9870-6323386add3e",
+                  "title": "",
+                  "options": [],
+                  "entity": {
+                    "uri": "entity:node/22177",
+                    "entity_type": "node",
+                    "entity_id": "22177",
+                    "bundle": "landing_page",
+                    "uuid": "ae6d9710-4007-4538-9870-6323386add3e"
+                  },
+                  "url": "/third-dose",
+                  "origin_url": "/third-dose"
+                },
+                "external": false,
+                "rediscover": false,
+                "weight": 0,
+                "expanded": false,
+                "parent": "menu_link_content:b80b5eab-88dd-46f5-86fd-792244ae4a3b",
+                "changed": "2021-12-30T08:00:50+00:00",
+                "default_langcode": true,
+                "revision_translation_affected": true,
+                "metatag": [
+                  {
+                    "tag": "link",
+                    "attributes": {
+                      "rel": "canonical",
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content"
+                    }
+                  }
+                ]
+              },
+              "relationships": {
+                "revision_user": {
+                  "data": null,
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/3668a469-2591-4286-a9b6-cebd5df233ad/relationships/revision_user"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "menu_link_content--menu_link_content",
+              "id": "cd570aff-8410-40e0-ac4b-0c5210a25396",
+              "links": {
+                "self": {
+                  "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/cd570aff-8410-40e0-ac4b-0c5210a25396"
+                }
+              },
+              "attributes": {
+                "drupal_internal__id": 5638,
+                "drupal_internal__revision_id": 5638,
+                "langcode": "en",
+                "bundle": "menu_link_content",
+                "revision_created": "2022-01-05T01:55:12+00:00",
+                "revision_log_message": null,
+                "enabled": true,
+                "title": "Checklist for families and individuals preparing for COVID-19",
+                "description": null,
+                "menu_name": "site-main-menu-coronavirusvicgov",
+                "link": {
+                  "uri": "entity:node/landing_page/49ccb20f-6d8a-45fc-b4f9-9a91332aa3a0",
+                  "title": "",
+                  "options": [],
+                  "entity": {
+                    "uri": "entity:node/22214",
+                    "entity_type": "node",
+                    "entity_id": "22214",
+                    "bundle": "landing_page",
+                    "uuid": "49ccb20f-6d8a-45fc-b4f9-9a91332aa3a0"
+                  },
+                  "url": "/checklist-prepare-covid-isolation",
+                  "origin_url": "/checklist-prepare-covid-isolation"
+                },
+                "external": false,
+                "rediscover": false,
+                "weight": 3,
+                "expanded": false,
+                "parent": "menu_link_content:90b4a97f-391b-4ccc-8bc1-e1ab3779947f",
+                "changed": "2022-01-05T01:55:12+00:00",
+                "default_langcode": true,
+                "revision_translation_affected": true,
+                "metatag": [
+                  {
+                    "tag": "link",
+                    "attributes": {
+                      "rel": "canonical",
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content"
+                    }
+                  }
+                ]
+              },
+              "relationships": {
+                "revision_user": {
+                  "data": null,
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/cd570aff-8410-40e0-ac4b-0c5210a25396/relationships/revision_user"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "menu_link_content--menu_link_content",
+              "id": "17b9e85f-0679-4c44-8575-bb4ecd73b033",
+              "links": {
+                "self": {
+                  "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/17b9e85f-0679-4c44-8575-bb4ecd73b033"
+                }
+              },
+              "attributes": {
+                "drupal_internal__id": 5642,
+                "drupal_internal__revision_id": 5642,
+                "langcode": "en",
+                "bundle": "menu_link_content",
+                "revision_created": "2022-01-07T00:54:10+00:00",
+                "revision_log_message": null,
+                "enabled": true,
+                "title": "Reporting your result",
+                "description": null,
+                "menu_name": "site-main-menu-coronavirusvicgov",
+                "link": {
+                  "uri": "entity:node/landing_page/c2a30af2-2d2e-4ea3-b623-3a6013c0fe93",
+                  "title": "",
+                  "options": [],
+                  "entity": {
+                    "uri": "entity:node/22270",
+                    "entity_type": "node",
+                    "entity_id": "22270",
+                    "bundle": "landing_page",
+                    "uuid": "c2a30af2-2d2e-4ea3-b623-3a6013c0fe93"
+                  },
+                  "url": "/report",
+                  "origin_url": "/report"
+                },
+                "external": false,
+                "rediscover": false,
+                "weight": 0,
+                "expanded": false,
+                "parent": "menu_link_content:2117ae21-7e38-4ad5-850d-fe29e1278605",
+                "changed": "2022-01-07T00:56:11+00:00",
+                "default_langcode": true,
+                "revision_translation_affected": true,
+                "metatag": [
+                  {
+                    "tag": "link",
+                    "attributes": {
+                      "rel": "canonical",
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content"
+                    }
+                  }
+                ]
+              },
+              "relationships": {
+                "revision_user": {
+                  "data": null,
+                  "links": {
+                    "self": {
+                      "href": "https://content.vic.gov.au/api/v1/menu_link_content/menu_link_content/17b9e85f-0679-4c44-8575-bb4ecd73b033/relationships/revision_user"
                     }
                   }
                 }
@@ -20722,6 +21204,13 @@
                   "uuid": "2e3c948a-8dc0-4a2a-b366-3f07814f6e15",
                   "parent": "90b4a97f-391b-4ccc-8bc1-e1ab3779947f",
                   "weight": 2
+                },
+                {
+                  "text": "Checklist for families and individuals preparing for COVID-19",
+                  "url": "/checklist-prepare-covid-isolation",
+                  "uuid": "cd570aff-8410-40e0-ac4b-0c5210a25396",
+                  "parent": "90b4a97f-391b-4ccc-8bc1-e1ab3779947f",
+                  "weight": 3
                 }
               ]
             },
@@ -20916,9 +21405,9 @@
                   "weight": 2,
                   "children": [
                     {
-                      "text": "COVID-19 vaccine third doses",
-                      "url": "/boosters",
-                      "uuid": "76284dd3-c653-4ecd-ada5-76f2df8f96ed",
+                      "text": "COVID-19 vaccine third dose",
+                      "url": "/third-dose",
+                      "uuid": "3668a469-2591-4286-a9b6-cebd5df233ad",
                       "parent": "b80b5eab-88dd-46f5-86fd-792244ae4a3b",
                       "weight": 0
                     },
@@ -21041,13 +21530,6 @@
                       "weight": 2
                     },
                     {
-                      "text": "Prepare to isolate and be COVIDSafe at home",
-                      "url": "/preparing-isolate-and-being-covidsafe-home",
-                      "uuid": "2314bfe5-ca49-481c-9bf8-385d14c2524f",
-                      "parent": "0eaaca7c-6a13-443b-8a99-ba160db1b2b6",
-                      "weight": 3
-                    },
-                    {
                       "text": "Omicron variant",
                       "url": "/omicron-variant",
                       "uuid": "0a74d766-be80-4ab9-b0b0-4f357985b24d",
@@ -21106,53 +21588,60 @@
                   "weight": 10,
                   "children": [
                     {
+                      "text": "Reporting your result",
+                      "url": "/report",
+                      "uuid": "17b9e85f-0679-4c44-8575-bb4ecd73b033",
+                      "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
+                      "weight": 0
+                    },
+                    {
                       "text": "Symptoms and risks",
                       "url": "/symptoms-and-risks",
                       "uuid": "5d0fed05-749b-4201-9209-692b38ec7c85",
                       "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
-                      "weight": 0
+                      "weight": 1
                     },
                     {
                       "text": "Taking the test ",
                       "url": "/taking-test-covid-19",
                       "uuid": "df1f2649-1d81-4770-b542-2d3338aa2f81",
                       "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
-                      "weight": 1
+                      "weight": 2
                     },
                     {
                       "text": "Where to get tested",
                       "url": "/where-get-tested-covid-19",
                       "uuid": "ad26b7d2-1fd5-4ada-a506-8cb8cf7e3696",
                       "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
-                      "weight": 2
+                      "weight": 3
                     },
                     {
                       "text": "Getting your results",
                       "url": "/getting-your-results-covid-19",
                       "uuid": "0c9c06e2-da00-4a7c-8fa4-78ec2ae9d19e",
                       "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
-                      "weight": 3
+                      "weight": 4
                     },
                     {
                       "text": "Call-to-Test - Reaching out to vulnerable Victorians",
                       "url": "/call-to-test-covid-19",
                       "uuid": "e920e2ae-f5f0-4518-bd7a-aa3c329fdd9f",
                       "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
-                      "weight": 4
+                      "weight": 5
                     },
                     {
-                      "text": "Rapid antigen self-tests",
-                      "url": "/rapid-antigen-self-tests",
+                      "text": "Rapid antigen tests",
+                      "url": "/rapid-antigen-tests",
                       "uuid": "8baad265-f492-4d23-96a8-5bfe388c4313",
                       "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
-                      "weight": 5
+                      "weight": 6
                     },
                     {
                       "text": "Information for people with long COVID symptoms",
                       "url": "/information-people-long-covid-19-symptoms",
                       "uuid": "d1c4bccf-76df-4f8d-9a00-be496186c112",
                       "parent": "2117ae21-7e38-4ad5-850d-fe29e1278605",
-                      "weight": 7
+                      "weight": 8
                     }
                   ]
                 },
@@ -21199,8 +21688,8 @@
                       "weight": 16,
                       "children": [
                         {
-                          "text": "$450 Coronavirus (COVID-19) Test Isolation Payment ",
-                          "url": "/450-coronavirus-covid-19-test-isolation-payment",
+                          "text": "COVID-19 Test Isolation Payment ",
+                          "url": "/covid-19-test-isolation-payment",
                           "uuid": "527b78ef-f2af-4639-ab28-d78ca8b76d7a",
                           "parent": "3f8b6bd4-ef48-49f4-9538-27d6cf2cbf28",
                           "weight": 0
@@ -21420,7 +21909,7 @@
                 },
                 {
                   "text": "Returned overseas travellers and quarantine programs ",
-                  "url": "/quarantine-programs",
+                  "url": "/returned-overseas-travellers-and-quarantine-programs",
                   "uuid": "5773c801-a992-4c6f-9824-ff6e0fafdbec",
                   "parent": "79d0a70a-c23e-4703-957c-ce489b992958",
                   "weight": 18,
@@ -21712,8 +22201,8 @@
                       "weight": 12
                     },
                     {
-                      "text": "Confirmed case in the workplace",
-                      "url": "/confirmed-case-workplace",
+                      "text": "Case in the workplace",
+                      "url": "/case-workplace",
                       "uuid": "a05e8418-9b5c-47d1-9947-b9bc99a9dc40",
                       "parent": "136f012a-df52-4eac-ad20-5b2f78998169",
                       "weight": 13
@@ -22326,7 +22815,7 @@
           "image": "https://content.vic.gov.au/sites/default/files/site_logo/coronavirus-logo.svg"
         },
         "errorPage": {},
-        "lastFetched": 1640737915558
+        "lastFetched": 1641702099051
       },
       "pageData": {"imageCaption": null},
       "pageHead": {
@@ -22336,7 +22825,7 @@
           {
             "name": "description",
             "hid": "description",
-            "content": "Latest COVID-19 vaccine data for Victorian hospital immunisation hubs"
+            "content": "COVID-19 vaccine data for the last 24 hours"
           },
           {
             "property": "og:title",
@@ -22346,7 +22835,7 @@
           {
             "property": "og:description",
             "hid": "og:description",
-            "content": "Latest COVID-19 vaccine data for Victorian hospital immunisation hubs"
+            "content": "COVID-19 vaccine data for the last 24 hours"
           },
           {"property": "og:type", "hid": "og:type", "content": "website"},
           {
@@ -22374,7 +22863,7 @@
           {
             "name": "twitter:description",
             "hid": "twitter:description",
-            "content": "Latest COVID-19 vaccine data for Victorian hospital immunisation hubs"
+            "content": "COVID-19 vaccine data for the last 24 hours"
           },
           {
             "name": "twitter:image",

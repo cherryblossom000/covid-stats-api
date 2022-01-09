@@ -9,9 +9,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "watch": "pnpm build -- -w",
+    "watch": "dum build -- -w",
     "lint": "eslint --max-warnings 0 --report-unused-disable-directives . --ext cjs,ts",
-    "lint:dev": "pnpm run lint -- --cache"
+    "lint:dev": "dum lint -- --cache"
   },
   "dependencies": {
     "@saeris/apollo-server-vercel": "^1.0.1",
