@@ -10,14 +10,13 @@ const homePageStats = [
     'dose3',
     'newCases',
     'pcrTests',
-    'ratTests',
+    'newRATCases',
     'hospitalCases',
     'icuCases',
     'deaths'
 ];
 const dataPageStats = [
     'newPCRCases',
-    'newRATCases',
     'newHotelCases',
     'activeCases',
     'totalPCRTests',
@@ -34,12 +33,11 @@ const NAME_TO_IDS = {
     dose3: '74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21',
     newCases: 'c429cc59-6887-4093-a937-e7592485f293',
     pcrTests: '05f695de-a635-4c35-a6d1-b6a3d63e02de',
-    ratTests: 'd7d13b8d-4a41-435f-8e82-b8d1d5475027',
+    newRATCases: 'd7d13b8d-4a41-435f-8e82-b8d1d5475027',
     hospitalCases: '9d3a45ca-4e54-4545-9159-d09197bc45d4',
     icuCases: '2e5c92a1-1c9d-48c9-adf5-a56f096ad99f',
     deaths: '179c4b61-2d74-4472-ac94-9c979a39793d',
     newPCRCases: '293615f7-f87f-4bc0-954c-1bb53989e6fc',
-    newRATCases: '0b3768b7-b8b6-43d5-842d-fb6a07e7a61b',
     newHotelCases: '5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d',
     activeCases: 'a0681e4b-82d0-4188-a6d3-b3f2789dd110',
     totalPCRTests: '35208240-6a54-468b-9b6c-b9a0252ce5af',
@@ -108,7 +106,7 @@ export default new ApolloServer({
                     })),
                     resolve: async (_, __, ___, info) => {
                         const fields = graphqlFields(info);
-                        const [homePageUpdated, dataPageUpdated, { dose1, dose2, dose3, newCases, pcrTests, ratTests, hospitalCases, icuCases, deaths, newPCRCases, newRATCases, newHotelCases, activeCases, totalPCRTests, totalPCRCases, totalDeaths, recovered }] = await Promise.all([
+                        const [homePageUpdated, dataPageUpdated, { dose1, dose2, dose3, newCases, pcrTests, newRATCases, hospitalCases, icuCases, deaths, newPCRCases, newHotelCases, activeCases, totalPCRTests, totalPCRCases, totalDeaths, recovered }] = await Promise.all([
                             fields.homePage?.updated
                                 ? fetchUpdated('743c618f-deb7-4f00-9eb3-c4abc1171663', 'home page')
                                 : undefined,
@@ -141,7 +139,7 @@ export default new ApolloServer({
                                 dose3,
                                 newCases,
                                 pcrTests,
-                                ratTests,
+                                newRATCases,
                                 hospitalCases,
                                 icuCases,
                                 deaths
@@ -149,7 +147,6 @@ export default new ApolloServer({
                             dataPage: {
                                 updated: dataPageUpdated,
                                 newPCRCases,
-                                newRATCases,
                                 newHotelCases,
                                 activeCases,
                                 totalPCRTests,
