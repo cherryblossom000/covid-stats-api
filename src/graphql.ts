@@ -44,7 +44,7 @@ const homePageStats = [
   'newRATCases',
   'hospitalCases',
   'icuCases',
-  'deaths'
+  'newDeaths'
 ] as const
 type HomePageStat = typeof homePageStats[number]
 
@@ -81,7 +81,7 @@ const NAME_TO_IDS: Readonly<Record<AnyStat, string>> = {
   newRATCases: 'd7d13b8d-4a41-435f-8e82-b8d1d5475027',
   hospitalCases: '9d3a45ca-4e54-4545-9159-d09197bc45d4',
   icuCases: '2e5c92a1-1c9d-48c9-adf5-a56f096ad99f',
-  deaths: '179c4b61-2d74-4472-ac94-9c979a39793d',
+  newDeaths: '179c4b61-2d74-4472-ac94-9c979a39793d',
   newPCRCases: '293615f7-f87f-4bc0-954c-1bb53989e6fc',
   newHotelCases: '5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d',
   activeCases: 'a0681e4b-82d0-4188-a6d3-b3f2789dd110',
@@ -235,7 +235,7 @@ export default new ApolloServer({
                 newRATCases,
                 hospitalCases,
                 icuCases,
-                deaths,
+                newDeaths,
                 newPCRCases,
                 newHotelCases,
                 activeCases,
@@ -306,7 +306,7 @@ export default new ApolloServer({
                 newRATCases,
                 hospitalCases,
                 icuCases,
-                deaths
+                newDeaths
               },
               dataPage: {
                 updated: dataPageUpdated,
