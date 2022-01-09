@@ -11,7 +11,7 @@ const homePageStats = [
     'newCases',
     'pcrTests',
     'newRATCases',
-    'newHospitalCases',
+    'hospitalCases',
     'icuCases',
     'deaths'
 ];
@@ -34,7 +34,7 @@ const NAME_TO_IDS = {
     newCases: 'c429cc59-6887-4093-a937-e7592485f293',
     pcrTests: '05f695de-a635-4c35-a6d1-b6a3d63e02de',
     newRATCases: 'd7d13b8d-4a41-435f-8e82-b8d1d5475027',
-    newHospitalCases: '9d3a45ca-4e54-4545-9159-d09197bc45d4',
+    hospitalCases: '9d3a45ca-4e54-4545-9159-d09197bc45d4',
     icuCases: '2e5c92a1-1c9d-48c9-adf5-a56f096ad99f',
     deaths: '179c4b61-2d74-4472-ac94-9c979a39793d',
     newPCRCases: '293615f7-f87f-4bc0-954c-1bb53989e6fc',
@@ -106,7 +106,7 @@ export default new ApolloServer({
                     })),
                     resolve: async (_, __, ___, info) => {
                         const fields = graphqlFields(info);
-                        const [homePageUpdated, dataPageUpdated, { dose1, dose2, dose3, newCases, pcrTests, newRATCases, newHospitalCases, icuCases, deaths, newPCRCases, newHotelCases, activeCases, totalPCRTests, totalPCRCases, totalDeaths, recovered }] = await Promise.all([
+                        const [homePageUpdated, dataPageUpdated, { dose1, dose2, dose3, newCases, pcrTests, newRATCases, hospitalCases, icuCases, deaths, newPCRCases, newHotelCases, activeCases, totalPCRTests, totalPCRCases, totalDeaths, recovered }] = await Promise.all([
                             fields.homePage?.updated
                                 ? fetchUpdated('743c618f-deb7-4f00-9eb3-c4abc1171663', 'home page')
                                 : undefined,
@@ -140,7 +140,7 @@ export default new ApolloServer({
                                 newCases,
                                 pcrTests,
                                 newRATCases,
-                                newHospitalCases,
+                                hospitalCases,
                                 icuCases,
                                 deaths
                             },
