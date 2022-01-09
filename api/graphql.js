@@ -1,7 +1,7 @@
 import { ApolloServer } from '@saeris/apollo-server-vercel';
 import { GraphQLInterfaceType, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
 import graphqlFields from 'graphql-fields';
-import { GraphQLDate, GraphQLDateTime } from 'graphql-scalars';
+import { GraphQLDateTime } from 'graphql-scalars';
 import nodeFetch from 'node-fetch';
 import qs from 'qs';
 const homePageStats = [
@@ -28,7 +28,6 @@ const dataPageStats = [
 // #endregion
 // #region Constants
 const COVID_SITE = 'https://www.coronavirus.vic.gov.au';
-const ABC_SITE = 'https://www.abc.net.au';
 const NAME_TO_IDS = {
     dose1: 'bd3dad0d-5c68-4fc6-a392-e7f22f1e734d',
     dose2: 'a95c18ed-7111-4e54-9936-5ec4fe135058',
@@ -73,34 +72,25 @@ const fetchUpdated = async (id, message) => (await covidAPI(`block_content/daily
 const nonNullString = {
     type: new GraphQLNonNull(GraphQLString)
 };
-const mkUpdatedField = (type) => ({
-    updated: { type: new GraphQLNonNull(type) }
-});
-const updatedField = mkUpdatedField(GraphQLDateTime);
+const updatedFields = {
+    updated: { type: new GraphQLNonNull(GraphQLDateTime) }
+};
 const dateTimeUpdatedInterface = new GraphQLInterfaceType({
     name: 'DateTimeUpdated',
-    fields: updatedField
+    fields: updatedFields
 });
-const dateTimeUpdated = (name, description, fields, resolve) => ({
+const statsField = (name, description, statKeys) => ({
     description,
     type: new GraphQLNonNull(new GraphQLObjectType({
         name,
         interfaces: [dateTimeUpdatedInterface],
         fields: {
-            ...updatedField,
-            ...fields
+            ...updatedFields,
+            ...Object.fromEntries(statKeys.map(s => [s, nonNullString]))
         }
-    })),
-    ...(resolve ? { resolve } : {})
+    }))
 });
-const statsField = (name, description, statKeys) => dateTimeUpdated(name, description, Object.fromEntries(statKeys.map(s => [s, nonNullString])));
 // #endregion
-const vaccinationStatFields = {
-    vaxRate: nonNullString,
-    vaxRateDelta: nonNullString,
-    vax2Rate: nonNullString,
-    vax2RateDelta: nonNullString
-};
 export default new ApolloServer({
     introspection: true,
     playground: true,
@@ -167,31 +157,6 @@ export default new ApolloServer({
                                 totalDeaths,
                                 recovered
                             }
-                        };
-                    }
-                },
-                abcVaccinationStats: {
-                    description: `${ABC_SITE}/news/2021-03-02/charting-australias-covid-vaccine-rollout/13197518`,
-                    type: new GraphQLNonNull(new GraphQLObjectType({
-                        name: 'VaccinationStats',
-                        fields: {
-                            ...mkUpdatedField(GraphQLDate),
-                            ...vaccinationStatFields
-                        }
-                    })),
-                    resolve: async () => {
-                        const [[, , , yesterday1, , yesterday2], [today, , , today1, , today2]] = (await (await fetch(`${ABC_SITE}/dat/news/interactives/covid19-data//aus-doses-breakdown.csv`)).text())
-                            .split('\r\n')
-                            .slice(-18) // 2 * (8 states/territories + national)
-                            .map(line => line.split(','))
-                            .filter(([, place]) => place === 'VIC');
-                        const vaxRate = Number(today1);
-                        return {
-                            updated: today.split('/').join('-'),
-                            vaxRate: vaxRate.toFixed(2),
-                            vaxRateDelta: (vaxRate - Number(yesterday1)).toFixed(2),
-                            vax2Rate: today2,
-                            vax2RateDelta: (Number(today2) - Number(yesterday2)).toFixed(2)
                         };
                     }
                 }
