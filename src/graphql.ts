@@ -4,13 +4,14 @@ import {
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLSchema,
-  GraphQLString
+  GraphQLString,
+  type GraphQLFieldConfig,
+  type GraphQLFieldConfigMap
 } from 'graphql'
 import graphqlFields from 'graphql-fields'
 import {GraphQLDateTime} from 'graphql-scalars'
 import nodeFetch from 'node-fetch'
 import qs from 'qs'
-import type {GraphQLFieldConfig, GraphQLFieldConfigMap} from 'graphql'
 import type {Response} from 'node-fetch'
 
 // TODO: throw error if stat changes
