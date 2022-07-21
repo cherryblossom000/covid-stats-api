@@ -3,61 +3,69 @@ data: content.vic.gov.au/api/v1/paragraph/daily_update_statistics
 
 home page https://www.coronavirus.vic.gov.au
 -
-fe17163c-0839-4d2f-b3c3-735a77f7f33f: COVID-19 vaccine rates in Victoria
-bd3dad0d-5c68-4fc6-a392-e7f22f1e734d: of 12+ eligible Victorians first dose
-a95c18ed-7111-4e54-9936-5ec4fe135058: of 12+ eligible Victorians second dose
-74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21: of 18+ eligible Victorians third dose
+27c3f771-fdee-4fe9-a014-88c611b81de0: COVID-19 vaccine rates in Victoria
+f6dbb6c0-8d1b-4111-85f4-c0cd4f1119c4
+	d675c960-cb31-4d94-8b18-dd31b6454aff: of 12+ eligible Victorians first dose
+	4d5012f2-b692-459b-b07f-c91617fcb0d9: of 12+ eligible Victorians second dose
+	11fe8010-615b-480b-8af3-8810c914c6f7: of 18+ eligible Victorians third dose
 -
-743c618f-deb7-4f00-9eb3-c4abc1171663: COVID-19 in Victoria (last 24 hours)
-c429cc59-6887-4093-a937-e7592485f293: new cases (PCR and Rapid)
-05f695de-a635-4c35-a6d1-b6a3d63e02de: total PCR tests
-d7d13b8d-4a41-435f-8e82-b8d1d5475027: rapid antigen test cases (last 24 hours)
-9d3a45ca-4e54-4545-9159-d09197bc45d4: cases in hospital
-2e5c92a1-1c9d-48c9-adf5-a56f096ad99f: cases in ICU
-179c4b61-2d74-4472-ac94-9c979a39793d: lives lost
+bc10ccc5-f19e-4cc5-832d-fdfe86639106: COVID-19 data in Victoria
+44423952-1262-4a4a-ad74-7e6fc9e0520f
+	bdbed36c-9a83-4ca5-9e93-2052dcba74d3: new cases (PCR and rapid antigen test)
+	8454415a-c079-4edb-942d-aae49f9243eb: total PCR tests
+	08ef30d1-0df5-4709-9f13-c29e2e9e06a1: rapid antigen test cases
+	e686ad47-2c6f-4b4a-b4da-7403de0d4f62: cases in hospital
+	9465725a-4321-471c-928c-76be4577ac86: cases in ICU
+	e9a50592-264e-42d7-adb5-27716cb16d41: lives lost
 
 data page https://www.coronavirus.vic.gov.au/victorian-coronavirus-covid-19-data
 -
-e674178a-0717-44c1-a14f-514db0e1dc65: Active cases
-293615f7-f87f-4bc0-954c-1bb53989e6fc: cases acquired locally via PCR (last 24 hours)
-0b3768b7-b8b6-43d5-842d-fb6a07e7a61b: probable cases via RAT (last 24 hours)
-5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d: internationally acquired & in quarantine (last 24 hours)
-a0681e4b-82d0-4188-a6d3-b3f2789dd110: active cases
+748ad06f-7143-47f1-8006-1347e9d4dd10: Active cases
+3451f0aa-d9da-44d7-abcf-e5ebe7ba1c6b
+	8e545be4-b7ab-4f9b-a04e-eb0ba4c815b8: cases acquired locally via PCR tests (last 24 hours)
+	ec10956c-4f49-4dbf-b751-05e353ef6f27: probable cases via rapid antigen tests (last 24 hours)
+	4e3ebe45-e6b6-42c4-8460-cbfe292d2acd: active cases from PCR and rapid antigen test
 -
-cb7b0d0e-23b3-4252-b50f-a5a98b4bc573: Total tests and total cases
-439e0498-93fe-43f0-8069-c89a5529638e: PCR test results received (last 24 hours)
-35208240-6a54-468b-9b6c-b9a0252ce5af: total PCR tests
-2612d038-ca63-4cfd-beeb-8ad0a6d83c0e: total cases from PCR
+d70c2f1f-87da-4d0f-b9c4-3482a4881809: Current cases in hospital
+a9f5e28a-b9a0-4644-9f84-37ae29a0fb85
+	589143cd-192c-4813-9aa2-ddaffd02d075: cases in hospital
+	b7db172d-7f4c-4cba-9bf0-f987591411fc: cases in ICU
 -
-191603dc-ce17-4ee4-9d46-391ea8dcda72: Lives lost and recovered
-e0900375-0198-47a2-9d88-70909977e395: lives lost (last 24 hours)
-0e539187-308d-4924-a9df-31df1d1407fe: total lives lost
-4d573de6-a0b9-4cb6-b45b-9b0e018f7149: recovered
+1ee59466-151c-4873-9b1b-4c06b90f6a74: Total tests and total cases
+dadb4862-5c07-4859-8130-f8a619edbe19
+	957201dc-ed78-4246-9f21-53e7b035d570: PCR test results received (last 24 hours)
+	f862f783-74a1-4479-b096-ae9167e58525: total PCR tests
+	b725902f-6878-4829-b9eb-35d605a1be34: total cases from PCR
 -
-6f2f0567-37b6-4474-87c7-0094b9812554: Current cases in hospital
-0c37c1dc-01ad-42c4-88b3-acdf4a1eea88: cases in hospital
-a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df: cases in ICU
+7261e8fd-f35e-4e78-a991-a4c537d45b06: Lives lost and recovered
+2d49b352-13f1-4352-ad8b-96d3ec39a764
+	a481ad4b-fb95-4645-91fa-19a0eeb2a3cf: lives lost (last 24 hours)
+	69a44e8d-e04b-4c9a-ad7e-4dda9c662ad2: total lives lost
+	9c9481a7-d67b-4815-9a2d-bb6d71c1a774: cases recovered
 
 daily vax page https://www.coronavirus.vic.gov.au/covid-19-vaccine-data
 -
-386f93e2-4488-48c2-a5f8-4ab7e2b68ab1: All vaccine doses at all vaccination centres (cumulative total) (with third dose)
-c6081f58-f016-4729-8e62-54819bbc9b7c: Dose 1
-88611b8a-bfbd-4e16-aa84-20c9028c3d9a: Dose 2
-e71e4628-5a31-4cc8-bc86-ac21728e8cb1: Dose 3
-61ab333b-4142-4aa2-919a-718dc5a6571a: Total doses (last 24 hours)
+f908745c-ef6c-4273-b2ff-6077fb0b6985: All vaccine doses at Victorian state run centres (last 24 hours)
+f80e5a4c-e447-4701-95c5-b1f29efa078d
+	4f6dd2c4-17a2-4e7d-b0f7-9c6f5f368cb1: Dose 1
+	4f4b0b4b-6898-464f-9990-c078e253cca2: Dose 2
+	450d6915-7b5a-4669-917b-64e583aad700: Dose 3
+	8b195822-d991-4cbd-b0cd-618c13768485: Total doses (last 24 hours)
 -
-ea8535e6-3caf-4017-bf1b-dec5f040b946: All vaccine doses at all vaccination centres (cumulative total)
-7fbd262a-bd56-4948-bf46-514a8d2d0c64: Dose 1
-f98ba65f-b9dc-47f6-aab8-bbc8d60c8c81: Dose 2
-0e48d5b5-6032-4c28-b55c-abffad3f4615: Dose 3
-b3428463-1a41-4d58-a2dc-4498a9b5b868: Total doses
+3d7c0272-89ac-4a35-868b-c0b38a04acb1: All vaccine doses at all vaccination centres (cumulative total)
+6df472b7-de0a-4a72-aaf7-14e01280e2f1
+	eed9e2c1-80b9-461d-b70d-b29b739cbfb0: Dose 1
+	fe3c225c-5f23-4132-8228-42809677b3fd: Dose 2
+	a168ea43-fda6-418a-b1e9-fb44ad10ce77: Dose 3
+	668e42f4-eec2-49e2-b1b2-126ae0ce6f21: Total doses
 
 weekly vax page https://www.coronavirus.vic.gov.au/weekly-covid-19-vaccine-data:
-f524def8-ac41-4525-b23f-8c407137c823: Weekly vaccine doses in Victoria
-e4857556-15e6-4fa5-a87b-856720f4ebc4: Total doses administered this week
-04ffd893-a36b-4309-afd3-258097d0278c: Total doses administered
-ae46f184-1b58-4d36-b817-1b768cb737be: Doses administered by Australian Government
-910c9273-28c4-4325-ae14-734a6609d24d: Doses administered by Victorian Government
+91d22388-aff5-4278-b8a7-aa6357cdf389: Weekly vaccine doses
+63d1d486-5edf-4038-a70f-e513c7710f22
+	324e92eb-e063-4b00-89f5-50413978d839: Total doses administered this week
+	fce9c2cb-a847-494f-b6b4-7e557e5e5000: Total doses administered
+	d0d0089f-fbbd-457e-aa01-7804030c49e4: Doses administered by Australian Government
+	1676357f-540c-49c1-8f09-a79917cc8e84: Doses administered by Victorian Government
 
 <old>
 content.vic.gov.au/api/v1/block_content/daily_update/743c618f-deb7-4f00-9eb3-c4abc1171663 include==field_statistics: updated at + home page data!
