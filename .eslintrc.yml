@@ -1,5 +1,5 @@
 root: true
-extends: '@cherryblossom/eslint-config/node/14'
+extends: '@cherryblossom/eslint-config/node/16'
 settings:
   jsdoc:
     mode: typescript
