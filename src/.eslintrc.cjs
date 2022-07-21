@@ -1,9 +1,10 @@
 'use strict'
 
-const path = require('path')
+const path = require('node:path')
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+	extends: '@cherryblossom/eslint-config/node/16',
 	overrides: [
 		{
 			files: '.eslintrc.cjs',
