@@ -1,25 +1,25 @@
 {
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "api",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "api",
 
-    "target": "ES2021",
-    "module": "ES2020",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "lib": ["ES2021"],
-    "skipLibCheck": true,
+		"target": "ES2021",
+		"module": "ES2020",
+		"moduleResolution": "Node",
+		"esModuleInterop": true,
+		"lib": ["ES2021"],
+		"skipLibCheck": true,
 
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "useDefineForClassFields": true
-  }
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"exactOptionalPropertyTypes": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+		"useDefineForClassFields": true
+	}
 }

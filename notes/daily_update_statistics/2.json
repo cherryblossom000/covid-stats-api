@@ -1,1048 +1,1048 @@
 {
-  "jsonapi": {
-    "version": "1.0",
-    "meta": {
-      "links": {
-        "self": {
-          "href": "http://jsonapi.org/format/1.0/"
-        }
-      }
-    }
-  },
-  "data": [
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "9c3c3d72-de06-416a-bd7b-67176127a7be",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9c3c3d72-de06-416a-bd7b-67176127a7be"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 641908,
-        "drupal_internal__revision_id": 1769995,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-12-27T05:29:17+00:00",
-        "parent_id": "660",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": null,
-        "field_item_description": "cases in ICU",
-        "field_item_statistic": "80"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9c3c3d72-de06-416a-bd7b-67176127a7be/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "503955c7-8231-47c5-8ccb-1a4d693627a6",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/503955c7-8231-47c5-8ccb-1a4d693627a6"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 641909,
-        "drupal_internal__revision_id": 1769996,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-12-27T05:29:42+00:00",
-        "parent_id": "660",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": null,
-        "field_item_description": "ICU cases on a ventilator",
-        "field_item_statistic": "38"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/503955c7-8231-47c5-8ccb-1a4d693627a6/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "a236c138-6534-46b7-80a7-383480768e45",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a236c138-6534-46b7-80a7-383480768e45"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 641910,
-        "drupal_internal__revision_id": 1769997,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-12-27T05:30:07+00:00",
-        "parent_id": "660",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "hospitalised at any point",
-        "field_item_statistic": "9,810"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a236c138-6534-46b7-80a7-383480768e45/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "293615f7-f87f-4bc0-954c-1bb53989e6fc",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/293615f7-f87f-4bc0-954c-1bb53989e6fc"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 26595,
-        "drupal_internal__revision_id": 1772213,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-09-04T06:14:52+00:00",
-        "parent_id": "248",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "cases acquired locally (last 24 hours)",
-        "field_item_statistic": "2,735"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/293615f7-f87f-4bc0-954c-1bb53989e6fc/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "0b3768b7-b8b6-43d5-842d-fb6a07e7a61b",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0b3768b7-b8b6-43d5-842d-fb6a07e7a61b"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 26596,
-        "drupal_internal__revision_id": 1772214,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-09-04T06:14:52+00:00",
-        "parent_id": "248",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "internationally acquired & in quarantine (last 24 hours)",
-        "field_item_statistic": "3"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0b3768b7-b8b6-43d5-842d-fb6a07e7a61b/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 26597,
-        "drupal_internal__revision_id": 1772215,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-09-04T06:14:53+00:00",
-        "parent_id": "248",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "active cases",
-        "field_item_statistic": "17,821"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "439e0498-93fe-43f0-8069-c89a5529638e",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/439e0498-93fe-43f0-8069-c89a5529638e"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 44357,
-        "drupal_internal__revision_id": 1772216,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-30T21:22:23+00:00",
-        "parent_id": "339",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "test results received (last 24 hours)",
-        "field_item_statistic": "66,683"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/439e0498-93fe-43f0-8069-c89a5529638e/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "35208240-6a54-468b-9b6c-b9a0252ce5af",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/35208240-6a54-468b-9b6c-b9a0252ce5af"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 44358,
-        "drupal_internal__revision_id": 1772217,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-30T21:22:23+00:00",
-        "parent_id": "339",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "total tests",
-        "field_item_statistic": "17,134,467"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/35208240-6a54-468b-9b6c-b9a0252ce5af/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "2612d038-ca63-4cfd-beeb-8ad0a6d83c0e",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2612d038-ca63-4cfd-beeb-8ad0a6d83c0e"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 44359,
-        "drupal_internal__revision_id": 1772218,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-30T21:22:29+00:00",
-        "parent_id": "339",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "total cases",
-        "field_item_statistic": "161,845"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2612d038-ca63-4cfd-beeb-8ad0a6d83c0e/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "e0900375-0198-47a2-9d88-70909977e395",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e0900375-0198-47a2-9d88-70909977e395"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 44360,
-        "drupal_internal__revision_id": 1772219,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-30T21:23:14+00:00",
-        "parent_id": "340",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "lives lost (last 24 hours)",
-        "field_item_statistic": "4"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e0900375-0198-47a2-9d88-70909977e395/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "0e539187-308d-4924-a9df-31df1d1407fe",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0e539187-308d-4924-a9df-31df1d1407fe"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 44361,
-        "drupal_internal__revision_id": 1772220,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-30T21:23:14+00:00",
-        "parent_id": "340",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "total lives lost",
-        "field_item_statistic": "1,499"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0e539187-308d-4924-a9df-31df1d1407fe/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "4d573de6-a0b9-4cb6-b45b-9b0e018f7149",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/4d573de6-a0b9-4cb6-b45b-9b0e018f7149"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 44362,
-        "drupal_internal__revision_id": 1772221,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-30T21:23:20+00:00",
-        "parent_id": "340",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "recovered",
-        "field_item_statistic": "142,525"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/4d573de6-a0b9-4cb6-b45b-9b0e018f7149/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "0c37c1dc-01ad-42c4-88b3-acdf4a1eea88",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0c37c1dc-01ad-42c4-88b3-acdf4a1eea88"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "361",
-        "drupal_internal__id": 41230,
-        "drupal_internal__revision_id": 1772222,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-29T09:46:39+00:00",
-        "parent_id": "337",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "cases in hospital"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0c37c1dc-01ad-42c4-88b3-acdf4a1eea88/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "69",
-        "drupal_internal__id": 41231,
-        "drupal_internal__revision_id": 1772223,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-03-29T09:46:39+00:00",
-        "parent_id": "337",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "cases in ICU"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "b717ad94-6e2a-429f-81a9-42677be5658c",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b717ad94-6e2a-429f-81a9-42677be5658c"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 94280,
-        "drupal_internal__revision_id": 1774711,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-07-05T10:10:56+00:00",
-        "parent_id": "390",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "Dose 1 (last 24 hours)",
-        "field_item_statistic": "7"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b717ad94-6e2a-429f-81a9-42677be5658c/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 94281,
-        "drupal_internal__revision_id": 1774712,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-07-05T10:11:16+00:00",
-        "parent_id": "390",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "Dose 2 (last 24 hours)",
-        "field_item_statistic": "44"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "93a389cc-b33a-4f23-9137-1b19e65e0b04",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/93a389cc-b33a-4f23-9137-1b19e65e0b04"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 94282,
-        "drupal_internal__revision_id": 1774713,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-07-05T10:10:15+00:00",
-        "parent_id": "390",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "Total doses (last 24 hours)",
-        "field_item_statistic": "535"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/93a389cc-b33a-4f23-9137-1b19e65e0b04/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "ec41ff0d-4a4a-4727-8a3b-53f400808bd7",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ec41ff0d-4a4a-4727-8a3b-53f400808bd7"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 94283,
-        "drupal_internal__revision_id": 1774714,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-07-05T10:09:29+00:00",
-        "parent_id": "390",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "Dose 1 total",
-        "field_item_statistic": "5,399,875"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ec41ff0d-4a4a-4727-8a3b-53f400808bd7/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "e1fa76e1-5c27-4294-bd89-bc6fba372040",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e1fa76e1-5c27-4294-bd89-bc6fba372040"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 94284,
-        "drupal_internal__revision_id": 1774715,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-07-05T10:10:04+00:00",
-        "parent_id": "390",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "Dose 2 total",
-        "field_item_statistic": "5,305,848"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e1fa76e1-5c27-4294-bd89-bc6fba372040/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "ef650668-aebb-4e6f-a587-d2df60f18c99",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ef650668-aebb-4e6f-a587-d2df60f18c99"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 94285,
-        "drupal_internal__revision_id": 1774716,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-07-05T10:09:29+00:00",
-        "parent_id": "390",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "Total doses administered",
-        "field_item_statistic": "11,247,566"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ef650668-aebb-4e6f-a587-d2df60f18c99/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "bd3dad0d-5c68-4fc6-a392-e7f22f1e734d",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/bd3dad0d-5c68-4fc6-a392-e7f22f1e734d"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 365112,
-        "drupal_internal__revision_id": 1774717,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-09-16T04:58:04+00:00",
-        "parent_id": "430",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": null,
-        "field_item_description": "of 12+ eligible Victorians first dose",
-        "field_item_statistic": "94.5%"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/bd3dad0d-5c68-4fc6-a392-e7f22f1e734d/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "a95c18ed-7111-4e54-9936-5ec4fe135058",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a95c18ed-7111-4e54-9936-5ec4fe135058"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 508589,
-        "drupal_internal__revision_id": 1774718,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-11-11T22:37:57+00:00",
-        "parent_id": "430",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": null,
-        "field_item_description": "of 12+ eligible Victorians fully vaccinated",
-        "field_item_statistic": "92.8%"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a95c18ed-7111-4e54-9936-5ec4fe135058/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 365113,
-        "drupal_internal__revision_id": 1774719,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-09-16T04:58:04+00:00",
-        "parent_id": "430",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": null,
-        "field_item_description": "of 16+ eligible Victorians first dose",
-        "field_item_statistic": "94.5%"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "0537d785-88dc-4810-b664-75b60e480783",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0537d785-88dc-4810-b664-75b60e480783"
-        }
-      },
-      "attributes": {
-        "drupal_internal__id": 365114,
-        "drupal_internal__revision_id": 1774720,
-        "langcode": "en",
-        "status": true,
-        "created": "2021-09-16T04:58:18+00:00",
-        "parent_id": "430",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": null,
-        "field_item_description": "of 16+ eligible Victorians fully vaccinated",
-        "field_item_statistic": "93.1%"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0537d785-88dc-4810-b664-75b60e480783/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "c429cc59-6887-4093-a937-e7592485f293",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c429cc59-6887-4093-a937-e7592485f293"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "3,767",
-        "drupal_internal__id": 26558,
-        "drupal_internal__revision_id": 1774723,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-09-03T12:13:29+00:00",
-        "parent_id": "246",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "new cases"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c429cc59-6887-4093-a937-e7592485f293/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "05f695de-a635-4c35-a6d1-b6a3d63e02de",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/05f695de-a635-4c35-a6d1-b6a3d63e02de"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "19,994",
-        "drupal_internal__id": 26560,
-        "drupal_internal__revision_id": 1774724,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-09-03T12:13:36+00:00",
-        "parent_id": "246",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "active cases"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/05f695de-a635-4c35-a6d1-b6a3d63e02de/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "d7d13b8d-4a41-435f-8e82-b8d1d5475027",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/d7d13b8d-4a41-435f-8e82-b8d1d5475027"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "397",
-        "drupal_internal__id": 26559,
-        "drupal_internal__revision_id": 1774725,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-09-03T12:13:29+00:00",
-        "parent_id": "246",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "cases in hospital"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/d7d13b8d-4a41-435f-8e82-b8d1d5475027/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "9d3a45ca-4e54-4545-9159-d09197bc45d4",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9d3a45ca-4e54-4545-9159-d09197bc45d4"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "62",
-        "drupal_internal__id": 26561,
-        "drupal_internal__revision_id": 1774726,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-09-03T12:13:40+00:00",
-        "parent_id": "246",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "cases in ICU"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9d3a45ca-4e54-4545-9159-d09197bc45d4/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "2e5c92a1-1c9d-48c9-adf5-a56f096ad99f",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2e5c92a1-1c9d-48c9-adf5-a56f096ad99f"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "28",
-        "drupal_internal__id": 35785,
-        "drupal_internal__revision_id": 1774727,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-12-22T06:17:41+00:00",
-        "parent_id": "246",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "ICU cases on a ventilator"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2e5c92a1-1c9d-48c9-adf5-a56f096ad99f/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "paragraph--daily_update_statistics",
-      "id": "179c4b61-2d74-4472-ac94-9c979a39793d",
-      "links": {
-        "self": {
-          "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/179c4b61-2d74-4472-ac94-9c979a39793d"
-        }
-      },
-      "attributes": {
-        "field_item_statistic": "9,864",
-        "drupal_internal__id": 35786,
-        "drupal_internal__revision_id": 1774728,
-        "langcode": "en",
-        "status": true,
-        "created": "2020-12-22T06:17:43+00:00",
-        "parent_id": "246",
-        "parent_type": "block_content",
-        "parent_field_name": "field_statistics",
-        "behavior_settings": [],
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "field_item_description": "hospitalised at any point"
-      },
-      "relationships": {
-        "paragraph_type": {
-          "data": null,
-          "links": {
-            "self": {
-              "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/179c4b61-2d74-4472-ac94-9c979a39793d/relationships/paragraph_type"
-            }
-          }
-        }
-      }
-    }
-  ],
-  "meta": {
-    "count": "130"
-  },
-  "links": {
-    "first": {
-      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?page%5Boffset%5D=0&page%5Blimit%5D=50"
-    },
-    "prev": {
-      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?page%5Boffset%5D=50&page%5Blimit%5D=50"
-    },
-    "self": {
-      "href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?page%5Boffset%5D=100"
-    }
-  }
+	"jsonapi": {
+		"version": "1.0",
+		"meta": {
+			"links": {
+				"self": {
+					"href": "http://jsonapi.org/format/1.0/"
+				}
+			}
+		}
+	},
+	"data": [
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "9c3c3d72-de06-416a-bd7b-67176127a7be",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9c3c3d72-de06-416a-bd7b-67176127a7be"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 641908,
+				"drupal_internal__revision_id": 1769995,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-12-27T05:29:17+00:00",
+				"parent_id": "660",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": null,
+				"field_item_description": "cases in ICU",
+				"field_item_statistic": "80"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9c3c3d72-de06-416a-bd7b-67176127a7be/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "503955c7-8231-47c5-8ccb-1a4d693627a6",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/503955c7-8231-47c5-8ccb-1a4d693627a6"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 641909,
+				"drupal_internal__revision_id": 1769996,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-12-27T05:29:42+00:00",
+				"parent_id": "660",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": null,
+				"field_item_description": "ICU cases on a ventilator",
+				"field_item_statistic": "38"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/503955c7-8231-47c5-8ccb-1a4d693627a6/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "a236c138-6534-46b7-80a7-383480768e45",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a236c138-6534-46b7-80a7-383480768e45"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 641910,
+				"drupal_internal__revision_id": 1769997,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-12-27T05:30:07+00:00",
+				"parent_id": "660",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "hospitalised at any point",
+				"field_item_statistic": "9,810"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a236c138-6534-46b7-80a7-383480768e45/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "293615f7-f87f-4bc0-954c-1bb53989e6fc",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/293615f7-f87f-4bc0-954c-1bb53989e6fc"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 26595,
+				"drupal_internal__revision_id": 1772213,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-09-04T06:14:52+00:00",
+				"parent_id": "248",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "cases acquired locally (last 24 hours)",
+				"field_item_statistic": "2,735"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/293615f7-f87f-4bc0-954c-1bb53989e6fc/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "0b3768b7-b8b6-43d5-842d-fb6a07e7a61b",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0b3768b7-b8b6-43d5-842d-fb6a07e7a61b"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 26596,
+				"drupal_internal__revision_id": 1772214,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-09-04T06:14:52+00:00",
+				"parent_id": "248",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "internationally acquired & in quarantine (last 24 hours)",
+				"field_item_statistic": "3"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0b3768b7-b8b6-43d5-842d-fb6a07e7a61b/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 26597,
+				"drupal_internal__revision_id": 1772215,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-09-04T06:14:53+00:00",
+				"parent_id": "248",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "active cases",
+				"field_item_statistic": "17,821"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/5c5d8d1b-89e3-4a5e-9fcf-0b93da140e9d/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "439e0498-93fe-43f0-8069-c89a5529638e",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/439e0498-93fe-43f0-8069-c89a5529638e"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 44357,
+				"drupal_internal__revision_id": 1772216,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-30T21:22:23+00:00",
+				"parent_id": "339",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "test results received (last 24 hours)",
+				"field_item_statistic": "66,683"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/439e0498-93fe-43f0-8069-c89a5529638e/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "35208240-6a54-468b-9b6c-b9a0252ce5af",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/35208240-6a54-468b-9b6c-b9a0252ce5af"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 44358,
+				"drupal_internal__revision_id": 1772217,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-30T21:22:23+00:00",
+				"parent_id": "339",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "total tests",
+				"field_item_statistic": "17,134,467"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/35208240-6a54-468b-9b6c-b9a0252ce5af/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "2612d038-ca63-4cfd-beeb-8ad0a6d83c0e",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2612d038-ca63-4cfd-beeb-8ad0a6d83c0e"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 44359,
+				"drupal_internal__revision_id": 1772218,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-30T21:22:29+00:00",
+				"parent_id": "339",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "total cases",
+				"field_item_statistic": "161,845"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2612d038-ca63-4cfd-beeb-8ad0a6d83c0e/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "e0900375-0198-47a2-9d88-70909977e395",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e0900375-0198-47a2-9d88-70909977e395"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 44360,
+				"drupal_internal__revision_id": 1772219,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-30T21:23:14+00:00",
+				"parent_id": "340",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "lives lost (last 24 hours)",
+				"field_item_statistic": "4"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e0900375-0198-47a2-9d88-70909977e395/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "0e539187-308d-4924-a9df-31df1d1407fe",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0e539187-308d-4924-a9df-31df1d1407fe"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 44361,
+				"drupal_internal__revision_id": 1772220,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-30T21:23:14+00:00",
+				"parent_id": "340",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "total lives lost",
+				"field_item_statistic": "1,499"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0e539187-308d-4924-a9df-31df1d1407fe/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "4d573de6-a0b9-4cb6-b45b-9b0e018f7149",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/4d573de6-a0b9-4cb6-b45b-9b0e018f7149"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 44362,
+				"drupal_internal__revision_id": 1772221,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-30T21:23:20+00:00",
+				"parent_id": "340",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "recovered",
+				"field_item_statistic": "142,525"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/4d573de6-a0b9-4cb6-b45b-9b0e018f7149/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "0c37c1dc-01ad-42c4-88b3-acdf4a1eea88",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0c37c1dc-01ad-42c4-88b3-acdf4a1eea88"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "361",
+				"drupal_internal__id": 41230,
+				"drupal_internal__revision_id": 1772222,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-29T09:46:39+00:00",
+				"parent_id": "337",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "cases in hospital"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0c37c1dc-01ad-42c4-88b3-acdf4a1eea88/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "69",
+				"drupal_internal__id": 41231,
+				"drupal_internal__revision_id": 1772223,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-03-29T09:46:39+00:00",
+				"parent_id": "337",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "cases in ICU"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a7bfc1e1-1b7f-4335-8a15-cd585e1cb6df/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "b717ad94-6e2a-429f-81a9-42677be5658c",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b717ad94-6e2a-429f-81a9-42677be5658c"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 94280,
+				"drupal_internal__revision_id": 1774711,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-07-05T10:10:56+00:00",
+				"parent_id": "390",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "Dose 1 (last 24 hours)",
+				"field_item_statistic": "7"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/b717ad94-6e2a-429f-81a9-42677be5658c/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 94281,
+				"drupal_internal__revision_id": 1774712,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-07-05T10:11:16+00:00",
+				"parent_id": "390",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "Dose 2 (last 24 hours)",
+				"field_item_statistic": "44"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c9a5e3b2-c537-4f8b-a139-4cecaa8d4fc4/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "93a389cc-b33a-4f23-9137-1b19e65e0b04",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/93a389cc-b33a-4f23-9137-1b19e65e0b04"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 94282,
+				"drupal_internal__revision_id": 1774713,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-07-05T10:10:15+00:00",
+				"parent_id": "390",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "Total doses (last 24 hours)",
+				"field_item_statistic": "535"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/93a389cc-b33a-4f23-9137-1b19e65e0b04/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "ec41ff0d-4a4a-4727-8a3b-53f400808bd7",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ec41ff0d-4a4a-4727-8a3b-53f400808bd7"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 94283,
+				"drupal_internal__revision_id": 1774714,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-07-05T10:09:29+00:00",
+				"parent_id": "390",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "Dose 1 total",
+				"field_item_statistic": "5,399,875"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ec41ff0d-4a4a-4727-8a3b-53f400808bd7/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "e1fa76e1-5c27-4294-bd89-bc6fba372040",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e1fa76e1-5c27-4294-bd89-bc6fba372040"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 94284,
+				"drupal_internal__revision_id": 1774715,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-07-05T10:10:04+00:00",
+				"parent_id": "390",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "Dose 2 total",
+				"field_item_statistic": "5,305,848"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/e1fa76e1-5c27-4294-bd89-bc6fba372040/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "ef650668-aebb-4e6f-a587-d2df60f18c99",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ef650668-aebb-4e6f-a587-d2df60f18c99"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 94285,
+				"drupal_internal__revision_id": 1774716,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-07-05T10:09:29+00:00",
+				"parent_id": "390",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "Total doses administered",
+				"field_item_statistic": "11,247,566"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/ef650668-aebb-4e6f-a587-d2df60f18c99/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "bd3dad0d-5c68-4fc6-a392-e7f22f1e734d",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/bd3dad0d-5c68-4fc6-a392-e7f22f1e734d"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 365112,
+				"drupal_internal__revision_id": 1774717,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-09-16T04:58:04+00:00",
+				"parent_id": "430",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": null,
+				"field_item_description": "of 12+ eligible Victorians first dose",
+				"field_item_statistic": "94.5%"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/bd3dad0d-5c68-4fc6-a392-e7f22f1e734d/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "a95c18ed-7111-4e54-9936-5ec4fe135058",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a95c18ed-7111-4e54-9936-5ec4fe135058"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 508589,
+				"drupal_internal__revision_id": 1774718,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-11-11T22:37:57+00:00",
+				"parent_id": "430",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": null,
+				"field_item_description": "of 12+ eligible Victorians fully vaccinated",
+				"field_item_statistic": "92.8%"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/a95c18ed-7111-4e54-9936-5ec4fe135058/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 365113,
+				"drupal_internal__revision_id": 1774719,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-09-16T04:58:04+00:00",
+				"parent_id": "430",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": null,
+				"field_item_description": "of 16+ eligible Victorians first dose",
+				"field_item_statistic": "94.5%"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/74b2a8a1-4edb-4cb2-96d5-d1bf96ec3b21/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "0537d785-88dc-4810-b664-75b60e480783",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0537d785-88dc-4810-b664-75b60e480783"
+				}
+			},
+			"attributes": {
+				"drupal_internal__id": 365114,
+				"drupal_internal__revision_id": 1774720,
+				"langcode": "en",
+				"status": true,
+				"created": "2021-09-16T04:58:18+00:00",
+				"parent_id": "430",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": null,
+				"field_item_description": "of 16+ eligible Victorians fully vaccinated",
+				"field_item_statistic": "93.1%"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/0537d785-88dc-4810-b664-75b60e480783/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "c429cc59-6887-4093-a937-e7592485f293",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c429cc59-6887-4093-a937-e7592485f293"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "3,767",
+				"drupal_internal__id": 26558,
+				"drupal_internal__revision_id": 1774723,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-09-03T12:13:29+00:00",
+				"parent_id": "246",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "new cases"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/c429cc59-6887-4093-a937-e7592485f293/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "05f695de-a635-4c35-a6d1-b6a3d63e02de",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/05f695de-a635-4c35-a6d1-b6a3d63e02de"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "19,994",
+				"drupal_internal__id": 26560,
+				"drupal_internal__revision_id": 1774724,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-09-03T12:13:36+00:00",
+				"parent_id": "246",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "active cases"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/05f695de-a635-4c35-a6d1-b6a3d63e02de/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "d7d13b8d-4a41-435f-8e82-b8d1d5475027",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/d7d13b8d-4a41-435f-8e82-b8d1d5475027"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "397",
+				"drupal_internal__id": 26559,
+				"drupal_internal__revision_id": 1774725,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-09-03T12:13:29+00:00",
+				"parent_id": "246",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "cases in hospital"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/d7d13b8d-4a41-435f-8e82-b8d1d5475027/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "9d3a45ca-4e54-4545-9159-d09197bc45d4",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9d3a45ca-4e54-4545-9159-d09197bc45d4"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "62",
+				"drupal_internal__id": 26561,
+				"drupal_internal__revision_id": 1774726,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-09-03T12:13:40+00:00",
+				"parent_id": "246",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "cases in ICU"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/9d3a45ca-4e54-4545-9159-d09197bc45d4/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "2e5c92a1-1c9d-48c9-adf5-a56f096ad99f",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2e5c92a1-1c9d-48c9-adf5-a56f096ad99f"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "28",
+				"drupal_internal__id": 35785,
+				"drupal_internal__revision_id": 1774727,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-12-22T06:17:41+00:00",
+				"parent_id": "246",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "ICU cases on a ventilator"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/2e5c92a1-1c9d-48c9-adf5-a56f096ad99f/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		},
+		{
+			"type": "paragraph--daily_update_statistics",
+			"id": "179c4b61-2d74-4472-ac94-9c979a39793d",
+			"links": {
+				"self": {
+					"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/179c4b61-2d74-4472-ac94-9c979a39793d"
+				}
+			},
+			"attributes": {
+				"field_item_statistic": "9,864",
+				"drupal_internal__id": 35786,
+				"drupal_internal__revision_id": 1774728,
+				"langcode": "en",
+				"status": true,
+				"created": "2020-12-22T06:17:43+00:00",
+				"parent_id": "246",
+				"parent_type": "block_content",
+				"parent_field_name": "field_statistics",
+				"behavior_settings": [],
+				"default_langcode": true,
+				"revision_translation_affected": true,
+				"field_item_description": "hospitalised at any point"
+			},
+			"relationships": {
+				"paragraph_type": {
+					"data": null,
+					"links": {
+						"self": {
+							"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics/179c4b61-2d74-4472-ac94-9c979a39793d/relationships/paragraph_type"
+						}
+					}
+				}
+			}
+		}
+	],
+	"meta": {
+		"count": "130"
+	},
+	"links": {
+		"first": {
+			"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?page%5Boffset%5D=0&page%5Blimit%5D=50"
+		},
+		"prev": {
+			"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?page%5Boffset%5D=50&page%5Blimit%5D=50"
+		},
+		"self": {
+			"href": "https://content.vic.gov.au/api/v1/paragraph/daily_update_statistics?page%5Boffset%5D=100"
+		}
+	}
 }

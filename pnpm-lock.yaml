@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@cherryblossom/eslint-config': 16.0.0-beta.5
+  '@cherryblossom/eslint-config': 16.0.0-beta.6
   '@saeris/apollo-server-vercel': ^1.0.1
   '@types/eslint': ^8.4.1
   '@types/graphql-fields': ^1.3.4
@@ -38,7 +38,7 @@ dependencies:
   qs: 6.11.0
 
 devDependencies:
-  '@cherryblossom/eslint-config': 16.0.0-beta.5_tp7oxrzfwpzc3oww7ws5fye3wy
+  '@cherryblossom/eslint-config': 16.0.0-beta.6_tp7oxrzfwpzc3oww7ws5fye3wy
   '@types/eslint': 8.4.5
   '@types/graphql-fields': 1.3.4
   '@types/node': 16.11.45
@@ -140,8 +140,8 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
-  /@cherryblossom/eslint-config/16.0.0-beta.5_tp7oxrzfwpzc3oww7ws5fye3wy:
-    resolution: {integrity: sha512-908s2vb5Kgjk6qJoRbIt4xOkUOVukIKpju1z+a4l7gHRZzKumdL6pexQfXylvlY8JIytla7JgyvQp1mgAQAXqw==}
+  /@cherryblossom/eslint-config/16.0.0-beta.6_tp7oxrzfwpzc3oww7ws5fye3wy:
+    resolution: {integrity: sha512-9KXYxvWMsig5JHQHDC3qPtav+0gzISXNyeg2cR7chDf8E+ch1KI0Nw1cpSolfcma1M/WSpz+mqEy5O0A6en3mg==}
     engines: {node: '>=14'}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.25
