@@ -10,9 +10,8 @@ import {
 } from 'graphql'
 import graphqlFields from 'graphql-fields'
 import {GraphQLDateTime} from 'graphql-scalars'
-import nodeFetch from 'node-fetch'
 import qs from 'qs'
-import type {Response} from 'node-fetch'
+import {request} from 'undici'
 
 // TODO: throw error if stat changes
 
@@ -102,13 +101,16 @@ const IDS_TO_NAME: Readonly<Record<string, AnyStat>> = Object.fromEntries(
 
 // #region Utils
 
-const fetch = async (url: string, accept?: string): Promise<Response> => {
-	const response = await nodeFetch(
+const fetch = async (
+	url: string,
+	accept?: string
+): Promise<Awaited<ReturnType<typeof request>>['body']> => {
+	const {statusCode, body} = await request(
 		url,
 		accept === undefined ? undefined : {headers: {accept}}
 	)
-	if (!response.ok) throw new Error(response.statusText)
-	return response
+	if (statusCode !== 200) throw new Error(`HTTP status code ${statusCode}`)
+	return body
 }
 
 const fetchJSON = async <T>(...args: Parameters<typeof fetch>): Promise<T> =>
