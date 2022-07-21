@@ -366,7 +366,7 @@ export default new ApolloServer({
 														: String(hourNum).padStart(2, '0')
 													: hourNum === 12
 													? hour
-													: Number(hour) + 12
+													: hourNum + 12
 											}:${minute}:00+10:00`
 										}
 								  )
