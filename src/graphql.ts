@@ -148,7 +148,10 @@ const DATA_PAGE_UPDATED_RE =
 
 const parseHomePageDate = (text: string): string => {
 	const [, day, month, year] = HOME_PAGE_UPDATED_RE.exec(text)!
-	return `${year}-${MONTHS[month as keyof typeof MONTHS]}-${day}`
+	return `${year}-${MONTHS[month as keyof typeof MONTHS]}-${day.padStart(
+		2,
+		'0'
+	)}`
 }
 
 // #endregion
@@ -359,7 +362,7 @@ export default new ApolloServer({
 											const hourNum = Number(hour)
 											return `${year}-${
 												MONTHS[month as keyof typeof MONTHS]
-											}-${day}T${
+											}-${day.padStart(2, '0')}T${
 												aOrP === 'a'
 													? hourNum === 12
 														? '00'
