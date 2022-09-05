@@ -217,7 +217,9 @@ const fetchParagraph = async (id: string, message: string): Promise<string> =>
 					readonly value: string
 				}
 			}
-		}>(`paragraph/basic_text/${id}`, `${message} updated`)
+		}>(`paragraph/basic_text/${id}`, `${message} updated`, {
+			fields: {'paragraph--basic_text': 'field_paragraph_body'}
+		})
 	).attributes.field_paragraph_body.value
 
 // #endregion
