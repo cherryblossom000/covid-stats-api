@@ -84,7 +84,9 @@ const covidAPI = async (path, message, query) => {
     }
     return response.data;
 };
-const fetchParagraph = async (id, message) => (await covidAPI(`paragraph/basic_text/${id}`, `${message} updated`)).attributes.field_paragraph_body.value;
+const fetchParagraph = async (id, message) => (await covidAPI(`paragraph/basic_text/${id}`, `${message} updated`, {
+    fields: { 'paragraph--basic_text': 'field_paragraph_body' }
+})).attributes.field_paragraph_body.value;
 // #endregion
 // #region GraphQL Utils
 const nonNullString = {
