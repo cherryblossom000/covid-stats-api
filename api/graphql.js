@@ -62,7 +62,7 @@ const HOME_PAGE_VAX_UPDATED_ID = '27c3f771-fdee-4fe9-a014-88c611b81de0';
 const DATA_PAGE_UPDATED_ID = '748ad06f-7143-47f1-8006-1347e9d4dd10';
 const IDS_TO_NAME = Object.fromEntries(Object.entries(NAME_TO_IDS).map(([name, id]) => [id, name]));
 const HOME_PAGE_UPDATED_RE = /Data last updated .+?day(?:&nbsp;| )(\d\d?) (\w+?) (\d{4})(?:\.|<\/p>)/u;
-const DATA_PAGE_UPDATED_RE = /Updated: (\d\d?) (\w+?) (\d{4}) (\d\d?):(\d\d?) (a|p)m<\/h2>/u;
+const DATA_PAGE_UPDATED_RE = /Updated:( \d\d?|&nbsp;) (\w+?) (\d{4}) (\d\d?):(\d\d?) (a|p)m<\/h2>/u;
 const parseHomePageDate = (text) => {
     const [, day, month, year] = HOME_PAGE_UPDATED_RE.exec(text);
     return `${year}-${MONTHS[month]}-${day.padStart(2, '0')}`;
@@ -92,8 +92,8 @@ const fetchParagraph = async (id, message) => (await covidAPI(`paragraph/basic_t
 const nonNullString = {
     type: new GraphQLNonNull(GraphQLString)
 };
-const makeUpdatedFields = (type) => ({
-    updated: { type: new GraphQLNonNull(type) }
+const makeUpdatedFields = (type, description) => ({
+    updated: { type: new GraphQLNonNull(type), description }
 });
 const dateUpdatedFields = makeUpdatedFields(GraphQLDate);
 const dateUpdatedInterface = new GraphQLInterfaceType({
@@ -131,7 +131,9 @@ export default new ApolloServer({
                                 interfaces: [dateUpdatedInterface],
                                 fields: dateUpdatedFields
                             }),
-                            dataPage: statsField('DataPageStats', `${COVID_SITE}/victorian-coronavirus-covid-19-data`, dataPageStats, { fields: makeUpdatedFields(GraphQLDateTime) })
+                            dataPage: statsField('DataPageStats', `${COVID_SITE}/victorian-coronavirus-covid-19-data`, dataPageStats, {
+                                fields: makeUpdatedFields(GraphQLDateTime, 'If the day isn’t available on the website it will default to the 1st.')
+                            })
                         }
                     })),
                     resolve: async (_, __, ___, info) => {
@@ -148,7 +150,7 @@ export default new ApolloServer({
                                 ? fetchParagraph(DATA_PAGE_UPDATED_ID, 'data page').then(text => {
                                     const [, day, month, year, hour, minute, aOrP] = DATA_PAGE_UPDATED_RE.exec(text);
                                     const hourNum = Number(hour);
-                                    return `${year}-${MONTHS[month]}-${day.padStart(2, '0')}T${aOrP === 'a'
+                                    return `${year}-${MONTHS[month]}-${day === '&nbsp;' ? '01' : day.padStart(2, '0')}T${aOrP === 'a'
                                         ? hourNum === 12
                                             ? '00'
                                             : String(hourNum).padStart(2, '0')
