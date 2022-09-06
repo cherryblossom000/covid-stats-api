@@ -135,7 +135,7 @@ const HOME_PAGE_UPDATED_RE =
 		[day: string, month: string, year: string]
 	>
 const DATA_PAGE_UPDATED_RE =
-	/Updated: (\d\d?) (\w+?) (\d{4}) (\d\d?):(\d\d?) (a|p)m<\/h2>/u as Re<
+	/Updated:( \d\d?|&nbsp;) (\w+?) (\d{4}) (\d\d?):(\d\d?) (a|p)m<\/h2>/u as Re<
 		[
 			day: string,
 			month: string,
@@ -231,9 +231,10 @@ const nonNullString = {
 }
 
 const makeUpdatedFields = (
-	type: GraphQLNullableType
+	type: GraphQLNullableType,
+	description?: string
 ): GraphQLFieldConfigMap<unknown, unknown> => ({
-	updated: {type: new GraphQLNonNull(type)}
+	updated: {type: new GraphQLNonNull(type), description}
 })
 
 const dateUpdatedFields = makeUpdatedFields(GraphQLDate)
@@ -300,7 +301,12 @@ export default new ApolloServer({
 									'DataPageStats',
 									`${COVID_SITE}/victorian-coronavirus-covid-19-data`,
 									dataPageStats,
-									{fields: makeUpdatedFields(GraphQLDateTime)}
+									{
+										fields: makeUpdatedFields(
+											GraphQLDateTime,
+											'If the day isn’t available on the website it will default to the 1st.'
+										)
+									}
 								)
 							}
 						})
@@ -362,9 +368,9 @@ export default new ApolloServer({
 											const [, day, month, year, hour, minute, aOrP] =
 												DATA_PAGE_UPDATED_RE.exec(text)!
 											const hourNum = Number(hour)
-											return `${year}-${
-												MONTHS[month as keyof typeof MONTHS]
-											}-${day.padStart(2, '0')}T${
+											return `${year}-${MONTHS[month as keyof typeof MONTHS]}-${
+												day === '&nbsp;' ? '01' : day.padStart(2, '0')
+											}T${
 												aOrP === 'a'
 													? hourNum === 12
 														? '00'
