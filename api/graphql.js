@@ -150,7 +150,7 @@ export default new ApolloServer({
                                 ? fetchParagraph(DATA_PAGE_UPDATED_ID, 'data page').then(text => {
                                     const [, day, month, year, hour, minute, aOrP] = DATA_PAGE_UPDATED_RE.exec(text);
                                     const hourNum = Number(hour);
-                                    return `${year}-${MONTHS[month]}-${day === '&nbsp;' ? '01' : day.padStart(2, '0')}T${aOrP === 'a'
+                                    return `${year}-${MONTHS[month]}-${day === '&nbsp;' ? '01' : day.slice(1).padStart(2, '0')}T${aOrP === 'a'
                                         ? hourNum === 12
                                             ? '00'
                                             : String(hourNum).padStart(2, '0')
