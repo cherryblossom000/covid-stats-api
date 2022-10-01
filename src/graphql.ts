@@ -1,12 +1,10 @@
 import {ApolloServer} from '@saeris/apollo-server-vercel'
 import {
-	GraphQLInterfaceType,
 	GraphQLNonNull,
 	GraphQLObjectType,
 	GraphQLSchema,
 	GraphQLString,
 	type GraphQLFieldConfig,
-	type GraphQLFieldConfigMap,
 	type GraphQLNullableType,
 	type GraphQLObjectTypeConfig
 } from 'graphql'
@@ -18,6 +16,14 @@ import {request} from 'undici'
 // TODO: throw error if stat changes
 
 // #region Types
+
+type DeepPartial<T> = T extends object
+	? {[P in keyof T]?: DeepPartial<T[P]> | undefined}
+	: T
+
+type DeepStrictPartialOmitting<T, K extends PropertyKey> = T extends object
+	? {[P in keyof T as Exclude<P, K>]?: DeepStrictPartialOmitting<T[P], K>}
+	: T
 
 /* eslint-disable @typescript-eslint/ban-types -- {} */
 type Fields<T extends object> = {
@@ -31,42 +37,62 @@ type Fields<T extends object> = {
 }
 /* eslint-enable @typescript-eslint/ban-types */
 
-type WithUpdated<T> = T & {
-	readonly updated: string
+interface Updated {
+	updated: string
+}
+interface Week {
+	week: string
 }
 
-type Stats<T extends string> = Readonly<Record<T, string>>
+type Stats<T extends string> = Record<T, string>
 
-const homePageMainStats = [
-	'newCases',
-	'newPCRTests',
-	'newRATCases',
-	'hospitalCases',
-	'icuCases',
-	'newDeaths'
-] as const
-type HomePageMainStat = typeof homePageMainStats[number]
+const dailyStats = {
+	newCases: 'new cases (PCR and rapid antigen test)',
+	newPCRTests: 'total PCR tests',
+	newRATCases: 'rapid antigen test cases',
+	hospitalCases: 'cases in hospital',
+	icuCases: 'cases in ICU',
+	newDeaths: 'lives lost'
+} as const
+type DailyStat = keyof typeof dailyStats
 
-const homePageVaxStats = ['dose1', 'dose2', 'dose3'] as const
-type HomePageVaxStat = typeof homePageVaxStats[number]
+const weeklyStats = {
+	newCases: 'total cases for the past week',
+	activeCases: 'total active cases',
+	averageHospitalCases: 'cases in hospital (7-day rolling average)',
+	averageICUCases: 'cases in ICU (7-day rolling average)',
+	averagePCRTests: 'PCR tests (7-day rolling average)',
+	averagePositiveRATs: 'positive RATs (7-day rolling average)',
+	totalPCRCases: 'total cases from PCR',
+	averageDeaths: 'lives lost on average each day over the past week',
+	totalDeaths: 'total lives lost',
+	totalRecovered: 'cases recovered'
+} as const
+type WeeklyStat = keyof typeof weeklyStats
 
-const dataPageStats = [
-	'newPCRCases',
-	'activeCases',
-	'totalPCRTests',
-	'totalPCRCases',
-	'totalDeaths',
-	'totalRecovered'
-] as const
-type DataPageStat = typeof dataPageStats[number]
+const vaxPctStats = {
+	dose1: '12+ eligible Victorians first dose',
+	dose2: '12+ eligible Victorians second dose',
+	dose3: '18+ eligible Victorians third dose'
+} as const
+type VaxPctStat = keyof typeof vaxPctStats
+const vaxTotalStats = {
+	newDoses: 'Total doses administered this week',
+	totalDoses: 'Total doses administered',
+	newAustralianDoses: 'Doses administered by Australian Government',
+	newVictorianDoses: 'Doses administered by Victorian Government'
+} as const
+type VaxTotalStat = keyof typeof vaxTotalStats
+type VaxStat = VaxPctStat | VaxTotalStat
 
 interface AllStats {
-	homePageMain: WithUpdated<Stats<HomePageMainStat>>
-	homePageVax: WithUpdated<Stats<HomePageVaxStat>>
-	dataPage: WithUpdated<Stats<DataPageStat>>
+	daily: Stats<DailyStat> & Updated
+	weekly: Stats<WeeklyStat> & Updated & Week
+	vax: {
+		percentages: Stats<VaxPctStat> & Updated
+		totals: Stats<VaxTotalStat> & Week
+	}
 }
-
-type AnyStat = DataPageStat | HomePageMainStat | HomePageVaxStat
 
 // #endregion
 
@@ -91,36 +117,54 @@ const MONTHS = {
 	/* eslint-enable @typescript-eslint/naming-convention */
 }
 
-const NAME_TO_IDS: Readonly<Record<AnyStat, string>> = {
-	dose1: 'd675c960-cb31-4d94-8b18-dd31b6454aff',
-	dose2: '4d5012f2-b692-459b-b07f-c91617fcb0d9',
-	dose3: '11fe8010-615b-480b-8af3-8810c914c6f7',
+const DAILY_UPDATED_ID = 'bc10ccc5-f19e-4cc5-832d-fdfe86639106'
+const WEEKLY_UPDATED_ID = '748ad06f-7143-47f1-8006-1347e9d4dd10'
+const VAX_PCTS_UPDATED_ID = '27c3f771-fdee-4fe9-a014-88c611b81de0'
+const VAX_TOTALS_WEEK_ID = '91d22388-aff5-4278-b8a7-aa6357cdf389'
+
+const nameIdMap = <T extends PropertyKey>(
+	toIds: Readonly<Record<T, string>>
+): Readonly<{
+	fromName: (name: T) => string
+	fromId: (id: string) => T | undefined
+}> => {
+	const toNames = Object.fromEntries(
+		Object.entries(toIds).map(([k, v]) => [v, k])
+	) as Record<string, T>
+	return {fromName: name => toIds[name], fromId: id => toNames[id]}
+}
+
+const dailyIds = nameIdMap<DailyStat>({
 	newCases: 'bdbed36c-9a83-4ca5-9e93-2052dcba74d3',
 	newPCRTests: '8454415a-c079-4edb-942d-aae49f9243eb',
 	newRATCases: '08ef30d1-0df5-4709-9f13-c29e2e9e06a1',
 	hospitalCases: 'e686ad47-2c6f-4b4a-b4da-7403de0d4f62',
 	icuCases: '9465725a-4321-471c-928c-76be4577ac86',
-	newDeaths: 'e9a50592-264e-42d7-adb5-27716cb16d41',
-	newPCRCases: '8e545be4-b7ab-4f9b-a04e-eb0ba4c815b8',
-	activeCases: '4e3ebe45-e6b6-42c4-8460-cbfe292d2acd',
-	totalPCRTests: 'f862f783-74a1-4479-b096-ae9167e58525',
+	newDeaths: 'e9a50592-264e-42d7-adb5-27716cb16d41'
+})
+
+const weeklyIds = nameIdMap<WeeklyStat>({
+	newCases: '8e545be4-b7ab-4f9b-a04e-eb0ba4c815b8',
+	activeCases: 'ec10956c-4f49-4dbf-b751-05e353ef6f27',
+	averageHospitalCases: '589143cd-192c-4813-9aa2-ddaffd02d075',
+	averageICUCases: 'b7db172d-7f4c-4cba-9bf0-f987591411fc',
+	averagePCRTests: '957201dc-ed78-4246-9f21-53e7b035d570',
+	averagePositiveRATs: 'f862f783-74a1-4479-b096-ae9167e58525',
 	totalPCRCases: 'b725902f-6878-4829-b9eb-35d605a1be34',
+	averageDeaths: 'a481ad4b-fb95-4645-91fa-19a0eeb2a3cf',
 	totalDeaths: '69a44e8d-e04b-4c9a-ad7e-4dda9c662ad2',
 	totalRecovered: '9c9481a7-d67b-4815-9a2d-bb6d71c1a774'
-}
+})
 
-const HOME_PAGE_MAIN_UPDATED_ID = 'bc10ccc5-f19e-4cc5-832d-fdfe86639106'
-const HOME_PAGE_VAX_UPDATED_ID = '27c3f771-fdee-4fe9-a014-88c611b81de0'
-const DATA_PAGE_UPDATED_ID = '748ad06f-7143-47f1-8006-1347e9d4dd10'
-
-const IDS_TO_NAME: Readonly<Record<string, AnyStat>> = Object.fromEntries(
-	(
-		Object.entries(NAME_TO_IDS) as readonly (readonly [
-			HomePageMainStat,
-			string
-		])[]
-	).map(([name, id]) => [id, name])
-)
+const vaxIds = nameIdMap<VaxStat>({
+	dose1: 'd675c960-cb31-4d94-8b18-dd31b6454aff',
+	dose2: '4d5012f2-b692-459b-b07f-c91617fcb0d9',
+	dose3: '11fe8010-615b-480b-8af3-8810c914c6f7',
+	newDoses: '324e92eb-e063-4b00-89f5-50413978d839',
+	totalDoses: 'fce9c2cb-a847-494f-b6b4-7e557e5e5000',
+	newAustralianDoses: 'd0d0089f-fbbd-457e-aa01-7804030c49e4',
+	newVictorianDoses: '1676357f-540c-49c1-8f09-a79917cc8e84'
+})
 
 // #endregion
 
@@ -131,11 +175,19 @@ type Re<A extends readonly string[]> = Omit<RegExp, 'exec'> & {
 }
 
 const HOME_PAGE_UPDATED_RE =
-	/Data last updated .+?day(?:&nbsp;| )(\d\d?) (\w+?) (\d{4})(?:\.|<\/p>)/u as Re<
+	/Data last updated .+?day(?:&nbsp;| )(\d\d?) (\w+?) (\d{4})/u as Re<
 		[day: string, month: string, year: string]
 	>
+const parseHomePageDate = (text: string): string => {
+	const [, day, month, year] = HOME_PAGE_UPDATED_RE.exec(text)!
+	return `${year}-${MONTHS[month as keyof typeof MONTHS]}-${day.padStart(
+		2,
+		'0'
+	)}`
+}
+
 const DATA_PAGE_UPDATED_RE =
-	/Updated:( \d\d?|&nbsp;) (\w+?) (\d{4}) (\d\d?):(\d\d?) (a|p)m<\/h2>/u as Re<
+	/Updated:( \d\d?|&nbsp;) (\w+?) (\d{4}) (\d\d?):(\d\d?) (a|p)m/u as Re<
 		[
 			day: string,
 			month: string,
@@ -145,18 +197,36 @@ const DATA_PAGE_UPDATED_RE =
 			aOrP: 'a' | 'p'
 		]
 	>
-
-const parseHomePageDate = (text: string): string => {
-	const [, day, month, year] = HOME_PAGE_UPDATED_RE.exec(text)!
-	return `${year}-${MONTHS[month as keyof typeof MONTHS]}-${day.padStart(
-		2,
-		'0'
-	)}`
+const parseDataPageDate = (text: string): string => {
+	const [, day, month, year, hour, minute, aOrP] =
+		DATA_PAGE_UPDATED_RE.exec(text)!
+	const hourNum = Number(hour)
+	const isAM = aOrP === 'a'
+	return `${year}-${MONTHS[month as keyof typeof MONTHS]}-${
+		day === '&nbsp;' ? '01' : day.slice(1).padStart(2, '0')
+	}T${
+		hourNum === 12
+			? isAM
+				? '00'
+				: '12'
+			: isAM
+			? String(hourNum).padStart(2, '0')
+			: hourNum + 12
+	}:${minute}:00+10:00`
 }
+
+const WEEKLY_WEEK_RE = /Data from (.+?)\./u as Re<[week: string]>
+const VAX_TOTALS_WEEK_RE = /From (.+?)</u as Re<[week: string]>
+const parseWeek =
+	(re: Re<[week: string]>) =>
+	(text: string): string =>
+		re.exec(text)![1]
 
 // #endregion
 
 // #region Utils
+
+const notUpdated = <T>(x: T): x is Exclude<T, 'updated'> => x !== 'updated'
 
 const fetch = async (
 	url: string,
@@ -185,14 +255,7 @@ const covidAPI = async <T>(
 	message: string,
 	query?: Record<string, unknown>
 ): Promise<T> => {
-	const response = await fetchJSON<
-		| {
-				readonly data: T
-		  }
-		| {
-				readonly errors: readonly unknown[]
-		  }
-	>(
+	const response = await fetchJSON<{data: T} | {errors: unknown[]}>(
 		`https://content.vic.gov.au/api/v1/${path}${
 			query ? `?${qs.stringify(query)}` : ''
 		}`,
@@ -211,13 +274,13 @@ const covidAPI = async <T>(
 const fetchParagraph = async (id: string, message: string): Promise<string> =>
 	(
 		await covidAPI<{
-			readonly attributes: {
+			attributes: {
 				// eslint-disable-next-line @typescript-eslint/naming-convention -- api
-				readonly field_paragraph_body: {
-					readonly value: string
+				field_paragraph_body: {
+					value: string
 				}
 			}
-		}>(`paragraph/basic_text/${id}`, `${message} updated`, {
+		}>(`paragraph/basic_text/${id}`, message, {
 			fields: {'paragraph--basic_text': 'field_paragraph_body'}
 		})
 	).attributes.field_paragraph_body.value
@@ -226,43 +289,57 @@ const fetchParagraph = async (id: string, message: string): Promise<string> =>
 
 // #region GraphQL Utils
 
-const nonNullString = {
-	type: new GraphQLNonNull(GraphQLString)
-}
+type FieldConfig = GraphQLFieldConfig<unknown, unknown>
 
-const makeUpdatedFields = (
+const nonNullString = new GraphQLNonNull(GraphQLString)
+
+const mkUpdatedField = (
 	type: GraphQLNullableType,
 	description?: string
-): GraphQLFieldConfigMap<unknown, unknown> => ({
-	updated: {type: new GraphQLNonNull(type), description}
+): FieldConfig => ({
+	type: new GraphQLNonNull(type),
+	description
 })
 
-const dateUpdatedFields = makeUpdatedFields(GraphQLDate)
+const dateUpdatedField = mkUpdatedField(GraphQLDate)
 
-const dateUpdatedInterface = new GraphQLInterfaceType({
-	name: 'DateUpdated',
-	fields: dateUpdatedFields
-})
+const graphqlObject = <S, C>(
+	config: GraphQLObjectTypeConfig<S, C>
+): GraphQLNonNull<GraphQLObjectType<S, C>> =>
+	// TODO: fix types
+	new GraphQLNonNull(new GraphQLObjectType(config)) as GraphQLNonNull<
+		GraphQLObjectType<S, C>
+	>
 
 const statsField = (
 	name: string,
 	description: string,
-	statKeys: readonly AnyStat[],
-	extra?: Readonly<
-		Partial<Omit<GraphQLObjectTypeConfig<unknown, unknown>, 'name'>>
-	>
-): GraphQLFieldConfig<unknown, unknown> => ({
+	stats: Readonly<Record<string, string>>,
+	{updated, weekExample}: {updated?: FieldConfig; weekExample?: string} = {}
+): FieldConfig => ({
 	description,
-	type: new GraphQLNonNull(
-		new GraphQLObjectType({
-			...extra,
-			name,
-			fields: {
-				...extra?.fields,
-				...Object.fromEntries(statKeys.map(s => [s, nonNullString]))
-			}
-		})
-	)
+	type: graphqlObject({
+		name,
+		fields: {
+			...(updated ? {updated} : {}),
+			...(weekExample === undefined
+				? {}
+				: {
+						week: {
+							description: `The week that these statistics are for. This will be a range of dates, such as ‘${weekExample}’.`,
+							type: nonNullString
+						}
+				  }),
+			...Object.fromEntries(
+				Object.entries(stats).map<[string, FieldConfig]>(
+					([statName, statDescription]) => [
+						statName,
+						{description: statDescription, type: nonNullString}
+					]
+				)
+			)
+		}
+	})
 })
 
 // #endregion
@@ -275,120 +352,116 @@ export default new ApolloServer({
 			name: 'Query',
 			fields: {
 				stats: {
-					type: new GraphQLNonNull(
-						new GraphQLObjectType({
-							name: 'Stats',
-							fields: {
-								homePageMain: statsField(
-									'HomePageMainStats',
-									COVID_SITE,
-									homePageMainStats,
-									{
-										interfaces: [dateUpdatedInterface],
-										fields: dateUpdatedFields
-									}
-								),
-								homePageVax: statsField(
-									'HomePageVaxStats',
-									COVID_SITE,
-									homePageVaxStats,
-									{
-										interfaces: [dateUpdatedInterface],
-										fields: dateUpdatedFields
-									}
-								),
-								dataPage: statsField(
-									'DataPageStats',
-									`${COVID_SITE}/victorian-coronavirus-covid-19-data`,
-									dataPageStats,
-									{
-										fields: makeUpdatedFields(
-											GraphQLDateTime,
-											'If the day isn’t available on the website it will default to the 1st.'
+					type: graphqlObject({
+						name: 'Stats',
+						fields: {
+							daily: statsField('DailyStats', COVID_SITE, dailyStats, {
+								updated: dateUpdatedField
+							}),
+							weekly: statsField(
+								'WeeklyMainStats',
+								`${COVID_SITE}/victorian-coronavirus-covid-19-data`,
+								weeklyStats,
+								{
+									updated: mkUpdatedField(
+										GraphQLDateTime,
+										'If the day isn’t available on the website it will default to the 1st.'
+									),
+									weekExample:
+										'Friday 16 September 2022 - Thursday 22 September 2022'
+								}
+							),
+							vax: {
+								description: 'Vaccination statistics',
+								type: graphqlObject({
+									name: 'VaxStats',
+									fields: {
+										percentages: statsField(
+											'VaxPercentageStats',
+											COVID_SITE,
+											vaxPctStats,
+											{updated: dateUpdatedField}
+										),
+										totals: statsField(
+											'VaxTotalStats',
+											`${COVID_SITE}/weekly-covid-19-vaccine-data`,
+											vaxTotalStats,
+											{weekExample: '6 - 12 September 2022'}
 										)
 									}
-								)
+								})
 							}
-						})
-					),
-					resolve: async (
-						_,
-						__,
-						___,
-						info
-					): Promise<{
-						[K in keyof AllStats]?: {
-							[L in keyof AllStats[K]]?: AllStats[K][L] | undefined
 						}
-					}> => {
+					}),
+					resolve: async (_, __, ___, info): Promise<DeepPartial<AllStats>> => {
 						const fields = graphqlFields(info) as Fields<AllStats>
-						const statFields = (
-							Object.values(fields).flatMap(Object.keys) as readonly (
-								| AnyStat
-								| 'updated'
-							)[]
-						).filter((field): field is AnyStat => field !== 'updated')
-						const [
-							homePageMainUpdated,
-							homePageVaxUpdated,
-							dataPageUpdated,
-							{
-								dose1,
-								dose2,
-								dose3,
-								newCases,
-								newPCRTests,
-								newRATCases,
-								hospitalCases,
-								icuCases,
-								newDeaths,
-								newPCRCases,
-								activeCases,
-								totalPCRTests,
-								totalPCRCases,
-								totalDeaths,
-								totalRecovered
-							}
-						] = await Promise.all([
-							fields.homePageMain?.updated
-								? fetchParagraph(
-										HOME_PAGE_MAIN_UPDATED_ID,
-										'home page (main)'
-								  ).then(parseHomePageDate)
-								: undefined,
-							fields.homePageVax?.updated
-								? fetchParagraph(
-										HOME_PAGE_VAX_UPDATED_ID,
-										'home page (vaccination)'
-								  ).then(parseHomePageDate)
-								: undefined,
-							fields.dataPage?.updated
-								? fetchParagraph(DATA_PAGE_UPDATED_ID, 'data page').then(
-										text => {
-											const [, day, month, year, hour, minute, aOrP] =
-												DATA_PAGE_UPDATED_RE.exec(text)!
-											const hourNum = Number(hour)
-											return `${year}-${MONTHS[month as keyof typeof MONTHS]}-${
-												day === '&nbsp;' ? '01' : day.slice(1).padStart(2, '0')
-											}T${
-												aOrP === 'a'
-													? hourNum === 12
-														? '00'
-														: String(hourNum).padStart(2, '0')
-													: hourNum === 12
-													? hour
-													: hourNum + 12
-											}:${minute}:00+10:00`
-										}
+						const idsToFetch = [
+							...(fields.daily
+								? (Object.keys(fields.daily) as (DailyStat | 'updated')[])
+										.filter(notUpdated)
+										.map(dailyIds.fromName)
+								: []),
+							...(fields.weekly
+								? (Object.keys(fields.weekly) as (WeeklyStat | 'updated')[])
+										.filter(notUpdated)
+										.map(weeklyIds.fromName)
+								: []),
+							...(fields.vax
+								? (
+										Object.values(fields.vax).flatMap(Object.keys) as (
+											| VaxStat
+											| 'updated'
+										)[]
 								  )
+										.filter(notUpdated)
+										.map(vaxIds.fromName)
+								: [])
+						]
+						const [
+							dailyUpdated,
+							[weeklyUpdated, weeklyWeek],
+							vaxPctsUpdated,
+							vaxTotalsWeek,
+							{daily, weekly, vax}
+						] = await Promise.all([
+							fields.daily?.updated
+								? fetchParagraph(
+										DAILY_UPDATED_ID,
+										'daily (home page) updated'
+								  ).then(parseHomePageDate)
 								: undefined,
-							statFields.length
+							fields.weekly?.updated || fields.weekly?.week
+								? fetchParagraph(
+										WEEKLY_UPDATED_ID,
+										'weekly (data page) updated + week'
+								  ).then((text): [string | undefined, string | undefined] => [
+										fields.weekly?.updated
+											? parseDataPageDate(text)
+											: undefined,
+										fields.weekly?.week
+											? parseWeek(WEEKLY_WEEK_RE)(text)
+											: undefined
+								  ])
+								: [],
+							fields.vax?.percentages?.updated
+								? fetchParagraph(
+										VAX_PCTS_UPDATED_ID,
+										'vaccination percentages (home page) updated'
+								  ).then(parseHomePageDate)
+								: undefined,
+							fields.vax?.totals?.week
+								? fetchParagraph(
+										VAX_TOTALS_WEEK_ID,
+										'vaccination totals (weekly vaccination page) week'
+								  ).then(parseWeek(VAX_TOTALS_WEEK_RE))
+								: undefined,
+							idsToFetch.length
 								? covidAPI<
-										readonly {
-											readonly id: string
-											readonly attributes: {
+										{
+											id: string
+											attributes: {
 												// eslint-disable-next-line @typescript-eslint/naming-convention -- api
-												readonly field_statistic_heading: string
+												field_statistic_heading: string
 											}
 										}[]
 								  >('paragraph/statistic_block', 'stats', {
@@ -399,46 +472,45 @@ export default new ApolloServer({
 											c: {
 												path: 'id',
 												operator: 'IN',
-												value: statFields.map(field => NAME_TO_IDS[field])
+												value: idsToFetch
 											}
 										}
-								  }).then(
-										data =>
-											Object.fromEntries(
-												data.map(
-													({
-														id,
-														attributes: {field_statistic_heading: stat}
-													}) => [IDS_TO_NAME[id]!, stat]
-												)
-											) as Partial<Stats<AnyStat>>
-								  )
-								: ({} as Partial<Stats<AnyStat>>)
+								  }).then(data => {
+										const acc: DeepStrictPartialOmitting<
+											AllStats,
+											'updated' | 'week'
+										> = {}
+										for (const {
+											id,
+											attributes: {field_statistic_heading: stat}
+										} of data) {
+											let obj: Record<string, string>
+											let key: string | undefined = dailyIds.fromId(id)
+											if (key === undefined) {
+												key = weeklyIds.fromId(id)
+												if (key === undefined) {
+													key = vaxIds.fromId(id)!
+													acc.vax ??= {}
+													obj = key.startsWith('dose')
+														? (acc.vax.percentages ??= {})
+														: (acc.vax.totals ??= {})
+												} else obj = acc.weekly ??= {}
+											} else obj = acc.daily ??= {}
+											obj[key] = stat.trim()
+										}
+										return acc
+								  })
+								: ({} as DeepStrictPartialOmitting<
+										AllStats,
+										'updated' | 'week'
+								  >)
 						])
 						return {
-							homePageMain: {
-								updated: homePageMainUpdated,
-								newCases,
-								newPCRTests,
-								newRATCases,
-								hospitalCases,
-								icuCases,
-								newDeaths
-							},
-							homePageVax: {
-								updated: homePageVaxUpdated,
-								dose1,
-								dose2,
-								dose3
-							},
-							dataPage: {
-								updated: dataPageUpdated,
-								newPCRCases,
-								activeCases,
-								totalPCRTests,
-								totalPCRCases,
-								totalDeaths,
-								totalRecovered
+							daily: {...daily, updated: dailyUpdated},
+							weekly: {...weekly, updated: weeklyUpdated, week: weeklyWeek},
+							vax: {
+								percentages: {...vax?.percentages, updated: vaxPctsUpdated},
+								totals: {...vax?.totals, week: vaxTotalsWeek}
 							}
 						}
 					}

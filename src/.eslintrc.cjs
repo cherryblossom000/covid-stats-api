@@ -18,7 +18,8 @@ module.exports = {
 				tsconfigRootDir: path.dirname(__dirname)
 			},
 			rules: {
-				'import/no-unused-modules': 0
+				'import/no-unused-modules': 0,
+				'no-multi-assign': 0
 			}
 		}
 	]

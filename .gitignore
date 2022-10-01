@@ -3,3 +3,4 @@ node_modules/
 /api/
 .eslintcache
 /notes/active-cases-graph
+/notes/basic_text.ndjson
