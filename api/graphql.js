@@ -91,7 +91,7 @@ const vaxIds = nameIdMap({
     newAustralianDoses: 'd0d0089f-fbbd-457e-aa01-7804030c49e4',
     newVictorianDoses: '1676357f-540c-49c1-8f09-a79917cc8e84'
 });
-const HOME_PAGE_UPDATED_RE = /Data last updated .+?day(?:&nbsp;| )(\d\d?) (\w+?) (\d{4})/u;
+const HOME_PAGE_UPDATED_RE = /Data last updated .+?day(?:&nbsp;| )(\d\d?)(?:&nbsp;| )(\w+?) (\d{4})/u;
 const parseHomePageDate = (text) => {
     const [, day, month, year] = HOME_PAGE_UPDATED_RE.exec(text);
     return `${year}-${MONTHS[month]}-${day.padStart(2, '0')}`;
