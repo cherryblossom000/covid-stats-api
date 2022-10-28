@@ -175,7 +175,7 @@ type Re<A extends readonly string[]> = Omit<RegExp, 'exec'> & {
 }
 
 const HOME_PAGE_UPDATED_RE =
-	/Data last updated .+?day(?:&nbsp;| )(\d\d?) (\w+?) (\d{4})/u as Re<
+	/Data last updated .+?day(?:&nbsp;| )(\d\d?)(?:&nbsp;| )(\w+?) (\d{4})/u as Re<
 		[day: string, month: string, year: string]
 	>
 const parseHomePageDate = (text: string): string => {
