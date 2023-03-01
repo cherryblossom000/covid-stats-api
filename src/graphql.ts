@@ -46,16 +46,6 @@ interface Week {
 
 type Stats<T extends string> = Record<T, string>
 
-const dailyStats = {
-	newCases: 'new cases (PCR and rapid antigen test)',
-	newPCRTests: 'total PCR tests',
-	newRATCases: 'rapid antigen test cases',
-	hospitalCases: 'cases in hospital',
-	icuCases: 'cases in ICU',
-	newDeaths: 'lives lost'
-} as const
-type DailyStat = keyof typeof dailyStats
-
 const weeklyStats = {
 	newCases: 'total cases for the past week',
 	activeCases: 'total active cases',
@@ -86,7 +76,6 @@ type VaxTotalStat = keyof typeof vaxTotalStats
 type VaxStat = VaxPctStat | VaxTotalStat
 
 interface AllStats {
-	daily: Stats<DailyStat> & Updated
 	weekly: Stats<WeeklyStat> & Updated & Week
 	vax: {
 		percentages: Stats<VaxPctStat> & Updated
@@ -117,7 +106,6 @@ const MONTHS = {
 	/* eslint-enable @typescript-eslint/naming-convention */
 }
 
-const DAILY_UPDATED_ID = 'bc10ccc5-f19e-4cc5-832d-fdfe86639106'
 const WEEKLY_UPDATED_ID = '748ad06f-7143-47f1-8006-1347e9d4dd10'
 const VAX_PCTS_UPDATED_ID = '27c3f771-fdee-4fe9-a014-88c611b81de0'
 const VAX_TOTALS_WEEK_ID = '91d22388-aff5-4278-b8a7-aa6357cdf389'
@@ -133,15 +121,6 @@ const nameIdMap = <T extends PropertyKey>(
 	) as Record<string, T>
 	return {fromName: name => toIds[name], fromId: id => toNames[id]}
 }
-
-const dailyIds = nameIdMap<DailyStat>({
-	newCases: 'bdbed36c-9a83-4ca5-9e93-2052dcba74d3',
-	newPCRTests: '8454415a-c079-4edb-942d-aae49f9243eb',
-	newRATCases: '08ef30d1-0df5-4709-9f13-c29e2e9e06a1',
-	hospitalCases: 'e686ad47-2c6f-4b4a-b4da-7403de0d4f62',
-	icuCases: '9465725a-4321-471c-928c-76be4577ac86',
-	newDeaths: 'e9a50592-264e-42d7-adb5-27716cb16d41'
-})
 
 const weeklyIds = nameIdMap<WeeklyStat>({
 	newCases: '8e545be4-b7ab-4f9b-a04e-eb0ba4c815b8',
@@ -355,9 +334,6 @@ export default new ApolloServer({
 					type: graphqlObject({
 						name: 'Stats',
 						fields: {
-							daily: statsField('DailyStats', COVID_SITE, dailyStats, {
-								updated: dateUpdatedField
-							}),
 							weekly: statsField(
 								'WeeklyMainStats',
 								`${COVID_SITE}/victorian-coronavirus-covid-19-data`,
@@ -396,11 +372,6 @@ export default new ApolloServer({
 					resolve: async (_, __, ___, info): Promise<DeepPartial<AllStats>> => {
 						const fields = graphqlFields(info) as Fields<AllStats>
 						const idsToFetch = [
-							...(fields.daily
-								? (Object.keys(fields.daily) as (DailyStat | 'updated')[])
-										.filter(notUpdated)
-										.map(dailyIds.fromName)
-								: []),
 							...(fields.weekly
 								? (Object.keys(fields.weekly) as (WeeklyStat | 'updated')[])
 										.filter(notUpdated)
@@ -418,18 +389,11 @@ export default new ApolloServer({
 								: [])
 						]
 						const [
-							dailyUpdated,
 							[weeklyUpdated, weeklyWeek],
 							vaxPctsUpdated,
 							vaxTotalsWeek,
-							{daily, weekly, vax}
+							{weekly, vax}
 						] = await Promise.all([
-							fields.daily?.updated
-								? fetchParagraph(
-										DAILY_UPDATED_ID,
-										'daily (home page) updated'
-								  ).then(parseHomePageDate)
-								: undefined,
 							fields.weekly?.updated || fields.weekly?.week
 								? fetchParagraph(
 										WEEKLY_UPDATED_ID,
@@ -485,17 +449,14 @@ export default new ApolloServer({
 											attributes: {field_statistic_heading: stat}
 										} of data) {
 											let obj: Record<string, string>
-											let key: string | undefined = dailyIds.fromId(id)
+											let key: string | undefined = weeklyIds.fromId(id)
 											if (key === undefined) {
-												key = weeklyIds.fromId(id)
-												if (key === undefined) {
-													key = vaxIds.fromId(id)!
-													acc.vax ??= {}
-													obj = key.startsWith('dose')
-														? (acc.vax.percentages ??= {})
-														: (acc.vax.totals ??= {})
-												} else obj = acc.weekly ??= {}
-											} else obj = acc.daily ??= {}
+												key = vaxIds.fromId(id)!
+												acc.vax ??= {}
+												obj = key.startsWith('dose')
+													? (acc.vax.percentages ??= {})
+													: (acc.vax.totals ??= {})
+											} else obj = acc.weekly ??= {}
 											obj[key] = stat.trim()
 										}
 										return acc
@@ -506,7 +467,6 @@ export default new ApolloServer({
 								  >)
 						])
 						return {
-							daily: {...daily, updated: dailyUpdated},
 							weekly: {...weekly, updated: weeklyUpdated, week: weeklyWeek},
 							vax: {
 								percentages: {...vax?.percentages, updated: vaxPctsUpdated},

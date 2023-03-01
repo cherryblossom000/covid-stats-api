@@ -1,23 +1,6 @@
 updated at: content.vic.gov.au/api/v1/block_content/daily_update/<id>
 data: content.vic.gov.au/api/v1/paragraph/daily_update_statistics
 
-home page https://www.coronavirus.vic.gov.au
--
-27c3f771-fdee-4fe9-a014-88c611b81de0: COVID-19 vaccine rates in Victoria
-f6dbb6c0-8d1b-4111-85f4-c0cd4f1119c4
-	d675c960-cb31-4d94-8b18-dd31b6454aff: of 12+ eligible Victorians first dose
-	4d5012f2-b692-459b-b07f-c91617fcb0d9: of 12+ eligible Victorians second dose
-	11fe8010-615b-480b-8af3-8810c914c6f7: of 18+ eligible Victorians third dose
--
-bc10ccc5-f19e-4cc5-832d-fdfe86639106: COVID-19 data in Victoria
-44423952-1262-4a4a-ad74-7e6fc9e0520f
-	bdbed36c-9a83-4ca5-9e93-2052dcba74d3: new cases (PCR and rapid antigen test)
-	8454415a-c079-4edb-942d-aae49f9243eb: total PCR tests
-	08ef30d1-0df5-4709-9f13-c29e2e9e06a1: rapid antigen test cases
-	e686ad47-2c6f-4b4a-b4da-7403de0d4f62: cases in hospital
-	9465725a-4321-471c-928c-76be4577ac86: cases in ICU
-	e9a50592-264e-42d7-adb5-27716cb16d41: lives lost
-
 data page https://www.coronavirus.vic.gov.au/victorian-coronavirus-covid-19-data
 -
 Cases

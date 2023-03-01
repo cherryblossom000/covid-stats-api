@@ -5,9 +5,9 @@ personal use.
 
 Stuff in `notes/nuxt` is obtained by going to the relevant site:
 
-- `home-page.json`: <https://www.coronavirus.vic.gov.au>
-- `data-page.json`: <https://www.coronavirus.vic.gov.au/victorian-coronavirus-covid-19-data>
+- `data.json`: <https://www.coronavirus.vic.gov.au/victorian-coronavirus-covid-19-data>
 - `weekly-vax.json`: <https://www.coronavirus.vic.gov.au/weekly-covid-19-vaccine-data>
+- `deaths.json`: <https://www.coronavirus.vic.gov.au/additional-covid-19-case-data>
 
 and then running this in the browser console:
 
