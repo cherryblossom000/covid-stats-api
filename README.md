@@ -1,7 +1,15 @@
 # vic-covid-stats-api
 
-A GraphQL API for COVID-19 stats in Victoria, Australia. Created for my own
-personal use.
+A GraphQL API for COVID-19 stats in Victoria, Australia.
+
+## Why?
+
+This was created for my own personal use, so that I can do things like this with
+[Plash](https://sindresorhus.com/plash):
+
+![Screenshot of a macOS desktop, with COVID-19 statistics are overlaid on top of the desktop wallpaper](./covid-stats-desktop.png)
+
+## Random notes for myself
 
 Stuff in `notes/nuxt` is obtained by going to the relevant site:
 
@@ -30,4 +38,4 @@ peach {|x|
 
 ## License
 
-[MIT](LICENSE) © 2021–2022 cherryblossom000
+[MIT](LICENSE)
