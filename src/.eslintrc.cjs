@@ -8,19 +8,19 @@ module.exports = {
 	overrides: [
 		{
 			files: '.eslintrc.cjs',
-			extends: '@cherryblossom/eslint-config/js/node/commonjs'
+			extends: '@cherryblossom/eslint-config/js/node/commonjs',
 		},
 		{
 			files: '**/*.ts',
 			extends: '@cherryblossom/eslint-config/ts/node/esm',
 			parserOptions: {
 				project: 'tsconfig.json',
-				tsconfigRootDir: path.dirname(__dirname)
+				tsconfigRootDir: path.dirname(__dirname),
 			},
 			rules: {
 				'import/no-unused-modules': 0,
-				'no-multi-assign': 0
-			}
-		}
-	]
+				'no-multi-assign': 0,
+			},
+		},
+	],
 }
