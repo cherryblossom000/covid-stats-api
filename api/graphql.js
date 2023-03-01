@@ -1,17 +1,9 @@
 import { ApolloServer } from '@saeris/apollo-server-vercel';
-import { GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
+import { GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString, } from 'graphql';
 import graphqlFields from 'graphql-fields';
 import { GraphQLDate, GraphQLDateTime } from 'graphql-scalars';
 import qs from 'qs';
 import { request } from 'undici';
-const dailyStats = {
-    newCases: 'new cases (PCR and rapid antigen test)',
-    newPCRTests: 'total PCR tests',
-    newRATCases: 'rapid antigen test cases',
-    hospitalCases: 'cases in hospital',
-    icuCases: 'cases in ICU',
-    newDeaths: 'lives lost'
-};
 const weeklyStats = {
     newCases: 'total cases for the past week',
     activeCases: 'total active cases',
@@ -22,18 +14,18 @@ const weeklyStats = {
     totalPCRCases: 'total cases from PCR',
     averageDeaths: 'lives lost on average each day over the past week',
     totalDeaths: 'total lives lost',
-    totalRecovered: 'cases recovered'
+    totalRecovered: 'cases recovered',
 };
 const vaxPctStats = {
     dose1: '12+ eligible Victorians first dose',
     dose2: '12+ eligible Victorians second dose',
-    dose3: '18+ eligible Victorians third dose'
+    dose3: '18+ eligible Victorians third dose',
 };
 const vaxTotalStats = {
     newDoses: 'Total doses administered this week',
     totalDoses: 'Total doses administered',
     newAustralianDoses: 'Doses administered by Australian Government',
-    newVictorianDoses: 'Doses administered by Victorian Government'
+    newVictorianDoses: 'Doses administered by Victorian Government',
 };
 // #endregion
 // #region Constants
@@ -51,10 +43,9 @@ const MONTHS = {
     September: '09',
     October: '10',
     November: '11',
-    December: '12'
+    December: '12',
     /* eslint-enable @typescript-eslint/naming-convention */
 };
-const DAILY_UPDATED_ID = 'bc10ccc5-f19e-4cc5-832d-fdfe86639106';
 const WEEKLY_UPDATED_ID = '748ad06f-7143-47f1-8006-1347e9d4dd10';
 const VAX_PCTS_UPDATED_ID = '27c3f771-fdee-4fe9-a014-88c611b81de0';
 const VAX_TOTALS_WEEK_ID = '91d22388-aff5-4278-b8a7-aa6357cdf389';
@@ -62,14 +53,6 @@ const nameIdMap = (toIds) => {
     const toNames = Object.fromEntries(Object.entries(toIds).map(([k, v]) => [v, k]));
     return { fromName: name => toIds[name], fromId: id => toNames[id] };
 };
-const dailyIds = nameIdMap({
-    newCases: 'bdbed36c-9a83-4ca5-9e93-2052dcba74d3',
-    newPCRTests: '8454415a-c079-4edb-942d-aae49f9243eb',
-    newRATCases: '08ef30d1-0df5-4709-9f13-c29e2e9e06a1',
-    hospitalCases: 'e686ad47-2c6f-4b4a-b4da-7403de0d4f62',
-    icuCases: '9465725a-4321-471c-928c-76be4577ac86',
-    newDeaths: 'e9a50592-264e-42d7-adb5-27716cb16d41'
-});
 const weeklyIds = nameIdMap({
     newCases: '8e545be4-b7ab-4f9b-a04e-eb0ba4c815b8',
     activeCases: 'ec10956c-4f49-4dbf-b751-05e353ef6f27',
@@ -80,7 +63,7 @@ const weeklyIds = nameIdMap({
     totalPCRCases: 'b725902f-6878-4829-b9eb-35d605a1be34',
     averageDeaths: 'a481ad4b-fb95-4645-91fa-19a0eeb2a3cf',
     totalDeaths: '69a44e8d-e04b-4c9a-ad7e-4dda9c662ad2',
-    totalRecovered: '9c9481a7-d67b-4815-9a2d-bb6d71c1a774'
+    totalRecovered: '9c9481a7-d67b-4815-9a2d-bb6d71c1a774',
 });
 const vaxIds = nameIdMap({
     dose1: 'd675c960-cb31-4d94-8b18-dd31b6454aff',
@@ -89,7 +72,7 @@ const vaxIds = nameIdMap({
     newDoses: '324e92eb-e063-4b00-89f5-50413978d839',
     totalDoses: 'fce9c2cb-a847-494f-b6b4-7e557e5e5000',
     newAustralianDoses: 'd0d0089f-fbbd-457e-aa01-7804030c49e4',
-    newVictorianDoses: '1676357f-540c-49c1-8f09-a79917cc8e84'
+    newVictorianDoses: '1676357f-540c-49c1-8f09-a79917cc8e84',
 });
 const HOME_PAGE_UPDATED_RE = /Data last updated .+?day(?:&nbsp;| )(\d\d?)(?:&nbsp;| )(\w+?) (\d{4})/u;
 const parseHomePageDate = (text) => {
@@ -131,12 +114,12 @@ const covidAPI = async (path, message, query) => {
     return response.data;
 };
 const fetchParagraph = async (id, message) => (await covidAPI(`paragraph/basic_text/${id}`, message, {
-    fields: { 'paragraph--basic_text': 'field_paragraph_body' }
+    fields: { 'paragraph--basic_text': 'field_paragraph_body' },
 })).attributes.field_paragraph_body.value;
 const nonNullString = new GraphQLNonNull(GraphQLString);
 const mkUpdatedField = (type, description) => ({
     type: new GraphQLNonNull(type),
-    description
+    description,
 });
 const dateUpdatedField = mkUpdatedField(GraphQLDate);
 const graphqlObject = (config) => 
@@ -153,15 +136,15 @@ const statsField = (name, description, stats, { updated, weekExample } = {}) => 
                 : {
                     week: {
                         description: `The week that these statistics are for. This will be a range of dates, such as ‘${weekExample}’.`,
-                        type: nonNullString
-                    }
+                        type: nonNullString,
+                    },
                 }),
             ...Object.fromEntries(Object.entries(stats).map(([statName, statDescription]) => [
                 statName,
-                { description: statDescription, type: nonNullString }
-            ]))
-        }
-    })
+                { description: statDescription, type: nonNullString },
+            ])),
+        },
+    }),
 });
 // #endregion
 export default new ApolloServer({
@@ -175,12 +158,9 @@ export default new ApolloServer({
                     type: graphqlObject({
                         name: 'Stats',
                         fields: {
-                            daily: statsField('DailyStats', COVID_SITE, dailyStats, {
-                                updated: dateUpdatedField
-                            }),
                             weekly: statsField('WeeklyMainStats', `${COVID_SITE}/victorian-coronavirus-covid-19-data`, weeklyStats, {
                                 updated: mkUpdatedField(GraphQLDateTime, 'If the day isn’t available on the website it will default to the 1st.'),
-                                weekExample: 'Friday 16 September 2022 - Thursday 22 September 2022'
+                                weekExample: 'Friday 16 September 2022 - Thursday 22 September 2022',
                             }),
                             vax: {
                                 description: 'Vaccination statistics',
@@ -188,20 +168,15 @@ export default new ApolloServer({
                                     name: 'VaxStats',
                                     fields: {
                                         percentages: statsField('VaxPercentageStats', COVID_SITE, vaxPctStats, { updated: dateUpdatedField }),
-                                        totals: statsField('VaxTotalStats', `${COVID_SITE}/weekly-covid-19-vaccine-data`, vaxTotalStats, { weekExample: '6 - 12 September 2022' })
-                                    }
-                                })
-                            }
-                        }
+                                        totals: statsField('VaxTotalStats', `${COVID_SITE}/weekly-covid-19-vaccine-data`, vaxTotalStats, { weekExample: '6 - 12 September 2022' }),
+                                    },
+                                }),
+                            },
+                        },
                     }),
                     resolve: async (_, __, ___, info) => {
                         const fields = graphqlFields(info);
                         const idsToFetch = [
-                            ...(fields.daily
-                                ? Object.keys(fields.daily)
-                                    .filter(notUpdated)
-                                    .map(dailyIds.fromName)
-                                : []),
                             ...(fields.weekly
                                 ? Object.keys(fields.weekly)
                                     .filter(notUpdated)
@@ -211,12 +186,9 @@ export default new ApolloServer({
                                 ? Object.values(fields.vax).flatMap(Object.keys)
                                     .filter(notUpdated)
                                     .map(vaxIds.fromName)
-                                : [])
+                                : []),
                         ];
-                        const [dailyUpdated, [weeklyUpdated, weeklyWeek], vaxPctsUpdated, vaxTotalsWeek, { daily, weekly, vax }] = await Promise.all([
-                            fields.daily?.updated
-                                ? fetchParagraph(DAILY_UPDATED_ID, 'daily (home page) updated').then(parseHomePageDate)
-                                : undefined,
+                        const [[weeklyUpdated, weeklyWeek], vaxPctsUpdated, vaxTotalsWeek, { weekly, vax },] = await Promise.all([
                             fields.weekly?.updated || fields.weekly?.week
                                 ? fetchParagraph(WEEKLY_UPDATED_ID, 'weekly (data page) updated + week').then((text) => [
                                     fields.weekly?.updated
@@ -224,7 +196,7 @@ export default new ApolloServer({
                                         : undefined,
                                     fields.weekly?.week
                                         ? parseWeek(WEEKLY_WEEK_RE)(text)
-                                        : undefined
+                                        : undefined,
                                 ])
                                 : [],
                             fields.vax?.percentages?.updated
@@ -236,51 +208,45 @@ export default new ApolloServer({
                             idsToFetch.length
                                 ? covidAPI('paragraph/statistic_block', 'stats', {
                                     fields: {
-                                        'paragraph--statistics_block': 'field_statistic_heading'
+                                        'paragraph--statistics_block': 'field_statistic_heading',
                                     },
                                     filter: {
                                         c: {
                                             path: 'id',
                                             operator: 'IN',
-                                            value: idsToFetch
-                                        }
-                                    }
+                                            value: idsToFetch,
+                                        },
+                                    },
                                 }).then(data => {
                                     const acc = {};
-                                    for (const { id, attributes: { field_statistic_heading: stat } } of data) {
+                                    for (const { id, attributes: { field_statistic_heading: stat }, } of data) {
                                         let obj;
-                                        let key = dailyIds.fromId(id);
+                                        let key = weeklyIds.fromId(id);
                                         if (key === undefined) {
-                                            key = weeklyIds.fromId(id);
-                                            if (key === undefined) {
-                                                key = vaxIds.fromId(id);
-                                                acc.vax ??= {};
-                                                obj = key.startsWith('dose')
-                                                    ? (acc.vax.percentages ??= {})
-                                                    : (acc.vax.totals ??= {});
-                                            }
-                                            else
-                                                obj = acc.weekly ??= {};
+                                            key = vaxIds.fromId(id);
+                                            acc.vax ??= {};
+                                            obj = key.startsWith('dose')
+                                                ? (acc.vax.percentages ??= {})
+                                                : (acc.vax.totals ??= {});
                                         }
                                         else
-                                            obj = acc.daily ??= {};
+                                            obj = acc.weekly ??= {};
                                         obj[key] = stat.trim();
                                     }
                                     return acc;
                                 })
-                                : {}
+                                : {},
                         ]);
                         return {
-                            daily: { ...daily, updated: dailyUpdated },
                             weekly: { ...weekly, updated: weeklyUpdated, week: weeklyWeek },
                             vax: {
                                 percentages: { ...vax?.percentages, updated: vaxPctsUpdated },
-                                totals: { ...vax?.totals, week: vaxTotalsWeek }
-                            }
+                                totals: { ...vax?.totals, week: vaxTotalsWeek },
+                            },
                         };
-                    }
-                }
-            }
-        })
-    })
+                    },
+                },
+            },
+        }),
+    }),
 }).createHandler({ cors: { origin: '*' } });
