@@ -27,7 +27,7 @@ dependencies:
 devDependencies:
   '@cherryblossom/eslint-config':
     specifier: 18.0.0
-    version: 18.0.0(@typescript-eslint/eslint-plugin@5.54.0)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-import@2.27.5)(eslint-plugin-jsdoc@40.0.0)(eslint-plugin-node@11.1.0)(eslint-plugin-prettier@4.2.1)(eslint-plugin-unicorn@45.0.2)(eslint@8.35.0)(prettier@2.8.4)(typescript@4.9.5)
+    version: 18.0.0(@typescript-eslint/eslint-plugin@5.54.0)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-import@2.27.5)(eslint-plugin-node@11.1.0)(eslint-plugin-prettier@4.2.1)(eslint-plugin-unicorn@45.0.2)(eslint@8.35.0)(prettier@2.8.4)(typescript@4.9.5)
   '@types/eslint':
     specifier: ^8.21.1
     version: 8.21.1
@@ -61,9 +61,6 @@ devDependencies:
   eslint-plugin-import:
     specifier: ^2.27.5
     version: 2.27.5(@typescript-eslint/parser@5.54.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.35.0)
-  eslint-plugin-jsdoc:
-    specifier: ^40.0.0
-    version: 40.0.0(eslint@8.35.0)
   eslint-plugin-node:
     specifier: ^11.1.0
     version: 11.1.0(eslint@8.35.0)
@@ -1353,7 +1350,7 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@cherryblossom/eslint-config@18.0.0(@typescript-eslint/eslint-plugin@5.54.0)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-import@2.27.5)(eslint-plugin-jsdoc@40.0.0)(eslint-plugin-node@11.1.0)(eslint-plugin-prettier@4.2.1)(eslint-plugin-unicorn@45.0.2)(eslint@8.35.0)(prettier@2.8.4)(typescript@4.9.5):
+  /@cherryblossom/eslint-config@18.0.0(@typescript-eslint/eslint-plugin@5.54.0)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-import@2.27.5)(eslint-plugin-node@11.1.0)(eslint-plugin-prettier@4.2.1)(eslint-plugin-unicorn@45.0.2)(eslint@8.35.0)(prettier@2.8.4)(typescript@4.9.5):
     resolution: {integrity: sha512-LEi1uTw0gig3nQWYpYN+J2Je9nMvec3+ug+K+Ggzev28AqbCNdb+y3ASlr3FHKutWN8khbWr5jqk8dPMgKPL2A==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -1393,7 +1390,6 @@ packages:
       eslint: 8.35.0
       eslint-plugin-eslint-comments: 3.2.0(eslint@8.35.0)
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.54.0)(eslint-import-resolver-typescript@3.5.3)(eslint@8.35.0)
-      eslint-plugin-jsdoc: 40.0.0(eslint@8.35.0)
       eslint-plugin-node: 11.1.0(eslint@8.35.0)
       eslint-plugin-prettier: 4.2.1(eslint@8.35.0)(prettier@2.8.4)
       eslint-plugin-unicorn: 45.0.2(eslint@8.35.0)
@@ -1426,15 +1422,6 @@ packages:
 
   /@emotion/hash@0.9.0:
     resolution: {integrity: sha512-14FtKiHhy2QoPIzdTcvh//8OyBlknNs2nXRwIhG904opCby3l+9Xaf/wuPvICBF0rc1ZCNBd3nKe9cd2mecVkQ==}
-    dev: true
-
-  /@es-joy/jsdoccomment@0.36.1:
-    resolution: {integrity: sha512-922xqFsTpHs6D0BUiG4toiyPOMc8/jafnWKxz1KWgS4XzKPy2qXf1Pe6UFuNSCQqt6tOuhAWXBNuuyUhJmw9Vg==}
-    engines: {node: ^14 || ^16 || ^17 || ^18 || ^19}
-    dependencies:
-      comment-parser: 1.3.1
-      esquery: 1.4.2
-      jsdoc-type-pratt-parser: 3.1.0
     dev: true
 
   /@esbuild-plugins/node-modules-polyfill@0.1.4(esbuild@0.16.3):
@@ -3391,11 +3378,6 @@ packages:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
     dev: false
 
-  /comment-parser@1.3.1:
-    resolution: {integrity: sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA==}
-    engines: {node: '>= 12.0.0'}
-    dev: true
-
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
@@ -4191,24 +4173,6 @@ packages:
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
-      - supports-color
-    dev: true
-
-  /eslint-plugin-jsdoc@40.0.0(eslint@8.35.0):
-    resolution: {integrity: sha512-LOPyIu1vAVvGPkye3ci0moj0iNf3f8bmin6do2DYDj+77NRXWnkmhKRy8swWsatUs3mB5jYPWPUsFg9pyfEiyA==}
-    engines: {node: ^14 || ^16 || ^17 || ^18 || ^19}
-    peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
-    dependencies:
-      '@es-joy/jsdoccomment': 0.36.1
-      comment-parser: 1.3.1
-      debug: 4.3.4
-      escape-string-regexp: 4.0.0
-      eslint: 8.35.0
-      esquery: 1.4.2
-      semver: 7.3.8
-      spdx-expression-parse: 3.0.1
-    transitivePeerDependencies:
       - supports-color
     dev: true
 
@@ -5526,11 +5490,6 @@ packages:
     hasBin: true
     dependencies:
       argparse: 2.0.1
-    dev: true
-
-  /jsdoc-type-pratt-parser@3.1.0:
-    resolution: {integrity: sha512-MgtD0ZiCDk9B+eI73BextfRrVQl0oyzRG8B2BjORts6jbunj4ScKPcyXGTbB6eXL4y9TzxCm6hyeLq/2ASzNdw==}
-    engines: {node: '>=12.0.0'}
     dev: true
 
   /jsesc@0.5.0:
